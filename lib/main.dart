@@ -5,9 +5,9 @@ import 'firebase_options.dart';
 // ...
 
 void main() async {
-await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-);
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MyApp());
 }
 
@@ -18,9 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'E-Commerce App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),  
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: Text(" "),
     );
   }

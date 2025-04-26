@@ -3,44 +3,68 @@ import '../model/user.dart';
 
 class AuthService {
   final _auth = FirebaseAuth.instance;
+  Stream<User?> get authState => _auth.authStateChanges();
 
-  Future<void> signInWithEmailAndPassword(String email, String password) async {
-    final res = await _auth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-    if (res.user != null) {
-      UserModel.fromInstance(res.user!);
-    } else {
-      throw Exception("Sign In failed");
+  Future<User?> signInWithEmailAndPassword(
+    String email,
+    String password,
+  ) async {
+    try {
+      final res = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return res.user;
+    } on FirebaseAuthException catch (e) {
+      throw Exception(e.message ?? "An error occurred during sign in");
     }
   }
 
-  Future<void> signUpWithEmailAndPassword(String email, String password) async {
-    final res = await _auth.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-    if (res.user != null) {
-      UserModel.fromInstance(res.user!);
-    } else {
-      throw Exception("Sign Up failed");
+  Future<User?> signUpWithEmailAndPassword(String email, String password) async {
+    try {
+      final res = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return res.user;
+    } on FirebaseAuthException catch (e) {
+      throw Exception(e.message ?? "An error occurred during sign up");
     }
   }
 
-  Future<void> forgotPassword(String email, String password) async {
+  Future<void> forgotPassword(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
-    } catch (e) {}
+    } on FirebaseAuthException catch (e) {
+      throw Exception(
+        e.message ?? "An error occurred while sending password reset email",
+      );
+    }
   }
 
-  Future<void> checkCode(String code, String email) async {
+  Future<void> checkCode(String code) async {
     try {
       await _auth.verifyPasswordResetCode(code);
-    } catch (e) {}
+    } on FirebaseAuthException catch (e) {
+      throw Exception(e.message ?? "Invalid or expired reset code");
+    }
   }
 
   Future<void> resetPassword(String code, String password) async {
-    await _auth.confirmPasswordReset(code: code, newPassword: password);
+    try {
+      await _auth.confirmPasswordReset(code: code, newPassword: password);
+    } on FirebaseAuthException catch (e) {
+      throw Exception(
+        e.message ?? "An error occurred while resetting the password",
+      );
+    }
+  }
+
+  Future<void> signOut() async {
+    try {
+      await _auth.signOut();
+    } catch (e) {
+      throw Exception("An error occurred while signing out");
+    }
   }
 }
