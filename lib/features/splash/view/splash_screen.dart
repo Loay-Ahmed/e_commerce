@@ -25,7 +25,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Start the animation after a brief delay
     _timer = Timer(const Duration(milliseconds: 2500), _animateToFirstPage);
   }
 
