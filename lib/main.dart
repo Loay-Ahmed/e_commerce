@@ -3,6 +3,9 @@ import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'features/auth/view/Sign_up.dart';
+import 'features/auth/view/forget_password.dart';
+import 'features/auth/view/login.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
 
       title: 'E-Commerce App',
       debugShowCheckedModeBanner: false,
-      home: OnboardingScreen(),
+      home:ForgetPasswordorget(),
     );
   }
 }
