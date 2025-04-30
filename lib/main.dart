@@ -1,18 +1,28 @@
-import 'package:e_commerce/features/onboarding/view/onboarding_screen.dart';
-import 'package:e_commerce/generated/l10n.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'features/auth/view/Sign_up.dart';
-import 'features/auth/view/forget_password.dart';
+
+import 'features/auth/data/service/auth_service.dart';
+import 'features/auth/data/service/storage_service.dart';
 import 'features/auth/view/login.dart';
+import 'features/auth/view_model/auth_cubit.dart';
+import 'features/auth/view_model/auth_states.dart';
+import 'generated/l10n.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(MyApp());
+
+  runApp(
+    BlocProvider(
+      create:
+          (BuildContext context) => AuthCubit(AuthService(), StorageService()),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -21,18 +31,33 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: Locale("ar"),
-      localizationsDelegates: [
+      locale: const Locale("ar"),
+      localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-
       title: 'E-Commerce App',
+      theme: ThemeData().copyWith(scaffoldBackgroundColor: Colors.white),
       debugShowCheckedModeBanner: false,
-      home:ForgetPasswordorget(),
+      home: BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) {
+          if (state is Authenticated) {
+            return Scaffold(
+              body: Center(
+                child: ElevatedButton(
+                  onPressed: () => context.read<AuthCubit>().logout(),
+                  child: const Text("Home"),
+                ),
+              ),
+            );
+          } else {
+            return LoginScreen();
+          }
+        },
+      ),
     );
   }
 }

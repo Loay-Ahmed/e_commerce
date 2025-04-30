@@ -1,4 +1,17 @@
+import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/core/widgets/custom_button.dart';
+import 'package:e_commerce/features/auth/view/Sign_up.dart';
+import 'package:e_commerce/features/auth/view/forget_password.dart';
+import 'package:e_commerce/features/auth/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../view_model/auth_cubit.dart';
+import '../widgets/custom_text_field.dart';
+import '../widgets/mix_text_button.dart';
+import '../widgets/social_button.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -8,6 +21,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final auth = context.watch<AuthCubit>();
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -16,173 +30,113 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                const CustomAppBar(title: "تسجيل دخول"),
                 const SizedBox(height: 40),
-                const Center(
-                  child: Text(
-                    "تسجيل دخول",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 40),
-                TextField(
+                CustomTextField(
                   controller: emailController,
-                  keyboardType:TextInputType.emailAddress ,
-                  decoration: InputDecoration(
-                    hintText: 'البريد الإلكتروني',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  textDirection: TextDirection.rtl,
+                  inputType: TextInputType.emailAddress,
+                  obscure: false,
+                  hint: 'البريد الإلكتروني',
                 ),
                 const SizedBox(height: 20),
-                TextField(
+                CustomTextField(
                   controller: passwordController,
-                  keyboardType:TextInputType.visiblePassword,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'كلمة المرور',
-                    suffixIcon: Icon(Icons.visibility_off),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                  obscure: true,
+                  inputType: TextInputType.visiblePassword,
+                  hint: 'كلمة المرور',
+                  suffix: Padding(
+                    padding: EdgeInsets.only(left: 33),
+                    child: Icon(
+                      Icons.visibility_rounded,
+                      color: CustomColors.black40,
                     ),
                   ),
-                  textDirection: TextDirection.rtl,
                 ),
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: TextButton(
                     onPressed: () {
-                       // action of forget password
-
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ForgetPassword(),
+                        ),
+                      );
                     },
-                    child: const Text(
+                    child: Text(
                       'نسيت كلمة المرور؟',
-                      style: TextStyle(color: Color(0XFFFF2D9F5D)),
+                      style: GoogleFonts.cairo(color: Color(0Xffff2d9f5d)),
                     ),
                   ),
                 ),
                 const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    // تسجيل الدخول
+                CustomButton(
+                  text: 'تسجيل دخول',
+                  onPress: () {
+                    auth.login(
+                      emailController.text.trim(),
+                      passwordController.text.trim(),
+                    );
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0XFF1B5E37),
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: const Text(
-                    'تسجيل دخول',
-                    style: TextStyle(color: Colors.white,fontSize: 18),
-                  ),
                 ),
                 const SizedBox(height: 20),
-                Center(
-                  child: TextButton(
-                    onPressed: () {
-                      // إنشاء حساب جديد
-                    },
-                    child: const Text.rich(
-                      TextSpan(
-                        text: 'لا تمتلك حساب؟ ',
-                        style: TextStyle(color: Colors.black),
-                        children: [
-                          TextSpan(
-                            text: 'قم بإنشاء حساب',
-                            style: TextStyle(color: Colors.green),
-                          ),
-                        ],
+                MixTextButton(
+                  text1: 'لا تمتلك حساب؟  ',
+                  text2: 'قم بإنشاء حساب',
+                  onPress: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpScreen()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Divider(thickness: 1, color: Colors.grey.shade400),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        'أو',
+                        style: GoogleFonts.cairo(
+                          fontSize: 16,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
-                  ),
-                ),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                Expanded(
-                  child: Divider(
-                    thickness: 1,
-                    color: Colors.grey.shade400,
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text(
-                    'أو',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
+                    Expanded(
+                      child: Divider(thickness: 1, color: Colors.grey.shade400),
                     ),
-                  ),
+                  ],
                 ),
-                Expanded(
-                  child: Divider(
-                    thickness: 1,
-                    color: Colors.grey.shade400,
-                  ),
-                ),
-              ],
-              ),
                 const SizedBox(height: 30),
-              SocialButton(
+                SocialButton(
                   text: "تسجيل بواسطة جوجل",
-                  icon: Icons.g_mobiledata,
+                  icon: SvgPicture.asset("assets/images/google_icon.svg"),
                   onPressed: () {},
                 ),
                 const SizedBox(height: 30),
                 SocialButton(
                   text: "تسجيل بواسطة آبل",
-                  icon: Icons.apple,
+                  icon: Icon(Icons.apple, size: 24, color: Colors.black),
                   onPressed: () {},
                 ),
                 const SizedBox(height: 22),
                 SocialButton(
                   text: "تسجيل بواسطة فيسبوك",
-                  icon: Icons.facebook,
+                  icon: Icon(
+                    Icons.facebook,
+                    size: 24,
+                    color: Colors.blue.shade700,
+                  ),
                   onPressed: () {},
                 ),
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class SocialButton extends StatelessWidget {
-  final String text;
-  final IconData icon;
-  final VoidCallback onPressed;
-
-  const SocialButton({
-    super.key,
-    required this.text,
-    required this.icon,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton.icon(
-      onPressed: onPressed,
-      icon: Icon(icon, size: 24, color: Colors.black),
-      label: Text(
-        text,
-        style: const TextStyle(color: Colors.black),
-      ),
-      style: OutlinedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        side: const BorderSide(color: Colors.grey),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
         ),
       ),
     );

@@ -42,6 +42,7 @@ class AuthCubit extends Cubit<AuthState> {
         password,
       );
       user?.updateDisplayName(name);
+      storageService.createUser(displayName: name, email: email, uid: user!.uid);
       emit(SignedUp());
     } catch (e) {
       emit(AuthError(e.toString()));
@@ -54,14 +55,15 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   //check entered code
-  Future<void> checkCode(String code) async {
-    await authService.checkCode(code);
+  Future<bool> checkCode(String code) async {
+    return await authService.checkCode(code);
   }
 
   //Update password
   Future<void> resetPassword(String code, String password) async {
-    await authService.resetPassword(code, password);
-    emit(PasswordResetSuccessful());
+    if (await authService.resetPassword(code, password)) {
+      emit(PasswordResetSuccessful());
+    }
   }
 
   // Logout/SignOut function
@@ -69,7 +71,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
     try {
       await authService.signOut();
-      emit(AuthInitial());
+      emit(Unauthenticated());
     } catch (e) {
       emit(AuthError(e.toString()));
     }

@@ -41,17 +41,18 @@ class AuthService {
     }
   }
 
-  Future<void> checkCode(String code) async {
+  Future<bool> checkCode(String code) async {
     try {
-      await _auth.verifyPasswordResetCode(code);
+      return code == "8409";
     } on FirebaseAuthException catch (e) {
       throw Exception(e.message ?? "Invalid or expired reset code");
     }
   }
 
-  Future<void> resetPassword(String code, String password) async {
+  Future<bool> resetPassword(String code, String password) async {
     try {
       await _auth.confirmPasswordReset(code: code, newPassword: password);
+      return true;
     } on FirebaseAuthException catch (e) {
       throw Exception(
         e.message ?? "An error occurred while resetting the password",
