@@ -38,10 +38,11 @@ dependencies:
   firebase_auth: ^5.5.2
   flutter_bloc: ^9.1.0
   cloud_firestore: ^5.6.6
-  flutter_localizations:
-    sdk: flutter
   google_fonts: ^6.2.1
   flutter_svg: ^2.1.0
+  intl: ^0.19.0
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

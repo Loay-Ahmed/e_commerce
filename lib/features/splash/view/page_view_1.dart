@@ -25,8 +25,8 @@ class PageView1 extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Row(
                   children: [
-                    Text(
-                      S.of(context).splashskip,
+                    Text("تخط"
+                      /* S.of(context).splashskip */,
                       style: GoogleFonts.cairo(
                         color: CustomColors.grey400,
                         fontSize: 13,
@@ -44,7 +44,8 @@ class PageView1 extends StatelessWidget {
               ),
               SizedBox(height: 100),
               Text(
-                "${S.of(context).splash_1_title} FruitHUB",
+                /* "${S.of(context).splash_1_title}" */
+                "مرحبا بك في FruitHUB",
                 style: GoogleFonts.cairo(
                   fontSize: 23,
                   fontWeight: FontWeight.w700,
@@ -53,8 +54,8 @@ class PageView1 extends StatelessWidget {
               SizedBox(height: 20),
               SizedBox(
                 width: 301,
-                child: Text(
-                  S.of(context).splash_1_text,
+                child: Text("اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية."
+                  /* S.of(context).splash_1_text */,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.cairo(
                     fontSize: 13,

@@ -1,14 +1,22 @@
 import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/core/widgets/custom_button.dart';
+import 'package:e_commerce/features/auth/view/auth_checker.dart';
+import 'package:e_commerce/features/home/view/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../generated/l10n.dart';
+import '../../auth/view/login.dart';
+import '../../auth/view_model/auth_cubit.dart';
+import '../../auth/view_model/auth_states.dart';
 
 class PageView2 extends StatelessWidget {
   const PageView2({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final auth = context.read<AuthCubit>();
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
@@ -27,15 +35,15 @@ class PageView2 extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Spacer(flex: 6,),
+              Spacer(flex: 6),
               Image.asset(
                 "assets/images/image_page_2.png",
                 width: 250,
                 height: 270,
               ),
               SizedBox(height: 100),
-              Text(
-                S.of(context).splash_2_title,
+              Text("ابحث وتسوق"
+                /* S.of(context).splash_2_title */,
                 style: GoogleFonts.cairo(
                   fontSize: 23,
                   fontWeight: FontWeight.w700,
@@ -44,8 +52,8 @@ class PageView2 extends StatelessWidget {
               SizedBox(height: 20),
               SizedBox(
                 width: 301,
-                child: Text(
-                  S.of(context).splash_2_text,
+                child: Text("نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية"
+                  /* S.of(context).splash_2_text */,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.cairo(
                     fontSize: 13,
@@ -76,24 +84,18 @@ class PageView2 extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 30,),
+              SizedBox(height: 30),
               SizedBox(
                 width: 343,
-                height: 54,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: CustomColors.green1_500,
-                  ),
-                  child: Text(
-                    S.of(context).splash_button,
-                    style: GoogleFonts.cairo(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
+                height: 56,
+                child: CustomButton(
+                  text: "ابدأ الان" /* S.of(context).splash_button */,
+                  onPress: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => AuthChecker()),
+                    );
+                  },
                 ),
               ),
               Spacer(),

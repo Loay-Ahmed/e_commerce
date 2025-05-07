@@ -2,12 +2,14 @@ import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/auth/view/Sign_up.dart';
 import 'package:e_commerce/features/auth/view/forget_password.dart';
+import 'package:e_commerce/features/auth/view_model/auth_states.dart';
 import 'package:e_commerce/features/auth/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../home/view/home.dart';
 import '../view_model/auth_cubit.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/mix_text_button.dart';
@@ -21,7 +23,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = context.watch<AuthCubit>();
+    final auth = context.read<AuthCubit>();
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -73,11 +75,16 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 CustomButton(
                   text: 'تسجيل دخول',
-                  onPress: () {
-                    auth.login(
+                  onPress: () async {
+                    await auth.login(
                       emailController.text.trim(),
                       passwordController.text.trim(),
                     );
+                    if (auth.state is! Authenticated) {
+                      ScaffoldMessenger.of(
+                        context,
+                      ).showSnackBar(SnackBar(content: Text("Invalid data")));
+                    }
                   },
                 ),
                 const SizedBox(height: 20),

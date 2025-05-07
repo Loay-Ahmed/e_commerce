@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/onboarding/view/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,22 +43,7 @@ class MyApp extends StatelessWidget {
       title: 'E-Commerce App',
       theme: ThemeData().copyWith(scaffoldBackgroundColor: Colors.white),
       debugShowCheckedModeBanner: false,
-      home: BlocBuilder<AuthCubit, AuthState>(
-        builder: (context, state) {
-          if (state is Authenticated) {
-            return Scaffold(
-              body: Center(
-                child: ElevatedButton(
-                  onPressed: () => context.read<AuthCubit>().logout(),
-                  child: const Text("Home"),
-                ),
-              ),
-            );
-          } else {
-            return LoginScreen();
-          }
-        },
-      ),
+      home: OnboardingScreen(),
     );
   }
 }
