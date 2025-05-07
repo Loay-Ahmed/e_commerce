@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'features/auth/data/service/auth_service.dart';
-import 'features/auth/data/service/storage_service.dart';
+import 'features/auth/data/service/user_service.dart';
 import 'features/auth/view/login.dart';
 import 'features/auth/view_model/auth_cubit.dart';
 import 'features/auth/view_model/auth_states.dart';
@@ -20,7 +20,7 @@ void main() async {
   runApp(
     BlocProvider(
       create:
-          (BuildContext context) => AuthCubit(AuthService(), StorageService()),
+          (BuildContext context) => AuthCubit(AuthService(), UserService()),
       child: const MyApp(),
     ),
   );
