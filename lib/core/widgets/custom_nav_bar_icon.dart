@@ -1,5 +1,4 @@
 import 'package:e_commerce/core/colors.dart';
-import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -41,7 +40,7 @@ class CustomNavBarIcon extends StatelessWidget {
                       ),
                       child: Icon(icon, color: Colors.white, size: 20),
                     ),
-                    SizedBox(width: 5,),
+                    SizedBox(width: 5),
                     Text(
                       title,
                       style: GoogleFonts.cairo(
@@ -50,8 +49,7 @@ class CustomNavBarIcon extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(width: 10,),
-
+                    SizedBox(width: 10),
                   ],
                 ),
               )

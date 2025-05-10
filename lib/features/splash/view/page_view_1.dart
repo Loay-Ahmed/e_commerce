@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/colors.dart';
-import '../../../generated/l10n.dart';
 
 class PageView1 extends StatelessWidget {
   const PageView1({super.key});
@@ -25,8 +24,9 @@ class PageView1 extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Row(
                   children: [
-                    Text("تخط"
-                      /* S.of(context).splashskip */,
+                    Text(
+                      "تخط",
+                      /* S.of(context).splashskip */
                       style: GoogleFonts.cairo(
                         color: CustomColors.grey400,
                         fontSize: 13,
@@ -54,8 +54,9 @@ class PageView1 extends StatelessWidget {
               SizedBox(height: 20),
               SizedBox(
                 width: 301,
-                child: Text("اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية."
-                  /* S.of(context).splash_1_text */,
+                child: Text(
+                  "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.",
+                  /* S.of(context).splash_1_text */
                   textAlign: TextAlign.center,
                   style: GoogleFonts.cairo(
                     fontSize: 13,
@@ -70,13 +71,19 @@ class PageView1 extends StatelessWidget {
                   Container(
                     width: 9,
                     height: 9,
-                    decoration: BoxDecoration(color: CustomColors.green500,borderRadius: BorderRadius.circular(20)),
+                    decoration: BoxDecoration(
+                      color: CustomColors.green500,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
-                  SizedBox(width: 10,),
+                  SizedBox(width: 10),
                   Container(
                     width: 11,
                     height: 11,
-                    decoration: BoxDecoration(color: CustomColors.green1_500,borderRadius: BorderRadius.circular(20)),
+                    decoration: BoxDecoration(
+                      color: CustomColors.green1_500,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                 ],
               ),

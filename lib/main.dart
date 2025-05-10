@@ -1,3 +1,5 @@
+import 'package:e_commerce/features/home/data/dummy_data.dart';
+import 'package:e_commerce/features/home/view_model/cubits/favorite_cubit/favorite_cubit.dart';
 import 'package:e_commerce/features/onboarding/view/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +8,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'features/auth/data/service/auth_service.dart';
 import 'features/auth/data/service/storage_service.dart';
-import 'features/auth/view/login.dart';
 import 'features/auth/view_model/auth_cubit.dart';
-import 'features/auth/view_model/auth_states.dart';
 import 'generated/l10n.dart';
 import 'firebase_options.dart';
 
@@ -18,9 +18,15 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(
-    BlocProvider(
-      create:
-          (BuildContext context) => AuthCubit(AuthService(), StorageService()),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthCubit>(
+          create: (context) => AuthCubit(AuthService(), StorageService()),
+        ),
+        BlocProvider<FavoriteCubit>(
+          create: (context) => FavoriteCubit(dummyProducts.length),
+        ),
+      ],
       child: const MyApp(),
     ),
   );
