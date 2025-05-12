@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/data/model/product.dart';
 import 'package:e_commerce/features/onboarding/view/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'features/auth/data/service/user_service.dart';
 import 'features/auth/view/login.dart';
 import 'features/auth/view_model/auth_cubit.dart';
 import 'features/auth/view_model/auth_states.dart';
+import 'features/product_Details/view/details_screen.dart';
 import 'generated/l10n.dart';
 import 'firebase_options.dart';
 
@@ -43,7 +45,8 @@ class MyApp extends StatelessWidget {
       title: 'E-Commerce App',
       theme: ThemeData().copyWith(scaffoldBackgroundColor: Colors.white),
       debugShowCheckedModeBanner: false,
-      home: OnboardingScreen(),
+      home: //OnboardingScreen(),
+     ProductDetailsScreen(product:  Product('بطيخ', 20.0, "assets/images/water_malon.png", 2, 2.5, 100,DateTime(2025, 12, 31), 20)),
     );
   }
 }

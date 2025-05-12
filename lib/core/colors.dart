@@ -22,4 +22,6 @@ abstract class CustomColors {
 
   // Orange section
   static final orange500 = Color(0xffF4A91F);
+  // white section
+ static final whitef7 =Color(0xff1f1f5);
 }

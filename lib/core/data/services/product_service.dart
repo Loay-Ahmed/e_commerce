@@ -15,7 +15,7 @@ class ProductService {
     return res.data() ?? {};
   }
 
-  void addProduct(Product product) async {
+  Future<void> addProduct(Product product) async {
     await storage
         .collection("products")
         .doc(product.id.toString())
