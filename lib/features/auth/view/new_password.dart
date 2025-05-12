@@ -4,11 +4,9 @@ import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/auth/widgets/custom_app_bar.dart';
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/colors.dart';
-import '../view_model/auth_cubit.dart';
 
 class NewPassword extends StatelessWidget {
   NewPassword({super.key});
@@ -21,7 +19,6 @@ class NewPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     bool showPassword = false;
     bool showConfirmPassword = false;
-    final auth = context.watch<AuthCubit>();
     return Scaffold(
       body: SafeArea(
         child: Padding(

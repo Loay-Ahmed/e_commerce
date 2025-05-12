@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../home/view/home.dart';
 import '../view_model/auth_cubit.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/mix_text_button.dart';
@@ -68,7 +67,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: Text(
                       'نسيت كلمة المرور؟',
-                      style: GoogleFonts.cairo(color: Color(0Xffff2d9f5d)),
+                      style: GoogleFonts.cairo(color: Color(0Xff2d9f5d)),
                     ),
                   ),
                 ),

@@ -11,9 +11,11 @@ abstract class CustomColors {
   static final grey950 = Color(0xff0C0D0D);
   static final grey600 = Color(0xff616A6B);
   static final grey500 = Color(0xff4E5556);
+  static final lightGrey = Color(0xff979899);
 
   // Green section
   static final green500 = Color(0xff5DB957);
+  static final lightGreen = Color(0xff23AA49);
 
   // Green 1 section
   static final green1_500 = Color(0xff1B5E37);
@@ -22,6 +24,7 @@ abstract class CustomColors {
 
   // Orange section
   static final orange500 = Color(0xffF4A91F);
+
   // white section
- static final whitef7 =Color(0xff1f1f5);
+  static final whitef7 = Color(0x0ff1f1f5);
 }

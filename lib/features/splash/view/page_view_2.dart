@@ -1,22 +1,15 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/auth/view/auth_checker.dart';
-import 'package:e_commerce/features/home/view/home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../generated/l10n.dart';
-import '../../auth/view/login.dart';
-import '../../auth/view_model/auth_cubit.dart';
-import '../../auth/view_model/auth_states.dart';
 
 class PageView2 extends StatelessWidget {
   const PageView2({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final auth = context.read<AuthCubit>();
     return SizedBox(
       width: double.infinity,
       height: double.infinity,

@@ -1,5 +1,4 @@
 import 'package:e_commerce/core/colors.dart';
-import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/colors.dart';
-import '../../../generated/l10n.dart';
 
 class PageView1 extends StatelessWidget {
   const PageView1({super.key});
