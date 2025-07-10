@@ -1,5 +1,5 @@
 import 'package:e_commerce/features/auth/data/service/auth_service.dart';
-import 'package:e_commerce/features/auth/data/service/storage_service.dart';
+import 'package:e_commerce/features/auth/data/service/user_service.dart';
 import 'package:e_commerce/features/auth/view_model/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -36,7 +36,7 @@ class CodeVerificationScreenState extends State<CodeVerification> {
 
   @override
   Widget build(BuildContext context) {
-    final auth = AuthCubit(AuthService(), StorageService());
+    final auth = AuthCubit(AuthService(), UserService());
 
     return Scaffold(
       backgroundColor: Colors.white,

@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce/features/auth/data/model/user.dart';
-import 'package:e_commerce/features/auth/data/service/storage_service.dart';
+import 'package:e_commerce/features/auth/data/service/user_service.dart';
 import '../data/service/auth_service.dart';
 import 'auth_states.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   final AuthService authService;
-  final StorageService storageService;
+  final UserService storageService;
 
   // Constructor
   AuthCubit(this.authService, this.storageService) : super(AuthInitial()) {

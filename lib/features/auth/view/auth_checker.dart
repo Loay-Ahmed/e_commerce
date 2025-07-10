@@ -16,7 +16,6 @@ class AuthChecker extends StatefulWidget {
 class _AuthCheckerState extends State<AuthChecker> {
   @override
   Widget build(BuildContext context) {
-    final auth = context.read<AuthCubit>();
     // return auth.state is Authenticated ? const HomePage() : LoginScreen();
     return BlocBuilder<AuthCubit, AuthState>(builder: (context, state) {
       if (state is Authenticated) return const HomePage();
