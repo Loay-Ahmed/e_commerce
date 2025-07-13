@@ -7,25 +7,39 @@ import 'package:flutter/material.dart';
 class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
   final String title;
 
-  const CustomHeader({super.key, required this.title});
+  const CustomHeader({
+    super.key,
+    required this.title,
+    this.hasBell = true,
+    this.hasBackArrow = true,
+  });
+  final bool hasBell;
+  final bool hasBackArrow;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: AppBar(
-        title: Text(title, style: CustomFonts.cairoTextStyleBold_19),
+        title: Text(title, style: CustomFonts.cairoTextStyleBold_19grey950w700),
         centerTitle: true,
 
         // disable the default back button
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
 
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 16),
-          child: SizedBox(width: 44, height: 44, child: CustomBackArrow()),
-        ),
-        actions: [CustomNotifiedBell()],
+        leading:
+            hasBackArrow
+                ? Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: SizedBox(
+                    width: 44,
+                    height: 44,
+                    child: CustomBackArrow(),
+                  ),
+                )
+                : null,
+        actions: hasBell ? [CustomNotifiedBell()] : null,
       ),
     );
   }

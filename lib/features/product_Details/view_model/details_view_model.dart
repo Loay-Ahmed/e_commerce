@@ -1,5 +1,3 @@
-
-
 import '../../../core/data/model/product.dart';
 import '../../../core/data/services/product_service.dart';
 

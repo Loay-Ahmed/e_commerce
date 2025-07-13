@@ -17,7 +17,10 @@ class PopularProductsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 24),
-            Text('الأكثر مبيعا', style: CustomFonts.cairoTextStyleBold_16),
+            Text(
+              'الأكثر مبيعا',
+              style: CustomFonts.cairoTextStyleBold_19grey950w700,
+            ),
             SizedBox(height: 8),
             CustomGridViewPopularProducts(),
           ],

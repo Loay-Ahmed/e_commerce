@@ -17,9 +17,11 @@ class _AuthCheckerState extends State<AuthChecker> {
   @override
   Widget build(BuildContext context) {
     // return auth.state is Authenticated ? const HomePage() : LoginScreen();
-    return BlocBuilder<AuthCubit, AuthState>(builder: (context, state) {
-      if (state is Authenticated) return const HomePage();
-      return LoginScreen();
-    });
+    return BlocBuilder<AuthCubit, AuthState>(
+      builder: (context, state) {
+        if (state is Authenticated) return const HomePage();
+        return LoginScreen();
+      },
+    );
   }
 }

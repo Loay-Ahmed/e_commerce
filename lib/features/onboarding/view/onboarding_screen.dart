@@ -15,7 +15,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   late Timer _timer;
   int time = 0;
 
-@override
+  @override
   void dispose() {
     _timer.cancel();
     super.dispose();
@@ -29,7 +29,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         time += 700;
       });
       if (time == 2800) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => SplashScreen()));
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SplashScreen()),
+        );
       }
     });
   }

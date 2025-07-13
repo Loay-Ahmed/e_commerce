@@ -22,7 +22,10 @@ class PopularProductsWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('الأكثر مبيعاً', style: CustomFonts.cairoTextStyleBold_16),
+              Text(
+                'الأكثر مبيعاً',
+                style: CustomFonts.cairoTextStyleBold_16grey950w700,
+              ),
               InkWell(
                 onTap: () {
                   Navigator.push(

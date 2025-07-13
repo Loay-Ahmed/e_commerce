@@ -43,7 +43,10 @@ class HeaderWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 4),
-                  Text('أحمد مصطفى', style: CustomFonts.cairoTextStyleBold_16),
+                  Text(
+                    'أحمد مصطفى',
+                    style: CustomFonts.cairoTextStyleBold_16grey950w700,
+                  ),
                 ],
               ),
               Spacer(),
