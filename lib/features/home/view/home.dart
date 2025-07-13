@@ -1,27 +1,33 @@
 import 'package:e_commerce/core/widgets/custom_nav_bar.dart';
-import 'package:e_commerce/features/auth/view_model/auth_cubit.dart';
+import 'package:e_commerce/features/home/view/widgets/header_widget.dart';
+import 'package:e_commerce/features/home/view/widgets/offer_widget.dart';
+import 'package:e_commerce/features/home/view/widgets/popular_products_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Center(
-            child: ElevatedButton(
-              onPressed: () => context.read<AuthCubit>().logout(),
-              child: const Text("Home"),
+    return const Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                HeaderWidget(),
+                SizedBox(height: 12),
+                OfferWidget(),
+                SizedBox(height: 12),
+                PopularProductsWidget(),
+              ],
             ),
           ),
-          Spacer(),
-          CustomNavBar(),
-        ],
+        ),
       ),
+      bottomNavigationBar: CustomNavBar(),
     );
   }
 }

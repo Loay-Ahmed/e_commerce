@@ -33,7 +33,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-//Sign Up new user
+  //Sign Up new user
   Future<void> signUp(String name, String email, String password) async {
     emit(AuthLoading());
     try {
@@ -42,7 +42,11 @@ class AuthCubit extends Cubit<AuthState> {
         password,
       );
       user?.updateDisplayName(name);
-      storageService.createUser(displayName: name, email: email, uid: user!.uid);
+      storageService.createUser(
+        displayName: name,
+        email: email,
+        uid: user!.uid,
+      );
       emit(SignedUp());
     } catch (e) {
       emit(AuthError(e.toString()));

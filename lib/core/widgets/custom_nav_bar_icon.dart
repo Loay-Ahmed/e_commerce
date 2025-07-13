@@ -40,7 +40,7 @@ class CustomNavBarIcon extends StatelessWidget {
                       ),
                       child: Icon(icon, color: Colors.white, size: 20),
                     ),
-                    SizedBox(width: 5,),
+                    SizedBox(width: 5),
                     Text(
                       title,
                       style: GoogleFonts.cairo(
@@ -49,8 +49,7 @@ class CustomNavBarIcon extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(width: 10,),
-
+                    SizedBox(width: 10),
                   ],
                 ),
               )

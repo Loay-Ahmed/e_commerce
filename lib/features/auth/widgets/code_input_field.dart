@@ -5,9 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../core/colors.dart';
 
 class CodeInputField extends StatelessWidget {
-  const CodeInputField({
-    super.key, required this.controller,
-  });
+  const CodeInputField({super.key, required this.controller});
 
   final TextEditingController controller;
 
@@ -22,10 +20,7 @@ class CodeInputField extends StatelessWidget {
         cursorHeight: 0,
         maxLength: 1,
         keyboardType: TextInputType.number,
-        style: GoogleFonts.cairo(
-          fontSize: 23,
-          fontWeight: FontWeight.w700,
-        ),
+        style: GoogleFonts.cairo(fontSize: 23, fontWeight: FontWeight.w700),
         textAlign: TextAlign.center,
         textAlignVertical: TextAlignVertical.top,
         decoration: InputDecoration(
@@ -40,9 +35,7 @@ class CodeInputField extends StatelessWidget {
             borderSide: BorderSide(color: CustomColors.black10),
           ),
         ),
-        onSubmitted: (value) {
-          
-        },
+        onSubmitted: (value) {},
       ),
     );
   }

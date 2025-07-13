@@ -19,7 +19,10 @@ class AuthService {
     }
   }
 
-  Future<User?> signUpWithEmailAndPassword(String email, String password) async {
+  Future<User?> signUpWithEmailAndPassword(
+    String email,
+    String password,
+  ) async {
     try {
       final res = await _auth.createUserWithEmailAndPassword(
         email: email,

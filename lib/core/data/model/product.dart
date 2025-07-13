@@ -12,7 +12,7 @@ class Product {
   static int counter = 0;
 
   Product(
-      this.productName,
+    this.productName,
     this.price,
     this.imageUrl,
     this.quantity,

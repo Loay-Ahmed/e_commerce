@@ -1,9 +1,12 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/auth/view/auth_checker.dart';
+import 'package:e_commerce/features/home/view/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../auth/view_model/auth_cubit.dart';
 
 class PageView2 extends StatelessWidget {
   const PageView2({super.key});
@@ -35,8 +38,9 @@ class PageView2 extends StatelessWidget {
                 height: 270,
               ),
               SizedBox(height: 100),
-              Text("ابحث وتسوق"
-                /* S.of(context).splash_2_title */,
+              Text(
+                "ابحث وتسوق",
+                /* S.of(context).splash_2_title */
                 style: GoogleFonts.cairo(
                   fontSize: 23,
                   fontWeight: FontWeight.w700,
@@ -45,8 +49,9 @@ class PageView2 extends StatelessWidget {
               SizedBox(height: 20),
               SizedBox(
                 width: 301,
-                child: Text("نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية"
-                  /* S.of(context).splash_2_text */,
+                child: Text(
+                  "نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية",
+                  /* S.of(context).splash_2_text */
                   textAlign: TextAlign.center,
                   style: GoogleFonts.cairo(
                     fontSize: 13,

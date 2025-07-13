@@ -29,7 +29,6 @@ class ForgetPassword extends StatelessWidget {
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                   color: CustomColors.grey600,
-                  
                 ),
               ),
               const SizedBox(height: 20),

@@ -30,15 +30,17 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _animateToFirstPage() {
     if (!_hasAnimated) {
-      _pageController.animateToPage(
-        0,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      ).then((_) {
-        setState(() {
-          _hasAnimated = true;
-        });
-      });
+      _pageController
+          .animateToPage(
+            0,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
+          )
+          .then((_) {
+            setState(() {
+              _hasAnimated = true;
+            });
+          });
     }
   }
 

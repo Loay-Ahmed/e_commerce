@@ -46,7 +46,7 @@ class CodeVerificationScreenState extends State<CodeVerification> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              CustomAppBar(title: "التحقق من الرمز",),
+              CustomAppBar(title: "التحقق من الرمز"),
               const SizedBox(height: 40),
               Text(
                 "أدخل الرمز الذي أرسلناه إلى رقم الهاتف ${widget.phoneNumber}",
