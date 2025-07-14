@@ -67,8 +67,8 @@ class MyApp extends StatelessWidget {
       title: 'E-Commerce App',
       theme: ThemeData().copyWith(scaffoldBackgroundColor: Colors.white),
       debugShowCheckedModeBanner: false,
-      // home: OnboardingScreen(),
-      home: DeliveryView(),
+      home: OnboardingScreen(),
+      // home: DeliveryView(),
     );
   }
 }
