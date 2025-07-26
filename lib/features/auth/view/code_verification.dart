@@ -1,6 +1,4 @@
-import 'package:e_commerce/features/auth/data/service/auth_service.dart';
-import 'package:e_commerce/features/auth/data/service/user_service.dart';
-import 'package:e_commerce/features/auth/view_model/auth_cubit.dart';
+import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,7 +34,7 @@ class CodeVerificationScreenState extends State<CodeVerification> {
 
   @override
   Widget build(BuildContext context) {
-    final auth = AuthCubit(AuthService(), UserService());
+    final auth = AuthenticationCubit();
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -68,20 +66,21 @@ class CodeVerificationScreenState extends State<CodeVerification> {
                 ],
               ),
               const SizedBox(height: 30),
+              // TODO : we need to do verification code
               ElevatedButton(
-                onPressed: () async {
-                  bool verify = await auth.checkCode(getCode());
-                  if (verify) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => NewPassword()),
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).clearSnackBars();
-                    ScaffoldMessenger.of(
-                      context,
-                    ).showSnackBar(SnackBar(content: Text("Invalid code")));
-                  }
+                onPressed: () /*async*/ {
+                  // bool verify = await auth.checkCode(getCode());
+                  // if (verify) {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => NewPassword()),
+                  //   );
+                  // } else {
+                  //   ScaffoldMessenger.of(context).clearSnackBars();
+                  //   ScaffoldMessenger.of(
+                  //     context,
+                  //   ).showSnackBar(SnackBar(content: Text("Invalid code")));
+                  // }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: CustomColors.green1_500,
@@ -97,7 +96,8 @@ class CodeVerificationScreenState extends State<CodeVerification> {
               ),
               TextButton(
                 onPressed: () {
-                  auth.forgotPassword(widget.phoneNumber);
+                  // TODO: we need to do forget password
+                  // auth.forgotPassword(widget.phoneNumber);
                 },
                 child: Text(
                   "إعادة إرسال الرمز",

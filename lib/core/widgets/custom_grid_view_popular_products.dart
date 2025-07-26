@@ -3,7 +3,14 @@ import 'package:e_commerce/features/home/data/dummy_data.dart';
 import 'package:flutter/material.dart';
 
 class CustomGridViewPopularProducts extends StatelessWidget {
-  const CustomGridViewPopularProducts({super.key});
+  const CustomGridViewPopularProducts({
+    super.key,
+    this.shrinkWrap = true,
+    this.scrollPhysics = true,
+  });
+
+  final bool shrinkWrap;
+  final bool scrollPhysics;
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +25,13 @@ class CustomGridViewPopularProducts extends StatelessWidget {
       // shrinkWrap and physics are very important when using GridView.builder (or ListView) inside another scrollable widget like a Column or SingleChildScrollView.
       // shrinkWrap tells the GridView to only take up as much vertical space as its children need.
       // without shrinkWrap: true, GridView tries to take infinite height, which causes layout errors
-      shrinkWrap: true,
+      shrinkWrap: shrinkWrap,
       // physics, It disables internal scrolling of the GridView.
       // Don't scroll this grid — let the parent scroll view handle scrolling.
-      physics: NeverScrollableScrollPhysics(),
+      physics:
+          scrollPhysics
+              ? NeverScrollableScrollPhysics()
+              : BouncingScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
         return ProductCardWidget(product: dummyProducts[index], index: index);
       },

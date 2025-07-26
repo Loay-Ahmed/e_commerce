@@ -1,9 +1,10 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
+import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_steps.dart';
-import 'package:e_commerce/features/checkout/views/widgets/custom_delivery_button.dart';
-import 'package:e_commerce/features/home/view/home.dart';
+
+import 'package:e_commerce/features/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 
 class SuccessView extends StatelessWidget {
@@ -16,6 +17,7 @@ class SuccessView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(right: 14.5, left: 15.5, top: 16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
               child: CheckoutDeliverySteps(
@@ -44,20 +46,25 @@ class SuccessView extends StatelessWidget {
             ),
             SizedBox(height: 200),
 
-            CustomDeliveryButton(
-              title: 'تتبع الطلب',
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => PaymentView()),
-                // );
-              },
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                CustomButton(
+                  text: 'تتبع الطلب',
+                  onPress: () {
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => PaymentView()),
+                    // );
+                  },
+                ),
+              ],
             ),
             SizedBox(height: 16),
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => HomeView()),
                   (route) => false,
                 );
               },

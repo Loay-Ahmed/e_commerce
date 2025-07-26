@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +13,10 @@ class SocialButton extends StatelessWidget {
     required this.text,
     required this.icon,
     required this.onPressed,
+    this.isLoading = false,
   });
+
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +30,17 @@ class SocialButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              text,
-              style: GoogleFonts.cairo(
-                color: CustomColors.grey950,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
-              textAlign: TextAlign.left,
-            ),
+            isLoading
+                ? CustomCircleProgIndicatorForSocialButton()
+                : Text(
+                  text,
+                  style: GoogleFonts.cairo(
+                    color: CustomColors.grey950,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
           ],
         ),
         style: OutlinedButton.styleFrom(

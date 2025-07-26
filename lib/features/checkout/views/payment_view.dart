@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/checkout/data/models/payment_intent_input_model.dart';
 
@@ -8,7 +9,7 @@ import 'package:e_commerce/features/checkout/views/success_view.dart';
 
 import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_steps.dart';
 import 'package:e_commerce/features/checkout/views/widgets/confirm_your_order.dart';
-import 'package:e_commerce/features/checkout/views/widgets/custom_delivery_button.dart';
+
 import 'package:e_commerce/features/checkout/views/widgets/custom_form_field.dart';
 import 'package:e_commerce/features/checkout/views/widgets/order_summary.dart';
 import 'package:e_commerce/features/checkout/views/widgets/payment_way.dart';
@@ -29,6 +30,7 @@ class PaymentView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
+
           children: [
             SizedBox(
               child: CheckoutDeliverySteps(
@@ -62,28 +64,36 @@ class PaymentView extends StatelessWidget {
                 }
               },
               builder: (context, state) {
-                return CustomDeliveryButton(
-                  title: 'تأكيد الطلب',
-                  isLoading: state is PaymentLoading ? true : false,
-                  onPressed: () {
-                    // card payment
-                    if (BlocProvider.of<PaymentCubit>(context).cardIndex == 0) {
-                      PaymentIntentInputModel paymentIntentInputModel =
-                          PaymentIntentInputModel(
-                            amount: '100', // Example amount in cents
-                            currency: 'usd',
-                            customerId: 'cus_SfVClsopZ6oV5Y',
-                          );
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    CustomButton(
+                      text: 'تأكيد الطلب',
+                      isLoading: state is PaymentLoading ? true : false,
+                      onPress: () {
+                        // card payment
+                        if (BlocProvider.of<PaymentCubit>(context).cardIndex ==
+                            0) {
+                          PaymentIntentInputModel paymentIntentInputModel =
+                              PaymentIntentInputModel(
+                                amount: '100', // Example amount in cents
+                                currency: 'usd',
+                                customerId: 'cus_SfVClsopZ6oV5Y',
+                              );
 
-                      BlocProvider.of<PaymentCubit>(context).makeStripePayment(
-                        paymentIntentInputModel: paymentIntentInputModel,
-                      );
-                    } else {
-                      BlocProvider.of<PaymentCubit>(
-                        context,
-                      ).makePaypalPayment(context);
-                    }
-                  },
+                          BlocProvider.of<PaymentCubit>(
+                            context,
+                          ).makeStripePayment(
+                            paymentIntentInputModel: paymentIntentInputModel,
+                          );
+                        } else {
+                          BlocProvider.of<PaymentCubit>(
+                            context,
+                          ).makePaypalPayment(context);
+                        }
+                      },
+                    ),
+                  ],
                 );
               },
             ),

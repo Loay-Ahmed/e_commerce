@@ -1,6 +1,8 @@
+import 'package:e_commerce/core/functions/navigate_without_back.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
-import 'package:e_commerce/features/auth/view/login.dart';
-import 'package:e_commerce/features/auth/view_model/auth_cubit.dart';
+import 'package:e_commerce/features/auth/view/login_view.dart';
+import 'package:e_commerce/features/auth/should_delete/auth_cubit.dart';
+import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
 import 'package:e_commerce/features/auth/widgets/custom_app_bar.dart';
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +20,7 @@ class SignUpScreen extends StatelessWidget {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final auth = context.watch<AuthCubit>();
+    final auth = context.watch<AuthenticationCubit>();
     bool showPassword = false;
     bool isAgreed = false;
     return Scaffold(
@@ -100,17 +102,12 @@ class SignUpScreen extends StatelessWidget {
                         onPress:
                             isAgreed
                                 ? () {
-                                  auth.signUp(
-                                    nameController.text.trim(),
-                                    emailController.text.trim(),
-                                    passwordController.text.trim(),
+                                  auth.register(
+                                    name: nameController.text.trim(),
+                                    email: emailController.text.trim(),
+                                    password: passwordController.text.trim(),
                                   );
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => LoginScreen(),
-                                    ),
-                                  );
+                                  navigateWithoutBack(context, LoginView());
                                 }
                                 : null,
                       ),
@@ -180,7 +177,7 @@ class SignUpScreen extends StatelessWidget {
                   } else {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => LoginScreen()),
+                      MaterialPageRoute(builder: (_) => LoginView()),
                     );
                   }
                 },
