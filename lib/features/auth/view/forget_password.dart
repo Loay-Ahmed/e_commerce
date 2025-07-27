@@ -1,7 +1,6 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/view/code_verification.dart';
-import 'package:e_commerce/features/auth/widgets/custom_app_bar.dart';
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

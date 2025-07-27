@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
 
 import 'package:e_commerce/core/widgets/custom_grid_view_popular_products.dart';

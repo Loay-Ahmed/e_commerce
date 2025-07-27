@@ -1,5 +1,3 @@
-import 'package:e_commerce/core/colors.dart';
-import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/checkout/views/user_info_view.dart';

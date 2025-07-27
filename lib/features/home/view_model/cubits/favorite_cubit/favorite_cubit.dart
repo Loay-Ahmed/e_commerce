@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:e_commerce/features/home/data/dummy_data.dart';
 import 'package:meta/meta.dart';
 
 part 'favorite_state.dart';

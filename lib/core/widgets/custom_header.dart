@@ -3,7 +3,6 @@ import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/widgets/custom_back_arrow.dart';
 import 'package:e_commerce/core/widgets/custom_notified_bell.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
   final String title;

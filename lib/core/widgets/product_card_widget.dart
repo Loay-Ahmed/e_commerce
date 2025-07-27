@@ -1,9 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_cached_network_image.dart';
-import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 
 import 'package:e_commerce/features/home/data/models/product_model.dart';
 

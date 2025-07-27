@@ -1,12 +1,9 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/auth/view/auth_checker.dart';
-import 'package:e_commerce/features/home/view/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../auth/should_delete/auth_cubit.dart';
 
 class PageView2 extends StatelessWidget {
   const PageView2({super.key});

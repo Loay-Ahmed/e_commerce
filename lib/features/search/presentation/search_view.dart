@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/widgets/custom_grid_view_popular_products.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar.dart';

@@ -1,8 +1,6 @@
 import 'package:e_commerce/core/functions/navigate_to.dart';
-import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_normal_button.dart';
 import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 import 'package:e_commerce/core/widgets/product_card_widget.dart';
-import 'package:e_commerce/features/home/data/dummy_data.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
 import 'package:e_commerce/features/product_Details/view/details_screen.dart';
 import 'package:flutter/material.dart';

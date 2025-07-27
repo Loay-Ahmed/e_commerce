@@ -1,7 +1,6 @@
 import 'package:e_commerce/core/my_observer.dart';
 import 'package:e_commerce/core/utils/api_keys.dart';
 import 'package:e_commerce/features/auth/view/login_view.dart';
-import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
 
 import 'package:e_commerce/features/checkout/data/repos/checkout_repo_impl.dart';
 import 'package:e_commerce/features/checkout/view_model/Cubits/form_controller_cubit/form_controller_cubit.dart';
@@ -18,7 +17,6 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'generated/l10n.dart';
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

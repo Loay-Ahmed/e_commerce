@@ -1,6 +1,5 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 abstract class CustomFonts {
   static final TextStyle cairoTextStyleBold_17 = TextStyle(

@@ -1,5 +1,3 @@
-import '../../../core/data/model/product.dart';
-import '../../../core/data/services/api_services.dart';
 
 // class DetailsViewModel {
 //   final ProductService _service = ProductService();

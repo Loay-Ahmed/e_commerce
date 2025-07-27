@@ -1,13 +1,8 @@
-import 'package:e_commerce/core/colors.dart';
-import 'package:e_commerce/core/functions/navigate_to.dart';
-import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_nav_bar.dart';
 import 'package:e_commerce/features/home/view/widgets/header_widget.dart';
 import 'package:e_commerce/features/home/view/widgets/offer_widget.dart';
 import 'package:e_commerce/features/home/view/widgets/popular_products_widget.dart';
-import 'package:e_commerce/features/search/presentation/search_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

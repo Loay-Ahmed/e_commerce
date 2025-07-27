@@ -1,15 +1,11 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
-import 'package:e_commerce/core/functions/navigate_to.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_notified_bell.dart';
 import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
-import 'package:e_commerce/features/search/presentation/search_view.dart';
-import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar.dart';
 import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});

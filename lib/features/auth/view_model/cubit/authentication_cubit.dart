@@ -4,7 +4,6 @@ import 'package:bloc/bloc.dart';
 import 'package:e_commerce/core/utils/api_keys.dart';
 
 import 'package:e_commerce/features/auth/data/model/user_model.dart';
-import 'package:e_commerce/features/auth/should_delete/user_model.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
 

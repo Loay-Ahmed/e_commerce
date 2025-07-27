@@ -5,8 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/colors.dart';
 import '../widgets/code_input_field.dart';
-import '../widgets/custom_app_bar.dart';
-import 'new_password.dart';
 
 class CodeVerification extends StatefulWidget {
   const CodeVerification({super.key, required this.phoneNumber});
