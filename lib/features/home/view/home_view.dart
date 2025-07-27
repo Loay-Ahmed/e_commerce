@@ -27,7 +27,7 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: CustomNavBar(),
+      // bottomNavigationBar: CustomNavBar(),
     );
   }
 }

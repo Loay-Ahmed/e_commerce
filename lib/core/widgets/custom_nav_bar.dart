@@ -1,21 +1,8 @@
 import 'package:e_commerce/core/widgets/custom_nav_bar_icon.dart';
 import 'package:flutter/material.dart';
 
-class CustomNavBar extends StatefulWidget {
+class CustomNavBar extends StatelessWidget {
   const CustomNavBar({super.key});
-
-  @override
-  State<CustomNavBar> createState() => _CustomNavBarState();
-}
-
-class _CustomNavBarState extends State<CustomNavBar> {
-  List<bool> activeScreen = [true, false, false, false];
-  void toggleScreen(int index) {
-    activeScreen = [false, false, false, false];
-    setState(() {
-      activeScreen[index] = true;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,29 +33,25 @@ class _CustomNavBarState extends State<CustomNavBar> {
         children: [
           CustomNavBarIcon(
             icon: Icons.home_outlined,
-            active: activeScreen[0],
-            toggleActive: toggleScreen,
+
             index: 0,
             title: "الرئيسية" /* S.of(context).nav_bar_item_1 */,
           ),
           CustomNavBarIcon(
             icon: Icons.grid_view_outlined,
-            active: activeScreen[1],
-            toggleActive: toggleScreen,
+
             index: 1,
             title: "المنتجات" /* S.of(context).nav_bar_item_1 */,
           ),
           CustomNavBarIcon(
             icon: Icons.shopping_cart_outlined,
-            active: activeScreen[2],
-            toggleActive: toggleScreen,
+
             index: 2,
             title: "سلة التسوق" /* S.of(context).nav */,
           ),
           CustomNavBarIcon(
             icon: Icons.person_outline_rounded,
-            active: activeScreen[3],
-            toggleActive: toggleScreen,
+
             index: 3,
             title: "حسابي" /* S.of(context).nav_bar_item_1 */,
           ),
