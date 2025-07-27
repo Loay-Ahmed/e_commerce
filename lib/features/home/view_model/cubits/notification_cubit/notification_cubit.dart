@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/physics.dart';
 import 'package:meta/meta.dart';
 
 part 'notification_state.dart';

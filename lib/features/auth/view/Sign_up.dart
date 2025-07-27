@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/functions/navigate_without_back.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
+import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/view/login_view.dart';
 import 'package:e_commerce/features/auth/should_delete/auth_cubit.dart';
 import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
@@ -31,7 +32,7 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              CustomAppBar(title: 'حساب جديد'),
+              CustomHeader(title: 'حساب جديد', hasBackArrow: true),
               const SizedBox(height: 40),
 
               CustomTextField(

@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -44,7 +45,7 @@ class CodeVerificationScreenState extends State<CodeVerification> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              CustomAppBar(title: "التحقق من الرمز"),
+              CustomHeader(title: "التحقق من الرمز", hasBackArrow: true),
               const SizedBox(height: 40),
               Text(
                 "أدخل الرمز الذي أرسلناه إلى رقم الهاتف ${widget.phoneNumber}",

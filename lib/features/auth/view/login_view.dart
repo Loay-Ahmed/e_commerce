@@ -2,6 +2,7 @@ import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/functions/navigate_to.dart';
 import 'package:e_commerce/core/functions/navigate_without_back.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
+import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/view/Sign_up.dart';
 import 'package:e_commerce/features/auth/view/forget_password.dart';
 
@@ -50,7 +51,10 @@ class LoginView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const CustomAppBar(title: "تسجيل دخول"),
+                      const CustomHeader(
+                        title: 'تسجيل الدخول',
+                        hasBackArrow: true,
+                      ),
                       const SizedBox(height: 40),
                       CustomTextField(
                         controller: emailController,

@@ -129,4 +129,18 @@ abstract class CustomFonts {
     fontWeight: FontWeight.w600,
     color: CustomColors.red500,
   );
+
+  static final TextStyle cairoTextStyleBold_13orange500w700 = TextStyle(
+    fontFamily: 'cairo',
+    fontSize: 13,
+    fontWeight: FontWeight.w700,
+    color: CustomColors.orange500,
+  );
+
+  static final TextStyle cairoTextStyleBold_13orange300w600 = TextStyle(
+    fontFamily: 'cairo',
+    fontSize: 13,
+    fontWeight: FontWeight.w600,
+    color: CustomColors.orange300,
+  );
 }

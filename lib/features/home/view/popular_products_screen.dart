@@ -11,19 +11,21 @@ class PopularProductsScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomHeader(title: 'الأكثر مبيعا'),
 
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 24),
-            Text(
-              'الأكثر مبيعا',
-              style: CustomFonts.cairoTextStyleBold_19grey950w700,
-            ),
-            SizedBox(height: 8),
-            CustomGridViewPopularProducts(),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 24),
+              Text(
+                'الأكثر مبيعا',
+                style: CustomFonts.cairoTextStyleBold_19grey950w700,
+              ),
+              SizedBox(height: 8),
+              CustomGridViewPopularProducts(),
+            ],
+          ),
         ),
       ),
     );

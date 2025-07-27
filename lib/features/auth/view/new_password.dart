@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:e_commerce/core/widgets/custom_button.dart';
+import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/widgets/custom_app_bar.dart';
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class NewPassword extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const CustomAppBar(title: "كلمة مرور جديدة"),
+                CustomHeader(title: 'كلمة مرور جديده', hasBackArrow: true),
                 const SizedBox(height: 40),
                 Text(
                   "قم بإنشاء كلمة مرور جديدة لتسجيل الدخول",
