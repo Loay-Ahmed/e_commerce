@@ -18,53 +18,48 @@ class CustomGridViewPopularProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit()..getProducts(),
-      child: BlocConsumer<HomeCubit, HomeState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          HomeCubit homeCubit = context.read<HomeCubit>();
+    return BlocConsumer<HomeCubit, HomeState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        HomeCubit homeCubit = context.read<HomeCubit>();
 
-          return state is GetProductsLoading
-              ? CustomCircleProgIndicatorForSocialButton()
-              : GridView.builder(
-                padding: const EdgeInsets.only(top: 0),
-                itemCount: homeCubit.products.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 16,
-                  childAspectRatio: 0.8,
-                ),
-                // shrinkWrap and physics are very important when using GridView.builder (or ListView) inside another scrollable widget like a Column or SingleChildScrollView.
-                // shrinkWrap tells the GridView to only take up as much vertical space as its children need.
-                // without shrinkWrap: true, GridView tries to take infinite height, which causes layout errors
-                shrinkWrap: shrinkWrap,
-                // physics, It disables internal scrolling of the GridView.
-                // Don't scroll this grid — let the parent scroll view handle scrolling.
-                physics:
-                    scrollPhysics
-                        ? NeverScrollableScrollPhysics()
-                        : BouncingScrollPhysics(),
-                itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      navigateTo(
-                        context,
-                        ProductDetailsScreen(
-                          product: homeCubit.products[index],
-                        ),
-                      );
-                    },
-                    child: ProductCardWidget(
-                      product: homeCubit.products[index],
-                      index: index,
-                    ),
-                  );
-                },
-              );
-        },
-      ),
+        return state is GetProductsLoading
+            ? CustomCircleProgIndicatorForSocialButton()
+            : GridView.builder(
+              padding: const EdgeInsets.only(top: 0),
+              itemCount: homeCubit.products.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 16,
+                childAspectRatio: 0.8,
+              ),
+              // shrinkWrap and physics are very important when using GridView.builder (or ListView) inside another scrollable widget like a Column or SingleChildScrollView.
+              // shrinkWrap tells the GridView to only take up as much vertical space as its children need.
+              // without shrinkWrap: true, GridView tries to take infinite height, which causes layout errors
+              shrinkWrap: shrinkWrap,
+              // physics, It disables internal scrolling of the GridView.
+              // Don't scroll this grid — let the parent scroll view handle scrolling.
+              physics:
+                  scrollPhysics
+                      ? NeverScrollableScrollPhysics()
+                      : BouncingScrollPhysics(),
+              itemBuilder: (BuildContext context, int index) {
+                return GestureDetector(
+                  onTap: () {
+                    navigateTo(
+                      context,
+                      ProductDetailsScreen(product: homeCubit.products[index]),
+                    );
+                  },
+                  child: ProductCardWidget(
+                    product: homeCubit.products[index],
+                    index: index,
+                  ),
+                );
+              },
+            );
+      },
     );
   }
 }

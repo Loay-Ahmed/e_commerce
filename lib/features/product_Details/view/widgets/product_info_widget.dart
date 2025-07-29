@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/features/home/data/models/product_model.dart';
+import 'package:e_commerce/features/product_Details/view/widgets/custom_product_quantity.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -28,60 +29,7 @@ class ProductInfoWidget extends StatelessWidget {
                   ),
                   textAlign: TextAlign.right,
                 ),
-                StatefulBuilder(
-                  builder: (context, setState) {
-                    return Row(
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: CustomColors.green1_500,
-                            shape: BoxShape.circle,
-                          ),
-                          child: IconButton(
-                            icon: Image.asset(
-                              'assets/images/plus.png',
-                              width: 16,
-                              height: 16,
-                              // color: Colors.white,
-                            ),
-                            onPressed: () {
-                              {
-                                setState(() => quantity++);
-                              }
-                            },
-                          ),
-                        ),
-                        SizedBox(width: 16),
-                        Text(
-                          "$quantity",
-                          style: GoogleFonts.cairo(fontSize: 16),
-                        ),
-                        SizedBox(width: 16),
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Color(0xffF3F5F7),
-                            shape: BoxShape.circle,
-                          ),
-                          child: IconButton(
-                            icon: Image.asset(
-                              'assets/images/minus.png',
-                              width: 16,
-                              height: 16,
-                              // color,
-                            ),
-                            onPressed: () {
-                              setState(() => quantity--);
-                            },
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
+                CustomProductQuantity(),
               ],
             ),
             SizedBox(height: 4),

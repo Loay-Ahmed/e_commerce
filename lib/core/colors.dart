@@ -7,10 +7,14 @@ abstract class CustomColors {
   static final black40 = Color(0xffC9CECF);
 
   // Grey section
+  // #CACECE66
 
   static final light = Color(0xfff3f5f7);
   static final grey = Color(0xffF7F7F7);
   static final grey50 = Color(0xffF2F3F3);
+  static final grey60 = Color(0xFFE3E3E3); // RGB(227, 227, 227)
+
+  static final grey70 = Color(0xFFE0E1E1); // RGB(224, 225, 225)
   static final grey100 = Color(0xffD9D9D9);
   static final grey300 = Color(0xffB4B4B4);
   static final grey400 = Color(0xff949d9e);
@@ -34,6 +38,7 @@ abstract class CustomColors {
   static final lightGreen = Color(0xff23AA49);
 
   // Green 1 section
+  static final green1_50 = Color(0xffEBF9F1);
   static final green1_500 = Color(0xff1B5E37);
   static final green1_200 = Color.fromARGB(178, 176, 232, 199);
   static final green1_600 = Color(0xff2D9F5D);

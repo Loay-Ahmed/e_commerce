@@ -6,7 +6,9 @@ import 'package:e_commerce/features/home/view/popular_products_screen.dart';
 import 'package:flutter/material.dart';
 
 class PopularProductsWidget extends StatelessWidget {
-  const PopularProductsWidget({super.key});
+  const PopularProductsWidget({super.key, this.isProductsWidget = false});
+
+  final bool isProductsWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,14 @@ class PopularProductsWidget extends StatelessWidget {
           ),
         ),
         SizedBox(height: 8),
-        CustomGridViewPopularProducts(),
+        isProductsWidget
+            ? Expanded(
+              child: CustomGridViewPopularProducts(
+                scrollPhysics: false,
+                shrinkWrap: false,
+              ),
+            )
+            : CustomGridViewPopularProducts(),
       ],
     );
   }

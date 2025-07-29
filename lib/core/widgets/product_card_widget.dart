@@ -47,13 +47,7 @@ class ProductCardWidget extends StatelessWidget {
                 Text(
                   product.name!,
                   textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontFamily: 'Cairo',
-                    fontWeight: FontWeight.w600,
-                    fontSize: 13,
-
-                    letterSpacing: 0.0,
-                  ),
+                  style: CustomFonts.cairoTextStyleBold_13grey950w600,
                 ),
                 SizedBox(height: 4),
                 Row(

@@ -11,11 +11,10 @@ class SearchView extends StatefulWidget {
 }
 
 class _SearchViewState extends State<SearchView> {
-  late final TextEditingController searchController;
+  final TextEditingController searchController = TextEditingController();
 
   @override
   void initState() {
-    searchController = TextEditingController();
     super.initState();
   }
 
