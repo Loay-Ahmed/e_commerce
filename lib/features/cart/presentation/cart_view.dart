@@ -28,7 +28,7 @@ class CartView extends StatelessWidget {
             color: CustomColors.green1_50,
 
             child: Text(
-              'لديك ${num} منتجات فى سلة التسوق',
+              'لديك $num منتجات فى سلة التسوق',
               style: CustomFonts.cairoTextStyleBold_13green1_500w400,
             ),
           ),

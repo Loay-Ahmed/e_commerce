@@ -4,7 +4,6 @@ import 'package:e_commerce/features/auth/view/auth_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class PageView2 extends StatelessWidget {
   const PageView2({super.key});
 

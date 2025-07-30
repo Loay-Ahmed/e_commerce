@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/widgets/custom_nav_bar.dart';
 import 'package:e_commerce/features/home/view/widgets/header_widget.dart';
 import 'package:e_commerce/features/home/view/widgets/offer_widget.dart';
 import 'package:e_commerce/features/home/view/widgets/popular_products_widget.dart';

@@ -1,16 +1,12 @@
 import 'package:e_commerce/core/widgets/custom_back_arrow.dart';
 import 'package:e_commerce/core/widgets/custom_cached_network_image.dart';
-import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/home/data/models/product_model.dart';
 
 import 'package:e_commerce/features/product_Details/view/widgets/product_feature_grid.dart';
 import 'package:e_commerce/features/product_Details/view/widgets/product_info_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../../../core/colors.dart';
 
 import '../../../core/widgets/custom_button.dart';
-import '../../auth/widgets/custom_app_bar.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   final ProductModel product;

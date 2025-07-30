@@ -39,6 +39,9 @@ abstract class CustomColors {
 
   // Green 1 section
   static final green1_50 = Color(0xffEBF9F1);
+  static final green1_300 = Color(0xff6FBF9C);
+  static final green1_400 = Color(0xff47936D);
+
   static final green1_500 = Color(0xff1B5E37);
   static final green1_200 = Color.fromARGB(178, 176, 232, 199);
   static final green1_600 = Color(0xff2D9F5D);

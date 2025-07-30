@@ -1,21 +1,13 @@
-import 'dart:developer';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
-import 'package:e_commerce/core/widgets/custom_cached_network_image.dart';
-import 'package:e_commerce/core/widgets/custom_grid_view_popular_products.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
-import 'package:e_commerce/features/home/data/models/product_model.dart';
 import 'package:e_commerce/features/home/view/widgets/popular_products_widget.dart';
-import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
 import 'package:e_commerce/features/products/presentation/widgets/custom_our_products_widget.dart';
 
 import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProductsView extends StatelessWidget {
   const ProductsView({super.key});
@@ -60,7 +52,7 @@ class ProductsView extends StatelessWidget {
 
             CustomOurProductsWidget(),
             SizedBox(height: 24),
-            // PopularProductsWidget(isProductsWidget: true),
+            Expanded(child: PopularProductsWidget(isProductsWidget: true)),
             // Expanded(
             //   child: CustomGridViewPopularProducts(
             //     scrollPhysics: false,

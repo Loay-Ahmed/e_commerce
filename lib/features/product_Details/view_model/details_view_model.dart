@@ -1,4 +1,3 @@
-
 // class DetailsViewModel {
 //   final ProductService _service = ProductService();
 

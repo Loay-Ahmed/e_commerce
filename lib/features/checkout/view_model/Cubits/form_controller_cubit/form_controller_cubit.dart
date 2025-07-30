@@ -30,4 +30,10 @@ class FormControllerCubit extends Cubit<FormControllerState> {
       return false;
     }
   }
+
+  @override
+  Future<void> close() {
+    userInfoFormController.dispose();
+    return super.close();
+  }
 }
