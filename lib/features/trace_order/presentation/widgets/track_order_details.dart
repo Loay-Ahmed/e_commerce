@@ -54,7 +54,7 @@ class TrackOrderDetails extends StatelessWidget {
 
             // Content
             Transform.translate(
-              offset: Offset(0, -8),
+              offset: Offset(0, -5),
               child: Text(
                 orderStatusModel.title,
                 style:
@@ -67,7 +67,7 @@ class TrackOrderDetails extends StatelessWidget {
 
             // Date
             Transform.translate(
-              offset: Offset(0, -8),
+              offset: Offset(0, -5),
               child: Text(
                 orderStatusModel.date,
                 style: CustomFonts.cairoTextStyleBold_13grey400w600,

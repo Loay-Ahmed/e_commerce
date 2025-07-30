@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/functions/navigate_to.dart';
 import 'package:e_commerce/core/functions/navigate_without_back.dart';
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/view/Sign_up.dart';
@@ -149,9 +150,7 @@ class LoginView extends StatelessWidget {
                         builder: (context, state) {
                           return SocialButton(
                             text: "تسجيل بواسطة جوجل",
-                            icon: SvgPicture.asset(
-                              "assets/images/google_icon.svg",
-                            ),
+                            icon: SvgPicture.asset(AssetsData.googleIcon),
                             onPressed: () async {
                               await auth.googleSignIn();
                             },

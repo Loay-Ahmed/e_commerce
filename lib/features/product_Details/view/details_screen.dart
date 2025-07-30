@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_back_arrow.dart';
 import 'package:e_commerce/core/widgets/custom_cached_network_image.dart';
 import 'package:e_commerce/features/home/data/models/product_model.dart';
@@ -30,9 +31,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/background_details.png',
-                          ),
+                          image: AssetImage(AssetsData.backgroundDetails),
                           fit: BoxFit.cover,
                         ),
                       ),

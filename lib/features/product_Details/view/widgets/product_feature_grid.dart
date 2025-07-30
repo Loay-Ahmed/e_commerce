@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/features/home/data/models/product_model.dart';
 import 'package:e_commerce/features/product_Details/view/widgets/build_info_card_widget.dart';
 import 'package:flutter/material.dart';
@@ -19,25 +20,21 @@ class ProductFeatureGrid extends StatelessWidget {
       childAspectRatio: 1.9,
       children: [
         buildInfoCard(
-          'assets/images/exipdate.png',
+          AssetsData.exipdate,
           '${product.expireDate!.toInt()} عام',
           'الصلاحية',
         ),
         buildInfoCard(
-          'assets/images/organic.png',
+          AssetsData.organic,
           '${product.organicPercentage}',
           'أورجانيك',
         ),
         buildInfoCard(
-          'assets/images/calories.png',
+          AssetsData.calories,
           '${product.calories} كالوري',
           'لكل 100 جرام',
         ),
-        buildInfoCard(
-          'assets/images/star.png',
-          '${product.reviewsRate}',
-          'التقييم',
-        ),
+        buildInfoCard(AssetsData.star, '${product.reviewsRate}', 'التقييم'),
       ],
     );
   }

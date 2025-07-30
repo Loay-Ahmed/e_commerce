@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_steps.dart';
@@ -31,7 +32,7 @@ class SuccessView extends StatelessWidget {
             SizedBox(
               width: 154,
               height: 107,
-              child: Image.asset('assets/images/done.png'),
+              child: Image.asset(AssetsData.done),
             ),
 
             SizedBox(height: 33),

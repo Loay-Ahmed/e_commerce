@@ -9,6 +9,7 @@ import 'package:e_commerce/features/checkout/view_model/Cubits/payment_cubit/pay
 import 'package:e_commerce/features/home/data/dummy_data.dart';
 import 'package:e_commerce/features/home/view_model/cubits/favorite_cubit/favorite_cubit.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
+import 'package:e_commerce/features/my_profile/presentation/my_profile_view.dart';
 import 'package:e_commerce/features/trace_order/presentation/trace_order_my_profile_view.dart';
 
 import 'package:flutter/material.dart';
@@ -63,7 +64,7 @@ class MyApp extends StatelessWidget {
       // home: OnboardingScreen(),
       home:
           Supabase.instance.client.auth.currentUser != null
-              ? TraceOrderMyProfileView()
+              ? MyProfileView()
               : LoginView(),
     );
   }

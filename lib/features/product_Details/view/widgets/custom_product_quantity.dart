@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,7 +23,7 @@ class CustomProductQuantity extends StatelessWidget {
           ),
           child: IconButton(
             icon: Image.asset(
-              'assets/images/plus.png',
+              AssetsData.plus,
               width: height,
               height: height,
               // color: Colors.white,
@@ -44,7 +45,7 @@ class CustomProductQuantity extends StatelessWidget {
           ),
           child: IconButton(
             icon: Image.asset(
-              'assets/images/minus.png',
+              AssetsData.minus,
               width: height,
               height: height,
               // color,

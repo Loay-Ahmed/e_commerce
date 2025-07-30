@@ -1,6 +1,6 @@
-
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/home/view/widgets/popular_products_widget.dart';
 import 'package:e_commerce/features/products/presentation/widgets/custom_our_products_widget.dart';
@@ -40,7 +40,7 @@ class ProductsView extends StatelessWidget {
                     border: Border.all(color: CustomColors.grey60),
                   ),
                   child: SvgPicture.asset(
-                    'assets/images/arrow-swap-horizontal.svg',
+                    AssetsData.arrowSwapHorizontal,
                     width: 20,
                     height: 20,
                   ),

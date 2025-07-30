@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/features/splash/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -61,11 +62,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Image.asset(
-                    "assets/images/leaf.png",
-                    width: 192,
-                    height: 172,
-                  ),
+                  Image.asset(AssetsData.leaf, width: 192, height: 172),
                 ],
               ),
             Spacer(),
@@ -73,13 +70,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
             // Show logo if time comes
             if (time >= 2100)
-              Image.asset("assets/images/logo.png", width: 178, height: 173),
+              Image.asset(AssetsData.logo, width: 178, height: 173),
             Spacer(),
             if (time < 2100) SizedBox(height: 173),
 
             // Show last image if time comes
-            if (time >= 1400)
-              Image.asset("assets/images/circles.png", height: 156),
+            if (time >= 1400) Image.asset(AssetsData.circles, height: 156),
             if (time < 1400) SizedBox(height: 156),
           ],
         ),

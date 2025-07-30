@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
@@ -115,10 +116,7 @@ class NewPassword extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Image.asset(
-                                  "assets/images/done.png",
-                                  width: 154,
-                                ),
+                                Image.asset(AssetsData.done, width: 154),
                                 const SizedBox(height: 29),
                                 Text(
                                   'تم تغيير الباسورد بنجاح',

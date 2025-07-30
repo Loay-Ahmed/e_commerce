@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
-
+import 'package:e_commerce/core/utils/assets_data.dart';
 
 import 'package:e_commerce/features/trace_order/presentation/widgets/custom_circle_avatar.dart';
 import 'package:e_commerce/features/trace_order/presentation/widgets/order_track_steps_details.dart';
@@ -66,7 +66,7 @@ class _TrackOrderCardState extends State<TrackOrderCard>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomCircleAvatar(
-                      image: 'assets/images/closed_box.svg',
+                      image: AssetsData.closedBox,
                       isDone: true,
                     ),
                     SizedBox(width: 16),

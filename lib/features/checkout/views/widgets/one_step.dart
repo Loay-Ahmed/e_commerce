@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -26,7 +27,7 @@ class OneStep extends StatelessWidget {
               isChecked ? CustomColors.green1_500 : CustomColors.grey50,
           child:
               isChecked
-                  ? SvgPicture.asset('assets/images/completed.svg')
+                  ? SvgPicture.asset(AssetsData.completed)
                   : Text(
                     '$stepNumber',
                     style: CustomFonts.cairoTextStyleBold_13grey950w600,

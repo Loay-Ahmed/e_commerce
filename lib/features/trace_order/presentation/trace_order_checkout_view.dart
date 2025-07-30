@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/trace_order/presentation/widgets/track_order_card.dart';
 import 'package:e_commerce/features/trace_order/presentation/widgets/track_order_step.dart';
@@ -24,35 +25,35 @@ class TraceOrderCheckoutView extends StatelessWidget {
               child: Column(
                 children: [
                   TrackOrderStep(
-                    image: 'assets/images/open_box.svg',
+                    image: AssetsData.openBox,
                     isDone: true,
                     text: 'تتبع الطلب',
                     date: '22 مارس , 2024',
                     index: 1,
                   ),
                   TrackOrderStep(
-                    image: 'assets/images/accept_order.svg',
+                    image: AssetsData.acceptOrder,
                     isDone: true,
                     text: 'قبول الطلب',
                     date: '22 مارس , 2024',
                     index: 2,
                   ),
                   TrackOrderStep(
-                    image: 'assets/images/order_shipped.svg',
+                    image: AssetsData.orderShipped,
                     isDone: true,
                     text: 'تم شحن الطلب',
                     date: '22 مارس , 2024',
                     index: 3,
                   ),
                   TrackOrderStep(
-                    image: 'assets/images/order_out_of_delivery.svg',
+                    image: AssetsData.orderOutOfDelivery,
                     isDone: false,
                     text: 'خرج للتوصيل',
                     date: 'قيد الانتظار',
                     index: 4,
                   ),
                   TrackOrderStep(
-                    image: 'assets/images/order_delivered.svg',
+                    image: AssetsData.orderDelivered,
                     isDone: false,
                     text: 'تم تسليم',
                     date: 'wait',
