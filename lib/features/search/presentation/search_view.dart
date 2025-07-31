@@ -3,6 +3,7 @@ import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_grid_view_popular_products.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
+import 'package:e_commerce/features/search/presentation/widgets/custom_no_search_result.dart';
 import 'package:e_commerce/features/search/presentation/widgets/custom_recently_searched_elements.dart';
 import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar.dart';
 import 'package:e_commerce/features/search/view_model/cubits/search_cubit/search_cubit.dart';
@@ -94,22 +95,7 @@ class _SearchViewState extends State<SearchView> {
                         ),
                       )
                     else if (state is SearchFailure)
-                      Expanded(
-                        child: Center(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SvgPicture.asset(AssetsData.searchFailure),
-                              Text(
-                                'لا يوجد نتائج',
-                                style:
-                                    CustomFonts
-                                        .cairoTextStyleBold_16grey500w400,
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
+                      CustomNoSearchResult()
                     else if (searchCubit.recentlySearchedElements.isNotEmpty)
                       CustomRecentlySearchedElements(
                         recentlySearchedElements:
