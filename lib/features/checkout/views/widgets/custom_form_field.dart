@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
 import 'package:e_commerce/features/checkout/view_model/Cubits/form_controller_cubit/form_controller_cubit.dart';
 import 'package:e_commerce/features/checkout/views/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,8 @@ class CustomFormField extends StatelessWidget {
       child: Column(
         children: [
           CustomTextFormField(
-            hintText: 'الاسم كامل',
+            obscure: false,
+            hint: 'الاسم كامل',
             controller:
                 BlocProvider.of<FormControllerCubit>(
                   context,
@@ -29,12 +31,13 @@ class CustomFormField extends StatelessWidget {
             },
           ),
           CustomTextFormField(
-            hintText: 'البريد الإلكتروني',
+            obscure: false,
+            hint: 'البريد الإلكتروني',
             controller:
                 BlocProvider.of<FormControllerCubit>(
                   context,
                 ).userInfoFormController.emailController,
-            keyboardType: TextInputType.emailAddress,
+            inputType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'الرجاء إدخال البريد الإلكتروني';
@@ -47,7 +50,8 @@ class CustomFormField extends StatelessWidget {
             },
           ),
           CustomTextFormField(
-            hintText: 'العنوان',
+            obscure: false,
+            hint: 'العنوان',
             controller:
                 BlocProvider.of<FormControllerCubit>(
                   context,
@@ -60,7 +64,9 @@ class CustomFormField extends StatelessWidget {
             },
           ),
           CustomTextFormField(
-            hintText: 'المدينه',
+            obscure: false,
+
+            hint: 'المدينه',
             controller:
                 BlocProvider.of<FormControllerCubit>(
                   context,
@@ -73,7 +79,8 @@ class CustomFormField extends StatelessWidget {
             },
           ),
           CustomTextFormField(
-            hintText: 'رقم الطابق, رقم الشقه ..',
+            obscure: false,
+            hint: 'رقم الطابق, رقم الشقه ..',
             controller:
                 BlocProvider.of<FormControllerCubit>(
                   context,

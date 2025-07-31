@@ -42,7 +42,7 @@ class NewPassword extends StatelessWidget {
 
                 Builder(
                   builder: (context) {
-                    return CustomTextField(
+                    return CustomTextFormField(
                       controller: passwordController,
                       obscure: !showPassword,
                       hint: 'كلمة المرور',
@@ -69,7 +69,7 @@ class NewPassword extends StatelessWidget {
                 const SizedBox(height: 10),
                 Builder(
                   builder: (context) {
-                    return CustomTextField(
+                    return CustomTextFormField(
                       controller: confirmPasswordController,
                       obscure: !showConfirmPassword,
                       hint: 'تأكيد كلمة المرور',

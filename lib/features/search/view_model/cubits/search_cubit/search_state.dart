@@ -1,15 +1,15 @@
-// part of 'search_cubit.dart';
+part of 'search_cubit.dart';
 
-// abstract class SearchState {}
+abstract class SearchState {}
 
-// class SearchInitial extends SearchState {}
+class SearchInitial extends SearchState {}
 
-// class SearchLoading extends SearchState {}
+class SearchLoading extends SearchState {}
 
-// class SearchSuccess extends SearchState {
-//   final List<Product> filteredProducts;
+class SearchSuccess extends SearchState {}
 
-//   SearchSuccess(this.filteredProducts);
-// }
+class SearchFailure extends SearchState {}
 
-// class SearchFailure extends SearchState {}
+// class SearchRecentlyAdded extends SearchState {}
+
+class SearchRecentlyDelete extends SearchState {}

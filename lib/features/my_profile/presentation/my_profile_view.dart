@@ -1,13 +1,17 @@
-
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/functions/navigate_to.dart';
+import 'package:e_commerce/core/functions/navigate_to_with_cubit.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
+import 'package:e_commerce/features/favorite/presentation/favorite_view.dart';
+import 'package:e_commerce/features/my_profile/presentation/personal_info_view.dart';
+import 'package:e_commerce/features/my_profile/presentation/who_we_are_view.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_forward_arrow.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_row_details.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_sign_out_button.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_toggle_switch_button.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/my_profile_main_info_widgte.dart';
+import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
 import 'package:e_commerce/features/trace_order/presentation/trace_order_my_profile_view.dart';
 import 'package:flutter/material.dart';
 
@@ -34,13 +38,19 @@ class MyProfileView extends StatelessWidget {
                   ),
                   SizedBox(height: 30),
                   CustomMyProfileRowDetails(
-                    onTap: () {},
+                    onTap: () {
+                      navigateTo(context, PersonalInfoView());
+                    },
                     widget: CustomForwardArrow(),
                     image: AssetsData.person,
                     text: 'الملف الشخصى',
                   ),
                   CustomMyProfileRowDetails(
                     onTap: () {
+                      // navigateToWithCubit<NavBarCubit, NavBarState>(
+                      //   context: context,
+                      //   widget: ,
+                      // );
                       navigateTo(context, TraceOrderMyProfileView());
                     },
                     widget: CustomForwardArrow(),
@@ -54,7 +64,9 @@ class MyProfileView extends StatelessWidget {
                     text: 'المدفوعات',
                   ),
                   CustomMyProfileRowDetails(
-                    onTap: () {},
+                    onTap: () {
+                      navigateTo(context, FavoriteView());
+                    },
                     widget: CustomForwardArrow(),
                     image: AssetsData.greenHeart,
                     text: 'المفضلة',
@@ -85,7 +97,9 @@ class MyProfileView extends StatelessWidget {
                   ),
                   SizedBox(height: 16),
                   CustomMyProfileRowDetails(
-                    onTap: () {},
+                    onTap: () {
+                      navigateTo(context, WhoWeAreView());
+                    },
                     widget: CustomForwardArrow(),
                     image: AssetsData.infoCircle,
                     text: 'من نحن',

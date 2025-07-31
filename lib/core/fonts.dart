@@ -132,6 +132,12 @@ abstract class CustomFonts {
     fontWeight: FontWeight.w400,
     color: CustomColors.grey500,
   );
+  static final TextStyle cairoTextStyleBold_16grey950w400 = TextStyle(
+    fontFamily: 'cairo',
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: CustomColors.grey950,
+  );
 
   static final TextStyle cairoTextStyleBold_16grey950w600 = TextStyle(
     fontFamily: 'cairo',

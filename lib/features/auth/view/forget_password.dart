@@ -35,7 +35,7 @@ class ForgetPassword extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              CustomTextField(
+              CustomTextFormField(
                 controller: emailController,
                 obscure: false,
                 hint: '01555850155',

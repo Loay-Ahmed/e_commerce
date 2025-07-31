@@ -1,27 +1,50 @@
-// import 'package:bloc/bloc.dart';
+import 'package:bloc/bloc.dart';
+import 'package:e_commerce/features/home/data/models/product_model.dart';
 
-// part 'search_state.dart';
+part 'search_state.dart';
 
-// class SearchCubit extends Cubit<SearchState> {
-//   SearchCubit() : super(SearchInitial());
-//   // function to return list of restaurants that have searched product
+class SearchCubit extends Cubit<SearchState> {
+  SearchCubit({required this.products}) : super(SearchInitial());
 
-//   void getResult(String query, List<Product> products) {
-//     emit(SearchLoading());
-//     final uniqueNames = <String>{};
-//     List<Product> filteredProducts =
-//         products
-//             .where(
-//               (product) =>
-//                   product.name!.toLowerCase().contains(query.toLowerCase()) &&
-//                   uniqueNames.add(product.name!.toLowerCase()),
-//             )
-//             .toList();
+  final List<ProductModel> products;
+  List<ProductModel> searchedProducts = [];
+  List<String> recentlySearchedElements = [];
 
-//     if (filteredProducts.isEmpty) {
-//       emit(SearchFailure());
-//     } else {
-//       emit(SearchSuccess(filteredProducts));
-//     }
-//   }
-// }
+  void getSearchedProducts(String query) {
+    emit(SearchLoading());
+    searchedProducts.clear();
+    searchedProducts =
+        products
+            .where(
+              (product) =>
+                  product.name!.toLowerCase().contains(query.toLowerCase()),
+            )
+            .toList();
+
+    if (searchedProducts.isEmpty) {
+      emit(SearchFailure());
+    } else {
+      emit(SearchSuccess());
+    }
+  }
+
+  void clearSearch() {
+    searchedProducts.clear();
+    emit(SearchInitial());
+  }
+
+  void addRecentlySearchedElements(String text) {
+    recentlySearchedElements.add(text);
+    // emit(SearchRecentlyAdded());
+  }
+
+  void deleteElementFromRecentlySearchedElements(int index) {
+    recentlySearchedElements.removeAt(index);
+    emit(SearchRecentlyDelete());
+  }
+
+  void deleteAllElementsFromRecentlySearchedElements() {
+    recentlySearchedElements.clear();
+    emit(SearchRecentlyDelete());
+  }
+}

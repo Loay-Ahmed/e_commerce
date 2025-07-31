@@ -64,6 +64,7 @@ class _LoginViewState extends State<LoginView> {
         builder: (context, state) {
           AuthenticationCubit auth = context.read<AuthenticationCubit>();
           return Scaffold(
+            appBar: const CustomHeader(title: 'تسجيل الدخول', hasBell: false),
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -71,19 +72,14 @@ class _LoginViewState extends State<LoginView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const CustomHeader(
-                        title: 'تسجيل الدخول',
-                        hasBackArrow: true,
-                      ),
-                      const SizedBox(height: 40),
-                      CustomTextField(
+                      CustomTextFormField(
                         controller: emailController,
                         inputType: TextInputType.emailAddress,
                         obscure: false,
                         hint: 'البريد الإلكتروني',
                       ),
                       const SizedBox(height: 20),
-                      CustomTextField(
+                      CustomTextFormField(
                         controller: passwordController,
                         obscure: true,
                         inputType: TextInputType.visiblePassword,

@@ -33,14 +33,14 @@ class SignUpScreen extends StatelessWidget {
               CustomHeader(title: 'حساب جديد', hasBackArrow: true),
               const SizedBox(height: 40),
 
-              CustomTextField(
+              CustomTextFormField(
                 controller: nameController,
                 obscure: false,
                 hint: 'الاسم الكامل',
                 inputType: TextInputType.name,
               ),
               const SizedBox(height: 15),
-              CustomTextField(
+              CustomTextFormField(
                 controller: emailController,
                 obscure: false,
                 hint: 'البريد الإلكتروني',
@@ -49,7 +49,7 @@ class SignUpScreen extends StatelessWidget {
               const SizedBox(height: 15),
               Builder(
                 builder: (context) {
-                  return CustomTextField(
+                  return CustomTextFormField(
                     controller: passwordController,
                     obscure: !showPassword,
                     hint: 'كلمة المرور',

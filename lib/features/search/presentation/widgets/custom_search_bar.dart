@@ -1,6 +1,8 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
+import 'package:e_commerce/features/search/view_model/cubits/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomSearchBar extends StatelessWidget {
@@ -49,9 +51,15 @@ class CustomSearchBar extends StatelessWidget {
           ),
         ),
         onChanged: (value) {
-          // Handle search logic here
+          if (value.isEmpty) {
+            context.read<SearchCubit>().clearSearch();
+          } else {
+            context.read<SearchCubit>().getSearchedProducts(value);
+          }
         },
-        onSubmitted: (value) {},
+        onSubmitted: (value) {
+          context.read<SearchCubit>().addRecentlySearchedElements(value);
+        },
       ),
     );
   }

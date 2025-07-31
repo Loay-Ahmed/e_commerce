@@ -48,4 +48,7 @@ abstract class AssetsData {
   static const String magicPen = 'assets/images/magicpen.svg';
   static const String infoCircle = 'assets/images/info_circle.svg';
   static const String logout = 'assets/images/logout.svg';
+  static const String searchFailure = 'assets/images/search_failure.svg';
+  static const String time = 'assets/images/time.svg';
+  static const String delete = 'assets/images/delete.svg';
 }
