@@ -19,11 +19,31 @@ import '../widgets/custom_text_field.dart';
 import '../widgets/mix_text_button.dart';
 import '../widgets/social_button.dart';
 
-class LoginView extends StatelessWidget {
-  LoginView({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  late final TextEditingController emailController;
+
+  late final TextEditingController passwordController;
+
+  @override
+  void initState() {
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
