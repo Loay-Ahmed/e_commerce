@@ -27,9 +27,9 @@ class FavoritesModel {
   }
 
   Map<String, dynamic> toJson() => {
-    'id': id,
+    // 'id': id,
     'for_user': forUser,
-    'created_at': createdAt?.toIso8601String(),
+    // 'created_at': createdAt?.toIso8601String(),
     'for_product': forProduct,
     'is_favorite': isFavorite,
   };

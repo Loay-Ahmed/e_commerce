@@ -5,17 +5,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class MyObserver implements BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
-    log("$change ################################################");
+    log("$change");
   }
 
   @override
   void onClose(BlocBase bloc) {
-    log("$bloc closed ################################################");
+    log("$bloc");
   }
 
   @override
   void onCreate(BlocBase bloc) {
-    log("$bloc created ################################################");
+    log("$bloc created");
   }
 
   @override

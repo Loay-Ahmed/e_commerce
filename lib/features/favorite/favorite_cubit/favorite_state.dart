@@ -2,13 +2,18 @@ part of 'favorite_cubit.dart';
 
 @immutable
 sealed class FavoriteState {
-  const FavoriteState(/*{required this.favorites}*/);
-  // final List<bool> favorites;
+  const FavoriteState();
 }
 
 final class FavoriteInitial extends FavoriteState {
-  const FavoriteInitial(/*{required super.favorites}*/);
+  const FavoriteInitial();
 }
+
+final class GetFavoriteProductsLoading extends FavoriteState {}
+
+final class GetFavoriteProductsSuccess extends FavoriteState {}
+
+final class GetFavoriteProductsError extends FavoriteState {}
 
 final class AddToFavoriteLoading extends FavoriteState {}
 
