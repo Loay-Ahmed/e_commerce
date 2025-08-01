@@ -16,50 +16,52 @@ class ProductsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomHeader(title: 'المنتجات', hasBackArrow: false),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomSearchBarButton(),
-            SizedBox(height: 17),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'منتجاتنا',
-                  style: CustomFonts.cairoTextStyleBold_16grey950w700,
-                ),
-                Container(
-                  width: 44,
-                  height: 31,
-                  padding: const EdgeInsets.all(3),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: CustomColors.grey60),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomSearchBarButton(),
+              SizedBox(height: 17),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'منتجاتنا',
+                    style: CustomFonts.cairoTextStyleBold_16grey950w700,
                   ),
-                  child: SvgPicture.asset(
-                    AssetsData.arrowSwapHorizontal,
-                    width: 20,
-                    height: 20,
+                  Container(
+                    width: 44,
+                    height: 31,
+                    padding: const EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(color: CustomColors.grey60),
+                    ),
+                    child: SvgPicture.asset(
+                      AssetsData.arrowSwapHorizontal,
+                      width: 20,
+                      height: 20,
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
 
-            SizedBox(height: 22),
+              SizedBox(height: 22),
 
-            CustomOurProductsWidget(),
-            SizedBox(height: 24),
-            Expanded(child: PopularProductsWidget(isProductsWidget: true)),
-            // Expanded(
-            //   child: CustomGridViewPopularProducts(
-            //     scrollPhysics: false,
-            //     shrinkWrap: false,
-            //   ),
-            // ),
-          ],
+              CustomOurProductsWidget(),
+              SizedBox(height: 24),
+              PopularProductsWidget(),
+              // Expanded(
+              //   child: CustomGridViewPopularProducts(
+              //     scrollPhysics: false,
+              //     shrinkWrap: false,
+              //   ),
+              // ),
+            ],
+          ),
         ),
       ),
     );

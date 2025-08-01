@@ -27,36 +27,38 @@ class FavoriteView extends StatelessWidget {
         }
         return Scaffold(
           appBar: CustomHeader(title: 'المفضلة', hasBell: false),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-            child: BlocProvider(
-              create:
-                  (context) => FavoriteCubit(
-                    products: context.read<HomeCubit>().products,
-                  )..getFavoriteProducts(),
-              child: BlocConsumer<FavoriteCubit, FavoriteState>(
-                listener: (context, state) {
-                  // TODO: implement listener
-                },
-                builder: (context, state) {
-                  FavoriteCubit favoriteCubit = context.read<FavoriteCubit>();
-                  return state is GetFavoriteProductsLoading
-                      ? CustomCircleProgIndicatorForSocialButton()
-                      : state is GetFavoriteProductsSuccess &&
-                          favoriteCubit.favoriteProducts.isEmpty
-                      ? Center(
-                        child: Image.asset(
-                          height: 250,
-                          width: 250,
-                          AssetsData.emptyFavoriteProducts,
-                        ),
-                      )
-                      : CustomGridViewPopularProducts(
-                        scrollPhysics: false,
-                        shrinkWrap: false,
-                        products: favoriteCubit.favoriteProducts,
-                      );
-                },
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+              child: BlocProvider(
+                create:
+                    (context) => FavoriteCubit(
+                      products: context.read<HomeCubit>().products,
+                    )..getFavoriteProducts(),
+                child: BlocConsumer<FavoriteCubit, FavoriteState>(
+                  listener: (context, state) {
+                    // TODO: implement listener
+                  },
+                  builder: (context, state) {
+                    FavoriteCubit favoriteCubit = context.read<FavoriteCubit>();
+                    return state is GetFavoriteProductsLoading
+                        ? CustomCircleProgIndicatorForSocialButton()
+                        : state is GetFavoriteProductsSuccess &&
+                            favoriteCubit.favoriteProducts.isEmpty
+                        ? Center(
+                          child: Image.asset(
+                            height: 250,
+                            width: 250,
+                            AssetsData.emptyFavoriteProducts,
+                          ),
+                        )
+                        : CustomGridViewPopularProducts(
+                          // scrollPhysics: false,
+                          // shrinkWrap: false,
+                          products: favoriteCubit.favoriteProducts,
+                        );
+                  },
+                ),
               ),
             ),
           ),

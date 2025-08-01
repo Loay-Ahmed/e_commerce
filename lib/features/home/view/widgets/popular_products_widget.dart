@@ -11,9 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PopularProductsWidget extends StatelessWidget {
-  const PopularProductsWidget({super.key, this.isProductsWidget = false});
-
-  final bool isProductsWidget;
+  const PopularProductsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,38 +52,36 @@ class PopularProductsWidget extends StatelessWidget {
           ),
         ),
         SizedBox(height: 8),
-        isProductsWidget
-            ? BlocConsumer<HomeCubit, HomeState>(
-              listener: (context, state) {
-                // TODO: implement listener
-              },
-              builder: (context, state) {
-                HomeCubit homeCubit = context.read<HomeCubit>();
-                return Expanded(
-                  child:
-                      state is GetProductsLoading
-                          ? CustomCircleProgIndicatorForSocialButton()
-                          : CustomGridViewPopularProducts(
-                            scrollPhysics: false,
-                            shrinkWrap: false,
-                            products: homeCubit.products,
-                          ),
-                );
-              },
-            )
-            : BlocConsumer<HomeCubit, HomeState>(
-              listener: (context, state) {
-                // TODO: implement listener
-              },
-              builder: (context, state) {
-                HomeCubit homeCubit = context.read<HomeCubit>();
-                return state is GetProductsLoading
-                    ? CustomCircleProgIndicatorForSocialButton()
-                    : CustomGridViewPopularProducts(
-                      products: homeCubit.products,
-                    );
-              },
-            ),
+        // isProductsWidget
+        //     ? BlocConsumer<HomeCubit, HomeState>(
+        //       listener: (context, state) {
+        //         // TODO: implement listener
+        //       },
+        //       builder: (context, state) {
+        //         HomeCubit homeCubit = context.read<HomeCubit>();
+        //         return Expanded(
+        //           child:
+        //               state is GetProductsLoading
+        //                   ? CustomCircleProgIndicatorForSocialButton()
+        //                   : CustomGridViewPopularProducts(
+        //                     scrollPhysics: false,
+        //                     shrinkWrap: false,
+        //                     products: homeCubit.products,
+        //                   ),
+        //         );
+        //       },
+        //     )
+        BlocConsumer<HomeCubit, HomeState>(
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            HomeCubit homeCubit = context.read<HomeCubit>();
+            return state is GetProductsLoading
+                ? CustomCircleProgIndicatorForSocialButton()
+                : CustomGridViewPopularProducts(products: homeCubit.products);
+          },
+        ),
       ],
     );
   }
