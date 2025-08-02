@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';

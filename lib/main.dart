@@ -5,14 +5,9 @@ import 'package:e_commerce/features/auth/view/login_view.dart';
 import 'package:e_commerce/features/checkout/data/repos/checkout_repo_impl.dart';
 import 'package:e_commerce/features/checkout/view_model/Cubits/form_controller_cubit/form_controller_cubit.dart';
 import 'package:e_commerce/features/checkout/view_model/Cubits/payment_cubit/payment_cubit.dart';
-import 'package:e_commerce/features/favorite/presentation/favorite_view.dart';
 
-import 'package:e_commerce/features/home/data/dummy_data.dart';
 
-import 'package:e_commerce/features/favorite/favorite_cubit/favorite_cubit.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
-import 'package:e_commerce/features/my_profile/presentation/personal_info_view.dart';
-import 'package:e_commerce/features/my_profile/presentation/my_profile_view.dart';
 import 'package:e_commerce/features/nav_bar/presentation/main_home_view.dart';
 import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
 

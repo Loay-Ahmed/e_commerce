@@ -1,5 +1,4 @@
 import 'package:e_commerce/core/fonts.dart';
-import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_grid_view_popular_products.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
@@ -9,7 +8,6 @@ import 'package:e_commerce/features/search/presentation/widgets/custom_search_ba
 import 'package:e_commerce/features/search/view_model/cubits/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});

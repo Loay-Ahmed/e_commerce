@@ -2,8 +2,6 @@ import 'package:e_commerce/core/functions/navigate_without_back.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_back_arrow.dart';
 import 'package:e_commerce/core/widgets/custom_cached_network_image.dart';
-import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_normal_button.dart';
-import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 import 'package:e_commerce/features/cart/view_model/cubit/cart_cubit.dart';
 import 'package:e_commerce/features/home/data/models/product_model.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';

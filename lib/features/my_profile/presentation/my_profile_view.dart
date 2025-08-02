@@ -1,6 +1,5 @@
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/functions/navigate_to.dart';
-import 'package:e_commerce/core/functions/navigate_to_with_cubit.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/favorite/presentation/favorite_view.dart';
@@ -11,7 +10,6 @@ import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profi
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_sign_out_button.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_toggle_switch_button.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/my_profile_main_info_widgte.dart';
-import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
 import 'package:e_commerce/features/trace_order/presentation/trace_order_my_profile_view.dart';
 import 'package:flutter/material.dart';
 

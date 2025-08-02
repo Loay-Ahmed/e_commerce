@@ -2,14 +2,12 @@ import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_cached_network_image.dart';
-import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 import 'package:e_commerce/features/favorite/presentation/widgets/heart_progress_indecator.dart';
 
 import 'package:e_commerce/features/home/data/models/product_model.dart';
 
 import 'package:e_commerce/features/favorite/favorite_cubit/favorite_cubit.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
-import 'package:e_commerce/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';

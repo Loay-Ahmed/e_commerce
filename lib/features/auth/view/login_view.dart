@@ -9,7 +9,6 @@ import 'package:e_commerce/features/auth/view/forget_password.dart';
 
 import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
 
-import 'package:e_commerce/features/home/view/home_view.dart';
 import 'package:e_commerce/features/nav_bar/presentation/main_home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

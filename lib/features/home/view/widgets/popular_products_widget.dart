@@ -1,6 +1,5 @@
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/functions/navigate_to.dart';
-import 'package:e_commerce/core/functions/navigate_to_with_cubit.dart';
 
 import 'package:e_commerce/core/widgets/custom_grid_view_popular_products.dart';
 import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
