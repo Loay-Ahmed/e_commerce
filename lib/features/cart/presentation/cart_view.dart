@@ -1,10 +1,16 @@
+import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/core/widgets/custom_cached_network_image.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
+import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
+import 'package:e_commerce/features/cart/view_model/cubit/cart_cubit.dart';
+import 'package:e_commerce/features/home/data/models/product_model.dart';
+import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
 import 'package:e_commerce/features/product_Details/view/widgets/custom_product_quantity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CartView extends StatelessWidget {
@@ -19,47 +25,79 @@ class CartView extends StatelessWidget {
     return Scaffold(
       appBar: CustomHeader(title: 'السلة', hasBell: false, hasBackArrow: false),
 
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            alignment: Alignment.center,
-            height: 41,
-            color: CustomColors.green1_50,
+      body: BlocProvider(
+        create:
+            (context) =>
+                CartCubit(products: context.read<HomeCubit>().products)
+                  ..getProductsCart(),
+        child: BlocConsumer<CartCubit, CartState>(
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            CartCubit cartCubit = context.read<CartCubit>();
+            return state is GetProductsCartLoading
+                ? CustomCircleProgIndicatorForSocialButton()
+                : Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      height: 41,
+                      color: CustomColors.green1_50,
 
-            child: Text(
-              'لديك $num منتجات فى سلة التسوق',
-              style: CustomFonts.cairoTextStyleBold_13green1_500w400,
-            ),
-          ),
-          SizedBox(height: 24),
+                      child: Text(
+                        'لديك ${cartCubit.cartProducts.length} منتجات فى سلة التسوق',
+                        style: CustomFonts.cairoTextStyleBold_13green1_500w400,
+                      ),
+                    ),
+                    SizedBox(height: 24),
 
-          Expanded(
-            child: ListView.builder(
-              itemCount: 8,
-              itemBuilder: (context, index) {
-                return CustomCardInCartView(index: index);
-              },
-            ),
-          ),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: cartCubit.cartProducts.length,
+                        itemBuilder: (context, index) {
+                          return CustomCardInCartView(
+                            index: index,
+                            product: cartCubit.cartProducts[index],
+                            cartCubit: cartCubit,
+                          );
+                        },
+                      ),
+                    ),
 
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
-            child: CustomButton(text: 'الدفع', onPress: () {}),
-          ),
-        ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 40,
+                      ),
+                      child: CustomButton(text: 'الدفع', onPress: () {}),
+                    ),
+                  ],
+                );
+          },
+        ),
       ),
     );
   }
 }
 
 class CustomCardInCartView extends StatelessWidget {
-  const CustomCardInCartView({super.key, required this.index});
+  const CustomCardInCartView({
+    super.key,
+    required this.index,
+    required this.product,
+    required this.cartCubit,
+  });
 
+  final ProductModel product;
   final int index;
+  final CartCubit cartCubit;
 
   @override
   Widget build(BuildContext context) {
+    final quantity = cartCubit.getProductQuantityInCartIfExist(product.id);
+    int total = int.parse(product.price!) * (quantity == 0 ? 1 : quantity);
     return Column(
       children: [
         if (index == 0)
@@ -77,10 +115,7 @@ class CustomCardInCartView extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 26, horizontal: 10),
                   color: CustomColors.light,
                   width: 73,
-                  child: CustomCachedNetworkImage(
-                    imageUrl:
-                        'https://github.com/Sharawelly/Images/blob/main/water_malon.png?raw=true',
-                  ),
+                  child: CustomCachedNetworkImage(imageUrl: product.imageUrl!),
                 ),
               ),
               SizedBox(width: 17),
@@ -91,14 +126,17 @@ class CustomCardInCartView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'بطيخ',
+                      product.name!,
                       style: CustomFonts.cairoTextStyleBold_13grey950w700,
                     ),
                     Text(
-                      '3 كم',
+                      quantity == 0 ? '1 كيلو' : '${quantity.toString()} كيلو',
                       style: CustomFonts.cairoTextStyleBold_13orange300w600,
                     ),
-                    CustomProductQuantity(isSmall: true),
+                    CustomProductQuantity(
+                      isSmall: true,
+                      productId: product.id!,
+                    ),
                   ],
                 ),
               ),
@@ -108,13 +146,18 @@ class CustomCardInCartView extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      FontAwesomeIcons.trashCan,
-                      color: CustomColors.grey400,
-                      size: 20,
+                    GestureDetector(
+                      onTap: () {
+                        cartCubit.removeProductFromCart(product.id!);
+                      },
+                      child: Icon(
+                        FontAwesomeIcons.trashCan,
+                        color: CustomColors.grey400,
+                        size: 20,
+                      ),
                     ),
                     Text(
-                      '60 جنيه',
+                      '${total.toString()} جنية',
                       style: CustomFonts.cairoTextStyleBold_13orange500w700,
                     ),
                   ],

@@ -1,7 +1,10 @@
 import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/features/cart/view_model/cubit/cart_cubit.dart';
 import 'package:e_commerce/features/home/data/models/product_model.dart';
+import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
 import 'package:e_commerce/features/product_Details/view/widgets/custom_product_quantity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductInfoWidget extends StatelessWidget {
@@ -13,7 +16,6 @@ class ProductInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Builder(
       builder: (context) {
-        int quantity = 1;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -29,7 +31,7 @@ class ProductInfoWidget extends StatelessWidget {
                   ),
                   textAlign: TextAlign.right,
                 ),
-                CustomProductQuantity(),
+                CustomProductQuantity(productId: product.id!),
               ],
             ),
             SizedBox(height: 4),

@@ -25,8 +25,8 @@ class CustomSignOutButton extends StatelessWidget {
           return GestureDetector(
             onTap: () {
               auth.signOut();
-              navigateWithoutBack(context, LoginView());
               context.read<NavBarCubit>().changeCurrentIndex(0);
+              navigateWithoutBack(context, LoginView());
             },
             child: Container(
               height: 41,

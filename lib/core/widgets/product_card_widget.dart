@@ -116,7 +116,7 @@ class ProductCardWidget extends StatelessWidget {
                     child:
                         state is GetFavoriteProductsLoading
                             ? HeartProgressIndicator(
-                              progress: 1, // 75% filled
+                              progress: 1.0, // 75% filled
                               color: CustomColors.red500,
                               size: 30,
                             )

@@ -27,7 +27,7 @@ class _HeartProgressIndicatorState extends State<HeartProgressIndicator>
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 2),
     );
     _animation = Tween<double>(
       begin: 0,
@@ -99,22 +99,21 @@ class _HeartPainter extends CustomPainter {
     // Left side of heart
     path.cubicTo(
       width * 0.2,
-      height * 0.05, // left top curve (higher for rounded lobe)
+      height * 0.05,
       width * 0.001,
-      height * 0.4, // left middle (wider curve)
+      height * 0.4,
       width * 0.5,
-      height * 0.8, // bottom point (lower for pointed tip)
+      height * 0.8,
     );
 
-    // Right side of heart
-    path.moveTo(width * 0.5, height * 0.3);
+    // Right side of heart — no moveTo here!
     path.cubicTo(
-      width * 0.8,
-      height * 0.05, // right top curve (higher for rounded lobe)
       width * 0.999,
-      height * 0.4, // right middle (wider curve)
+      height * 0.4,
+      width * 0.8,
+      height * 0.05,
       width * 0.5,
-      height * 0.8, // bottom point (lower for pointed tip)
+      height * 0.3,
     );
 
     final PathMetric pathMetric = path.computeMetrics().first;
