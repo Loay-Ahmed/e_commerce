@@ -28,7 +28,10 @@ class ProductInfoWidget extends StatelessWidget {
                   ),
                   textAlign: TextAlign.right,
                 ),
-                CustomProductQuantity(productId: product.id!),
+                CustomProductQuantity(
+                  productId: product.id!,
+                  price: product.price!,
+                ),
               ],
             ),
             SizedBox(height: 4),

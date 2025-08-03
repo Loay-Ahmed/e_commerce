@@ -1,10 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
-import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_notified_bell.dart';
 import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
-import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture.dart';
 import 'package:e_commerce/features/my_profile/view_model/cubit/user_cubit.dart';
 import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar_button.dart';

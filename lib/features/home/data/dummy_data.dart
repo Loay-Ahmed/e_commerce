@@ -4,7 +4,7 @@ final List<ProductModel> dummyProducts = [
   ProductModel(
     name: 'بطيخ',
     imageUrl: 'assets/images/watermelon.png',
-    price: '20',
+    price: 20,
     quantity: 1,
     reviewsRate: 4.5,
     reviewsNumber: 89,
@@ -16,7 +16,7 @@ final List<ProductModel> dummyProducts = [
   ProductModel(
     name: 'فراولة',
     imageUrl: 'assets/images/strawberry.png',
-    price: '30',
+    price: 30,
     quantity: 1,
     reviewsRate: 4.8,
     reviewsNumber: 120,
@@ -28,7 +28,7 @@ final List<ProductModel> dummyProducts = [
   ProductModel(
     name: 'أناناس',
     imageUrl: 'assets/images/pineapple.png',
-    price: '20',
+    price: 20,
     quantity: 1,
     reviewsRate: 4.6,
     reviewsNumber: 73,
@@ -40,7 +40,7 @@ final List<ProductModel> dummyProducts = [
   ProductModel(
     name: 'أفوكادو',
     imageUrl: 'assets/images/avocado.png',
-    price: '200',
+    price: 200,
     quantity: 1,
     reviewsRate: 4.7,
     reviewsNumber: 65,
@@ -52,7 +52,7 @@ final List<ProductModel> dummyProducts = [
   ProductModel(
     name: 'مانجو',
     imageUrl: 'assets/images/mango.png',
-    price: '25',
+    price: 25,
     quantity: 1,
     reviewsRate: 4.8,
     reviewsNumber: 112,
@@ -64,7 +64,7 @@ final List<ProductModel> dummyProducts = [
   ProductModel(
     name: 'موز',
     imageUrl: 'assets/images/banana.png',
-    price: '15',
+    price: 15,
     quantity: 1,
     reviewsRate: 4.9,
     reviewsNumber: 150,

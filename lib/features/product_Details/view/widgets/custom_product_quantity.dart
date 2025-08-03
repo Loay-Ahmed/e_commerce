@@ -12,10 +12,12 @@ class CustomProductQuantity extends StatelessWidget {
     super.key,
     this.isSmall = false,
     required this.productId,
+    required this.price,
   });
 
   final bool isSmall;
   final String productId;
+  final int price;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +61,7 @@ class CustomProductQuantity extends StatelessWidget {
                       {
                         quantity++;
                         cartCubit.increaseDummyQuantity();
-                        await cartCubit.increaseQuantity(productId);
+                        await cartCubit.increaseQuantity(productId, price);
                       }
                     },
                   ),
@@ -87,7 +89,7 @@ class CustomProductQuantity extends StatelessWidget {
                       // color,
                     ),
                     onPressed: () async {
-                      await cartCubit.decreaseQuantity(productId);
+                      await cartCubit.decreaseQuantity(productId, price);
 
                       if (quantity > 1) {
                         quantity--;

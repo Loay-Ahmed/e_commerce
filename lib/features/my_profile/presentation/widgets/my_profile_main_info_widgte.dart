@@ -1,7 +1,5 @@
 import 'dart:developer';
-import 'dart:io';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
@@ -11,7 +9,6 @@ import 'package:e_commerce/features/my_profile/view_model/cubit/user_cubit.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:image_picker/image_picker.dart';
 
 class MyProfileMainInfoWidget extends StatelessWidget {
   const MyProfileMainInfoWidget({super.key});

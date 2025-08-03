@@ -7,7 +7,6 @@ import 'package:e_commerce/features/checkout/view_model/Cubits/form_controller_c
 import 'package:e_commerce/features/checkout/view_model/Cubits/payment_cubit/payment_cubit.dart';
 
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
-import 'package:e_commerce/features/my_profile/presentation/my_profile_view.dart';
 import 'package:e_commerce/features/nav_bar/presentation/main_home_view.dart';
 import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
 

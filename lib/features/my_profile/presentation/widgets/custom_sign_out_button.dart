@@ -1,12 +1,9 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
-import 'package:e_commerce/core/functions/navigate_without_back.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
-import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/auth/view/login_view.dart';
 import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
 import 'package:e_commerce/features/my_profile/presentation/functions/show_sign_out_confirmation_message.dart';
-import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';

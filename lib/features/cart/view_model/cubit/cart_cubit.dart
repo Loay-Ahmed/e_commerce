@@ -16,6 +16,8 @@ class CartCubit extends Cubit<CartState> {
   final List<ProductModel> products;
   int dummyQuantity = 1;
 
+  int totalPrice = 0;
+
   List<ProductModel> cartProducts = [];
   Map<String, int> cartProductsMapQuantity = {};
   // void addRemoveToFavorite(int index) {
@@ -51,9 +53,11 @@ class CartCubit extends Cubit<CartState> {
       for (var product in products) {
         if (product.id == productId) {
           cartProducts.add(product);
+          totalPrice += product.price! * quantity;
           break;
         }
       }
+
       cartProductsMapQuantity.addAll({productId: quantity});
       emit(AddToCartSuccess());
     } catch (e) {
@@ -77,6 +81,7 @@ class CartCubit extends Cubit<CartState> {
       for (var product in products) {
         if (product.id == productId) {
           cartProducts.remove(product);
+          totalPrice -= product.price! * product.quantity!;
           break;
         }
       }
@@ -108,6 +113,7 @@ class CartCubit extends Cubit<CartState> {
         for (var product in products) {
           if (product.id == carts.forProduct) {
             cartProducts.add(product);
+            totalPrice += (product.price! * carts.quantity!);
             break;
           }
         }
@@ -126,7 +132,7 @@ class CartCubit extends Cubit<CartState> {
     }
   }
 
-  Future<void> increaseQuantity(String productId) async {
+  Future<void> increaseQuantity(String productId, int productPrice) async {
     try {
       emit(QuantityChangedLoading());
       if (getProductQuantityInCartIfExist(productId) != 0) {
@@ -137,6 +143,7 @@ class CartCubit extends Cubit<CartState> {
           'carts_table?select=*&for_user=eq.$userId&for_product=eq.$productId',
           {'quantity': cartProductsMapQuantity[productId]},
         );
+        totalPrice += productPrice;
       }
       emit(QuantityChangedSuccess());
     } catch (e) {
@@ -145,7 +152,7 @@ class CartCubit extends Cubit<CartState> {
     }
   }
 
-  Future<void> decreaseQuantity(String productId) async {
+  Future<void> decreaseQuantity(String productId, int productPrice) async {
     try {
       emit(QuantityChangedLoading());
       if (getProductQuantityInCartIfExist(productId) != 0 &&
@@ -157,6 +164,7 @@ class CartCubit extends Cubit<CartState> {
           'carts_table?select=*&for_user=eq.$userId&for_product=eq.$productId',
           {'quantity': cartProductsMapQuantity[productId].toString()},
         );
+        totalPrice -= productPrice;
       }
       emit(QuantityChangedSuccess());
     } catch (e) {

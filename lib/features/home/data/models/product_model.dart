@@ -5,7 +5,7 @@ class ProductModel {
   String? id;
   DateTime? createdAt;
   String? name;
-  String? price;
+  int? price;
   int? quantity;
   String? description;
   double? expireDate;
@@ -45,7 +45,7 @@ class ProductModel {
             ? null
             : DateTime.parse(json['created_at'] as String),
     name: json['name'] as String?,
-    price: json['price'] as String?,
+    price: json['price'] as int?,
     quantity: json['quantity'] as int?,
     description: json['description'] as String?,
     expireDate: (json['expire_date'] as num?)?.toDouble(),
