@@ -117,7 +117,11 @@ class ProductDetailsScreen extends StatelessWidget {
                             navigateWithoutBack(context, MainHomeView());
                           }
                         },
-                        isLoading: state is AddToCartLoading ? true : false,
+                        isLoading:
+                            state is AddToCartLoading ||
+                                    state is GetProductsCartLoading?
+                                ? true
+                                : false,
                       ),
                     );
                   },

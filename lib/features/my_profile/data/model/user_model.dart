@@ -3,7 +3,7 @@ class UserModel {
   DateTime? createdAt;
   String? name;
   String? email;
-  dynamic image;
+  String? image;
   dynamic address;
 
   UserModel({
@@ -23,7 +23,7 @@ class UserModel {
             : DateTime.parse(json['created_at'] as String),
     name: json['name'] as String?,
     email: json['email'] as String?,
-    image: json['image'] as dynamic,
+    image: json['image'] as String?,
     address: json['address'] as dynamic,
   );
 

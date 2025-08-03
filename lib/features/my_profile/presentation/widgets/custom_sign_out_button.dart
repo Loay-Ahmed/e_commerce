@@ -18,15 +18,19 @@ class CustomSignOutButton extends StatelessWidget {
       create: (context) => AuthenticationCubit(),
       child: BlocConsumer<AuthenticationCubit, AuthenticationState>(
         listener: (context, state) {
-          // TODO: implement listener
+          if (state is LogoutSuccess) {
+            // context.read<NavBarCubit>().changeCurrentIndex(0);
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (_) => const LoginView()),
+              (Route<dynamic> route) => false,
+            );
+          }
         },
         builder: (context, state) {
           AuthenticationCubit auth = context.read<AuthenticationCubit>();
           return GestureDetector(
-            onTap: () {
-              auth.signOut();
-              context.read<NavBarCubit>().changeCurrentIndex(0);
-              navigateWithoutBack(context, LoginView());
+            onTap: () async {
+              await auth.signOut();
             },
             child: Container(
               height: 41,

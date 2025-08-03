@@ -7,7 +7,10 @@ class CustomCircleProgIndicatorForSocialButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: CircularProgressIndicator(color: CustomColors.grey950),
+      child: CircularProgressIndicator(
+        strokeWidth: 3,
+        color: CustomColors.grey950,
+      ),
     );
   }
 }

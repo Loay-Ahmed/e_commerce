@@ -6,6 +6,11 @@ class CustomCircleProgIndicatorForNormalButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: CircularProgressIndicator(color: CustomColors.light));
+    return Center(
+      child: CircularProgressIndicator(
+        strokeWidth: 5,
+        color: CustomColors.light,
+      ),
+    );
   }
 }

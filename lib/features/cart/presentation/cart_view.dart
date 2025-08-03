@@ -35,7 +35,8 @@ class CartView extends StatelessWidget {
           },
           builder: (context, state) {
             CartCubit cartCubit = context.read<CartCubit>();
-            return state is GetProductsCartLoading
+            return state is GetProductsCartLoading ||
+                    state is RemoveFromCartLoading
                 ? CustomCircleProgIndicatorForSocialButton()
                 : Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -1,8 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_notified_bell.dart';
+import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
+import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture.dart';
+import 'package:e_commerce/features/my_profile/view_model/cubit/user_cubit.dart';
 import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,13 +17,13 @@ class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AuthenticationCubit()..getUserData(),
-      child: BlocConsumer<AuthenticationCubit, AuthenticationState>(
+      create: (context) => UserCubit()..getUserData(),
+      child: BlocConsumer<UserCubit, UserState>(
         listener: (context, state) {
           // TODO: implement listener
         },
         builder: (context, state) {
-          AuthenticationCubit auth = context.read<AuthenticationCubit>();
+          UserCubit userCubit = context.read<UserCubit>();
           return SizedBox(
             height: 110,
             width: double.infinity,
@@ -31,14 +35,14 @@ class HeaderWidget extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 5),
-                      child: CircleAvatar(
-                        radius: 22,
-                        backgroundColor: CustomColors.green500,
-                        backgroundImage: const AssetImage(
-                          AssetsData.profileImage,
-                        ),
-                        // child: Icon(Icons.menu, color: Colors.white),
-                      ),
+                      child:
+                          state is GetUserDataLoading
+                              ? CustomCircleProgIndicatorForSocialButton()
+                              : CustomAvatarProfilePicture(
+                                imageUrl: userCubit.userDataModel?.image ?? '',
+                                width: 44,
+                                height: 44,
+                              ),
                     ),
 
                     SizedBox(width: 8),
@@ -55,10 +59,17 @@ class HeaderWidget extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 4),
-                        Text(
-                          auth.userDataModel?.name ?? 'ابلع',
-                          style: CustomFonts.cairoTextStyleBold_16grey950w700,
-                        ),
+                        state is GetUserDataLoading
+                            ? SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CustomCircleProgIndicatorForSocialButton(),
+                            )
+                            : Text(
+                              userCubit.userDataModel?.name ?? 'ابلع',
+                              style:
+                                  CustomFonts.cairoTextStyleBold_16grey950w700,
+                            ),
                       ],
                     ),
                     Spacer(),

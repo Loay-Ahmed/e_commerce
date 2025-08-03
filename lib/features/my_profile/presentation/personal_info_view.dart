@@ -58,60 +58,65 @@ class _PersonalInfoViewState extends State<PersonalInfoView> {
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          'المعلومات الشخصيه',
-                          style: CustomFonts.cairoTextStyleBold_13grey950w600,
-                        ),
-                        SizedBox(height: 8),
-                        CustomTextFormField(
-                          controller: nameController,
-                          obscure: false,
-                          hint: 'احمد ياسر',
-                        ),
-                        SizedBox(height: 8),
-                        CustomTextFormField(
-                          controller: emailController,
-                          obscure: false,
-                          hint: 'm@gmail.com',
-                        ),
-                        SizedBox(height: 16),
-                        Text(
-                          'تغيير كلمة المرور',
-                          style: CustomFonts.cairoTextStyleBold_13grey950w600,
-                        ),
-                        SizedBox(height: 8),
-                        CustomTextFormField(
-                          controller: currentPasswordController,
-                          obscure: true,
-                          hint: 'كلمة المرور الحالى',
-                        ),
-                        SizedBox(height: 8),
-                        CustomTextFormField(
-                          controller: newPasswordController,
-                          obscure: true,
-                          hint: 'كلمة المرور الجديدة',
-                        ),
-                        SizedBox(height: 8),
-                        CustomTextFormField(
-                          controller: confirmNewPasswordController,
-                          obscure: true,
-                          hint: 'تأكيد كلمة المرور الجديدة',
-                        ),
-                      ],
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            'المعلومات الشخصيه',
+                            style: CustomFonts.cairoTextStyleBold_13grey950w600,
+                          ),
+                          SizedBox(height: 8),
+                          CustomTextFormField(
+                            controller: nameController,
+                            obscure: false,
+                            hint: 'احمد ياسر',
+                          ),
+                          SizedBox(height: 8),
+                          CustomTextFormField(
+                            controller: emailController,
+                            obscure: false,
+                            hint: 'm@gmail.com',
+                          ),
+                          SizedBox(height: 16),
+                          Text(
+                            'تغيير كلمة المرور',
+                            style: CustomFonts.cairoTextStyleBold_13grey950w600,
+                          ),
+                          SizedBox(height: 8),
+                          CustomTextFormField(
+                            controller: currentPasswordController,
+                            obscure: true,
+                            hint: 'كلمة المرور الحالى',
+                          ),
+                          SizedBox(height: 8),
+                          CustomTextFormField(
+                            controller: newPasswordController,
+                            obscure: true,
+                            hint: 'كلمة المرور الجديدة',
+                          ),
+                          SizedBox(height: 8),
+                          CustomTextFormField(
+                            controller: confirmNewPasswordController,
+                            obscure: true,
+                            hint: 'تأكيد كلمة المرور الجديدة',
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 50),
-                    child: CustomButton(text: 'حفظ التغييرات', onPress: () {}),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 50),
+                      child: CustomButton(
+                        text: 'حفظ التغييرات',
+                        onPress: () {},
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

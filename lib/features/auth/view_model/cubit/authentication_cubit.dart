@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce/core/utils/api_keys.dart';
 
-import 'package:e_commerce/features/auth/data/model/user_model.dart';
+import 'package:e_commerce/features/my_profile/data/model/user_model.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -26,7 +26,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         email: email,
         password: password,
       );
-      await getUserData();
+      // await getUserData();
       emit(LoginSuccess());
     } on AuthException catch (e) {
       log(e.toString());
@@ -49,7 +49,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         password: password,
       );
       await addUserData(name: name, email: email);
-      await getUserData();
+      // await getUserData();
       emit(SignUpSuccess());
     } on AuthException catch (e) {
       log(e.toString());
@@ -87,7 +87,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       accessToken: accessToken,
     );
     await addUserData(name: googleUser!.displayName!, email: googleUser!.email);
-    await getUserData();
+    // await getUserData();
 
     emit(GoogleSignInSuccess());
     return response;
@@ -132,26 +132,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     } catch (e) {
       log(e.toString());
       emit(UserDataAddedFailure());
-    }
-  }
-
-  UserModel? userDataModel;
-  Future<void> getUserData() async {
-    emit(GetUserDataLoading());
-    try {
-      final List<Map<String, dynamic>> data = await client
-          .from('users')
-          .select()
-          .eq("user_id", client.auth.currentUser!.id);
-      userDataModel = UserModel(
-        email: data[0]["email"],
-        name: data[0]["name"],
-        userId: data[0]["user_id"],
-      );
-      emit(GetUserDataSuccess());
-    } catch (e) {
-      log(e.toString());
-      emit(GetUserDataFailure());
     }
   }
 }
