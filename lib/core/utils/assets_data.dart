@@ -53,4 +53,8 @@ abstract class AssetsData {
   static const String delete = 'assets/images/delete.svg';
   static const String emptyFavoriteProducts =
       'assets/images/empty_favorite_products.jpg';
+
+  static const String offer = 'assets/images/offer.svg';
+  static const String offerPng = 'assets/images/offer.png';
+  static const String offerJpg = 'assets/images/offer.jpg';
 }

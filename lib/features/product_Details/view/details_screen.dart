@@ -91,7 +91,9 @@ class ProductDetailsScreen extends StatelessWidget {
 
                 BlocConsumer<CartCubit, CartState>(
                   listener: (context, state) {
-                    // TODO: implement listener
+                    if (state is AddToCartSuccess) {
+                      Navigator.of(context).pop();
+                    }
                   },
                   builder: (context, state) {
                     CartCubit cartCubit = context.read<CartCubit>();
@@ -111,7 +113,6 @@ class ProductDetailsScreen extends StatelessWidget {
                               cartCubit.dummyQuantity,
                             );
                             cartCubit.initDummyQuantityValue();
-                            Navigator.of(context).pop();
                           } else {
                             context.read<NavBarCubit>().changeCurrentIndex(2);
                             navigateWithoutBack(context, MainHomeView());

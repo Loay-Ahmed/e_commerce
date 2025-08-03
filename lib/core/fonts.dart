@@ -36,6 +36,13 @@ abstract class CustomFonts {
     color: CustomColors.green1_500,
   );
 
+  static final TextStyle cairoTextStyleBold_16green10w700 = TextStyle(
+    fontFamily: 'cairo',
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: CustomColors.green10,
+  );
+
   static final TextStyle cairoTextStyleBold_13green800 = TextStyle(
     fontFamily: 'cairo',
     fontSize: 13,
