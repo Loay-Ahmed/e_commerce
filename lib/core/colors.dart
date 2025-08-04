@@ -5,6 +5,7 @@ abstract class CustomColors {
   static final black5 = Color(0xffF9FAFA);
   static final black10 = Color(0xffE6E9EA);
   static final black40 = Color(0xffC9CECF);
+  static final black = Color(0xffffffff);
 
   // Grey section
   // #CACECE66
@@ -22,6 +23,7 @@ abstract class CustomColors {
   static final grey950 = Color(0xff0C0D0D);
   static final grey600 = Color(0xff616A6B);
   static final grey500 = Color(0xff4E5556);
+  static const gray100Transparent50 = Color(0x80E4E6E7);
 
   static final lightGrey = Color(0xff979899);
 
@@ -47,8 +49,11 @@ abstract class CustomColors {
   static final green1_600 = Color(0xff2D9F5D);
 
   // Orange section
-  static final orange500 = Color(0xffF4A91F);
   static final orange300 = Color(0xffF8C76D);
+  static final orangePrimaryColor = Color(0xffFFB400);
+  static final orange400 = Color(0xFFF6B54B);
+  static final orange450 = Color(0xFFF7BE5C);
+  static final orange500 = Color(0xffF4A91F);
 
   // Red section
   static final red500 = Color(0xffF03A20);

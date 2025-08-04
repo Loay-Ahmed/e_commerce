@@ -57,4 +57,5 @@ abstract class AssetsData {
   static const String offer = 'assets/images/offer.svg';
   static const String offerPng = 'assets/images/offer.png';
   static const String offerJpg = 'assets/images/offer.jpg';
+  static const String starRating = 'assets/images/star.svg';
 }

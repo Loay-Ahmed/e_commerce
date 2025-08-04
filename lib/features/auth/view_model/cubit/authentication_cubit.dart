@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce/core/utils/api_keys.dart';
 
-
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:meta/meta.dart';

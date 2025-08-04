@@ -2,6 +2,12 @@ import 'package:e_commerce/core/colors.dart';
 import 'package:flutter/material.dart';
 
 abstract class CustomFonts {
+  static final TextStyle cairoTextStyleBold_11whitew600 = TextStyle(
+    fontFamily: 'cairo',
+    fontSize: 11,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
+  );
   static final TextStyle cairoTextStyleBold_17 = TextStyle(
     fontFamily: 'cairo',
     fontSize: 17,
@@ -165,6 +171,13 @@ abstract class CustomFonts {
     fontSize: 19,
     fontWeight: FontWeight.w700,
     color: CustomColors.grey950,
+  );
+
+  static final TextStyle cairoTextStyleBold_13blackw400 = TextStyle(
+    fontFamily: 'cairo',
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    color: CustomColors.black,
   );
 
   static final TextStyle cairoTextStyleBold_13red500 = TextStyle(

@@ -1,6 +1,8 @@
 import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/core/functions/navigate_to.dart';
 import 'package:e_commerce/features/home/data/models/product_model.dart';
 import 'package:e_commerce/features/product_Details/view/widgets/custom_product_quantity.dart';
+import 'package:e_commerce/features/product_review/presentation/product_review_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -63,13 +65,24 @@ class ProductInfoWidget extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 8),
-                Text(
-                  "المراجعة",
-                  style: GoogleFonts.cairo(
-                    color: CustomColors.green1_500,
-                    decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 15,
+                GestureDetector(
+                  onTap: () {
+                    navigateTo(
+                      context,
+                      ProductReviewView(
+                        productId: product.id!,
+                        reviewsNumber: product.reviewsNumber!,
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "المراجعة",
+                    style: GoogleFonts.cairo(
+                      color: CustomColors.green1_500,
+                      decoration: TextDecoration.underline,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 15,
+                    ),
                   ),
                 ),
               ],

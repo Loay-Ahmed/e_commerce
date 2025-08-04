@@ -9,6 +9,7 @@ import 'package:e_commerce/features/checkout/view_model/Cubits/payment_cubit/pay
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
 import 'package:e_commerce/features/nav_bar/presentation/main_home_view.dart';
 import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
+import 'package:e_commerce/features/product_review/presentation/product_review_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

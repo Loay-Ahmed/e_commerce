@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final auth = context.watch<AuthenticationCubit>();
+
     bool showPassword = false;
     bool isAgreed = false;
     return Scaffold(
@@ -96,76 +96,42 @@ class SignUpScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 30),
-                      CustomButton(
-                        text: 'إنشاء حساب جديد',
-                        onPress:
-                            isAgreed
-                                ? () {
-                                  auth.register(
-                                    name: nameController.text.trim(),
-                                    email: emailController.text.trim(),
-                                    password: passwordController.text.trim(),
-                                  );
-                                  navigateWithoutBack(context, LoginView());
-                                }
-                                : null,
+                      BlocProvider(
+                        create: (context) => AuthenticationCubit(),
+                        child: BlocConsumer<
+                          AuthenticationCubit,
+                          AuthenticationState
+                        >(
+                          listener: (context, state) {
+                            if (state is SignUpSuccess) {
+                              navigateWithoutBack(context, LoginView());
+                            }
+                          },
+                          builder: (context, state) {
+                            final auth = context.read<AuthenticationCubit>();
+                            return CustomButton(
+                              text: 'إنشاء حساب جديد',
+                              isLoading: state is SignUpLoading ? true : false,
+                              onPress:
+                                  isAgreed
+                                      ? () async {
+                                        await auth.register(
+                                          name: nameController.text.trim(),
+                                          email: emailController.text.trim(),
+                                          password:
+                                              passwordController.text.trim(),
+                                        );
+                                      }
+                                      : null,
+                            );
+                          },
+                        ),
                       ),
                     ],
                   );
                 },
               ),
 
-              // Builder(
-              //   builder: (context) {
-              //     return Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         Checkbox(
-              //           value: isAgreed,
-              //             onChanged: (value) {
-              //             {
-              //               isAgreed = value!;
-              //               (context as Element ).markNeedsBuild();
-              //             };
-              //           },
-              //           activeColor: Colors.blue,
-              //         ),
-              //         const Text(
-              //           'موافقة على الشروط والتحكم الخاصة بنا',
-              //           style: TextStyle(fontSize: 14),
-              //         ),
-              //       ],
-              //     );
-              //   }
-              // ),
-              // Builder(
-              //   builder: (ctx) {
-              //     return SizedBox(
-              //       width: double.infinity,
-              //       child: ElevatedButton(
-              //         onPressed:   isAgreed ? (){
-              //
-              //
-              //         }:null,
-              //
-              //         style: ElevatedButton.styleFrom(
-              //           backgroundColor: const Color(0XFFFF1B5E37),
-              //           padding: const EdgeInsets.symmetric(vertical: 16),
-              //           shape: RoundedRectangleBorder(
-              //             borderRadius: BorderRadius.circular(12),
-              //           ),
-              //         ),
-              //         child: const Text(
-              //            'إنشاء حساب جديد',
-              //           style: TextStyle(color: Color(0XFFFFFFFFF),fontSize: 18),
-              //         ),
-              //
-              //
-              //       ),
-              //     );
-              //   }
-              //
-              // ),
               const SizedBox(height: 20),
               MixTextButton(
                 text1: 'لديك حساب بالفعل؟  ',
