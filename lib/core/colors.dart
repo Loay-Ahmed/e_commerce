@@ -5,12 +5,17 @@ abstract class CustomColors {
   static final black5 = Color(0xffF9FAFA);
   static final black10 = Color(0xffE6E9EA);
   static final black40 = Color(0xffC9CECF);
+  static final black = Color(0xffffffff);
 
   // Grey section
+  // #CACECE66
 
   static final light = Color(0xfff3f5f7);
   static final grey = Color(0xffF7F7F7);
   static final grey50 = Color(0xffF2F3F3);
+  static final grey60 = Color(0xFFE3E3E3); // RGB(227, 227, 227)
+
+  static final grey70 = Color(0xFFE0E1E1); // RGB(224, 225, 225)
   static final grey100 = Color(0xffD9D9D9);
   static final grey300 = Color(0xffB4B4B4);
   static final grey400 = Color(0xff949d9e);
@@ -18,6 +23,7 @@ abstract class CustomColors {
   static final grey950 = Color(0xff0C0D0D);
   static final grey600 = Color(0xff616A6B);
   static final grey500 = Color(0xff4E5556);
+  static const gray100Transparent50 = Color(0x80E4E6E7);
 
   static final lightGrey = Color(0xff979899);
 
@@ -34,13 +40,20 @@ abstract class CustomColors {
   static final lightGreen = Color(0xff23AA49);
 
   // Green 1 section
+  static final green1_50 = Color(0xffEBF9F1);
+  static final green1_300 = Color(0xff6FBF9C);
+  static final green1_400 = Color(0xff47936D);
+
   static final green1_500 = Color(0xff1B5E37);
   static final green1_200 = Color.fromARGB(178, 176, 232, 199);
   static final green1_600 = Color(0xff2D9F5D);
 
   // Orange section
-  static final orange500 = Color(0xffF4A91F);
   static final orange300 = Color(0xffF8C76D);
+  static final orangePrimaryColor = Color(0xffFFB400);
+  static final orange400 = Color(0xFFF6B54B);
+  static final orange450 = Color(0xFFF7BE5C);
+  static final orange500 = Color(0xffF4A91F);
 
   // Red section
   static final red500 = Color(0xffF03A20);

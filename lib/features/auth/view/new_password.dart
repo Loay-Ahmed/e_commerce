@@ -1,7 +1,8 @@
 import 'dart:async';
 
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
-import 'package:e_commerce/features/auth/widgets/custom_app_bar.dart';
+import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,7 +28,7 @@ class NewPassword extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const CustomAppBar(title: "كلمة مرور جديدة"),
+                CustomHeader(title: 'كلمة مرور جديده', hasBackArrow: true),
                 const SizedBox(height: 40),
                 Text(
                   "قم بإنشاء كلمة مرور جديدة لتسجيل الدخول",
@@ -41,7 +42,7 @@ class NewPassword extends StatelessWidget {
 
                 Builder(
                   builder: (context) {
-                    return CustomTextField(
+                    return CustomTextFormField(
                       controller: passwordController,
                       obscure: !showPassword,
                       hint: 'كلمة المرور',
@@ -68,7 +69,7 @@ class NewPassword extends StatelessWidget {
                 const SizedBox(height: 10),
                 Builder(
                   builder: (context) {
-                    return CustomTextField(
+                    return CustomTextFormField(
                       controller: confirmPasswordController,
                       obscure: !showConfirmPassword,
                       hint: 'تأكيد كلمة المرور',
@@ -115,10 +116,7 @@ class NewPassword extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Image.asset(
-                                  "assets/images/done.png",
-                                  width: 154,
-                                ),
+                                Image.asset(AssetsData.done, width: 154),
                                 const SizedBox(height: 29),
                                 Text(
                                   'تم تغيير الباسورد بنجاح',

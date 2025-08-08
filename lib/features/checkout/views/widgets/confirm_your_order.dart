@@ -1,7 +1,8 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
+import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/checkout/view_model/Cubits/form_controller_cubit/form_controller_cubit.dart';
-import 'package:e_commerce/features/checkout/views/widgets/custom_delivery_button.dart';
+
 import 'package:e_commerce/features/checkout/views/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -61,9 +62,9 @@ class ConfirmYourOrder extends StatelessWidget {
                               children: [
                                 CustomFormField(),
                                 SizedBox(height: 20),
-                                CustomDeliveryButton(
-                                  title: 'حفظ',
-                                  onPressed: () {
+                                CustomButton(
+                                  text: 'حفظ',
+                                  onPress: () {
                                     if (BlocProvider.of<FormControllerCubit>(
                                       context,
                                     ).onSubmitForm(context)) {

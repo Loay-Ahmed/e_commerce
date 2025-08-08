@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,7 +15,7 @@ class PageView1 extends StatelessWidget {
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
-          Image.asset("assets/images/back_page_1.png"),
+          Image.asset(AssetsData.backPage1),
           Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -37,11 +38,7 @@ class PageView1 extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              Image.asset(
-                "assets/images/image_page_1.png",
-                width: 250,
-                height: 270,
-              ),
+              Image.asset(AssetsData.imagePage1, width: 250, height: 270),
               SizedBox(height: 100),
               Text(
                 /* "${S.of(context).splash_1_title}" */

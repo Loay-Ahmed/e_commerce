@@ -8,7 +8,7 @@ import 'package:e_commerce/features/checkout/data/services/api_service.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 class StripeService {
-  final ApiService apiService = ApiService();
+  final CheckoutApiService apiService = CheckoutApiService();
   Future<PaymentIntentModel> createPaymentIntent(
     PaymentIntentInputModel paymentIntentInputModel,
   ) async {

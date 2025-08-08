@@ -4,7 +4,6 @@ import 'package:e_commerce/core/utils/payment_method_items.dart';
 import 'package:e_commerce/features/checkout/view_model/Cubits/payment_cubit/payment_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 
 class PaymentWay extends StatelessWidget {
   const PaymentWay({super.key});

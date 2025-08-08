@@ -1,7 +1,13 @@
 import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
+import 'package:e_commerce/core/widgets/custom_cached_network_image.dart';
+import 'package:e_commerce/features/favorite/presentation/widgets/heart_progress_indecator.dart';
+
 import 'package:e_commerce/features/home/data/models/product_model.dart';
-import 'package:e_commerce/features/home/view_model/cubits/favorite_cubit/favorite_cubit.dart';
+
+import 'package:e_commerce/features/favorite/view_model/favorite_cubit/favorite_cubit.dart';
+import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -26,32 +32,12 @@ class ProductCardWidget extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: 8,
-            right: 8,
-            child: BlocBuilder<FavoriteCubit, FavoriteState>(
-              builder: (context, state) {
-                String currentAsset =
-                    state.favorites[index]
-                        ? AssetsData.redHeart
-                        : AssetsData.heart;
-
-                return InkWell(
-                  onTap: () {
-                    context.read<FavoriteCubit>().addRemoveToFavorite(index);
-                  },
-                  child: SvgPicture.asset(currentAsset, height: 20, width: 20),
-                );
-              },
-            ),
-          ),
-
-          Positioned(
             top: 15,
             right: 20,
             child: SizedBox(
               width: 131,
               height: 116,
-              child: Image.asset(product.image, fit: BoxFit.contain),
+              child: CustomCachedNetworkImage(imageUrl: product.imageUrl!),
             ),
           ),
           Positioned(
@@ -61,15 +47,9 @@ class ProductCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  product.name,
+                  product.name!,
                   textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontFamily: 'Cairo',
-                    fontWeight: FontWeight.w600,
-                    fontSize: 13,
-
-                    letterSpacing: 0.0,
-                  ),
+                  style: CustomFonts.cairoTextStyleBold_13grey950w600,
                 ),
                 SizedBox(height: 4),
                 Row(
@@ -78,24 +58,12 @@ class ProductCardWidget extends StatelessWidget {
                     Text(
                       '${product.price} جنية / ',
                       textAlign: TextAlign.right,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 13,
-                        letterSpacing: 0.0,
-                        color: CustomColors.orange500,
-                      ),
+                      style: CustomFonts.cairoTextStyleBold_13orange500w700,
                     ),
                     Text(
                       'الكيلو',
                       textAlign: TextAlign.right,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 13,
-                        color: CustomColors.orange300,
-                        letterSpacing: 0.0,
-                      ),
+                      style: CustomFonts.cairoTextStyleBold_13orange300w600,
                     ),
                   ],
                 ),
@@ -116,6 +84,47 @@ class ProductCardWidget extends StatelessWidget {
               child: IconButton(
                 onPressed: () {},
                 icon: SvgPicture.asset(height: 16, width: 16, AssetsData.add),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 8,
+            right: 8,
+            child: BlocProvider(
+              create:
+                  (context) => FavoriteCubit(
+                    products: context.read<HomeCubit>().products,
+                  )..getFavoriteProducts(),
+              child: BlocBuilder<FavoriteCubit, FavoriteState>(
+                builder: (context, state) {
+                  FavoriteCubit favoriteCubit = context.read<FavoriteCubit>();
+                  String currentAsset =
+                      favoriteCubit.isFavorite(product.id!)
+                          ? AssetsData.redHeart
+                          : AssetsData.heart;
+
+                  return InkWell(
+                    onTap: () async {
+                      if (favoriteCubit.isFavorite(product.id!)) {
+                        await favoriteCubit.removeFromFavorites(product.id!);
+                      } else {
+                        await favoriteCubit.addToFavorites(product.id!);
+                      }
+                    },
+                    child:
+                        state is GetFavoriteProductsLoading
+                            ? HeartProgressIndicator(
+                              progress: 1.0, // 75% filled
+                              color: CustomColors.red500,
+                              size: 30,
+                            )
+                            : SvgPicture.asset(
+                              currentAsset,
+                              height: 25,
+                              width: 25,
+                            ),
+                  );
+                },
               ),
             ),
           ),

@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/checkout/data/controllers/user_info_controller.dart';
 
@@ -6,7 +7,7 @@ import 'package:e_commerce/features/checkout/view_model/Cubits/form_controller_c
 import 'package:e_commerce/features/checkout/views/payment_view.dart';
 
 import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_steps.dart';
-import 'package:e_commerce/features/checkout/views/widgets/custom_delivery_button.dart';
+
 import 'package:e_commerce/features/checkout/views/widgets/custom_form_field.dart';
 
 import 'package:flutter/material.dart';
@@ -46,6 +47,7 @@ class _UserInfoViewState extends State<UserInfoView> {
         child: Padding(
           padding: const EdgeInsets.only(right: 14.5, left: 15.5, top: 16),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
                 child: CheckoutDeliverySteps(
@@ -60,9 +62,9 @@ class _UserInfoViewState extends State<UserInfoView> {
               CustomFormField(),
 
               const SizedBox(height: 64),
-              CustomDeliveryButton(
-                title: 'التالى',
-                onPressed: () {
+              CustomButton(
+                text: 'التالى',
+                onPress: () {
                   if (BlocProvider.of<FormControllerCubit>(
                     context,
                   ).onSubmitForm(context)) {

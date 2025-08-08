@@ -1,28 +1,33 @@
 import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomNavBarIcon extends StatelessWidget {
   const CustomNavBarIcon({
     super.key,
-    required this.active,
+
     required this.icon,
-    required this.toggleActive,
+
     required this.index,
     required this.title,
   });
-  final bool active;
+
   final IconData icon;
   final int index;
   final String title;
-  final void Function(int) toggleActive;
 
   @override
   Widget build(BuildContext context) {
+    NavBarCubit cubit = context.read<NavBarCubit>();
+
     return GestureDetector(
-      onTap: () => toggleActive(index),
+      onTap: () {
+        cubit.changeCurrentIndex(index);
+      },
       child:
-          active
+          cubit.currentIndex == index
               ? Container(
                 height: 30,
                 decoration: BoxDecoration(

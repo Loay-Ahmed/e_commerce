@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce/features/checkout/data/controllers/user_info_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 part 'form_controller_state.dart';
 
@@ -30,5 +29,11 @@ class FormControllerCubit extends Cubit<FormControllerState> {
       );
       return false;
     }
+  }
+
+  @override
+  Future<void> close() {
+    userInfoFormController.dispose();
+    return super.close();
   }
 }

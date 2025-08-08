@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/view/code_verification.dart';
-import 'package:e_commerce/features/auth/widgets/custom_app_bar.dart';
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +21,10 @@ class ForgetPassword extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const CustomAppBar(title: 'نسيان كلمة المرور'),
+              const CustomHeader(
+                title: 'نسيان كلمة المرور',
+                hasBackArrow: true,
+              ),
               const SizedBox(height: 40),
               Text(
                 "لا تقلق ، ما عليك سوى كتابة رقم هاتفك وسنرسل رمز التحقق.",
@@ -32,7 +35,7 @@ class ForgetPassword extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              CustomTextField(
+              CustomTextFormField(
                 controller: emailController,
                 obscure: false,
                 hint: '01555850155',

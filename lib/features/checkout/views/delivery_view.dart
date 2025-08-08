@@ -1,12 +1,13 @@
-import 'package:e_commerce/core/colors.dart';
-import 'package:e_commerce/core/fonts.dart';
+import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
+import 'package:e_commerce/features/checkout/data/repos/checkout_repo_impl.dart';
+import 'package:e_commerce/features/checkout/view_model/Cubits/payment_cubit/payment_cubit.dart';
 import 'package:e_commerce/features/checkout/views/user_info_view.dart';
 import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_card.dart';
 import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_steps.dart';
-import 'package:e_commerce/features/checkout/views/widgets/custom_delivery_button.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DeliveryView extends StatelessWidget {
   const DeliveryView({super.key});
@@ -18,6 +19,7 @@ class DeliveryView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(right: 14.5, left: 15.5, top: 16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
               child: CheckoutDeliverySteps(
@@ -43,9 +45,9 @@ class DeliveryView extends StatelessWidget {
             ),
             SizedBox(height: 100),
 
-            CustomDeliveryButton(
-              title: 'التالى',
-              onPressed: () {
+            CustomButton(
+              text: 'التالى',
+              onPress: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => UserInfoView()),

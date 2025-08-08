@@ -27,7 +27,11 @@ class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
         // disable the default back button
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
-
+        elevation: 0,
+        // shadowColor: Colors.transparent,
+        // ! very important line
+        surfaceTintColor: Colors.transparent,
+        // systemOverlayStyle: SystemUiOverlayStyle.dark,
         leading:
             hasBackArrow
                 ? Padding(

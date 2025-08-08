@@ -1,12 +1,9 @@
 import 'package:e_commerce/core/colors.dart';
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/auth/view/auth_checker.dart';
-import 'package:e_commerce/features/home/view/home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../auth/view_model/auth_cubit.dart';
 
 class PageView2 extends StatelessWidget {
   const PageView2({super.key});
@@ -21,10 +18,7 @@ class PageView2 extends StatelessWidget {
         children: [
           SizedBox(
             width: MediaQuery.sizeOf(context).width,
-            child: Image.asset(
-              "assets/images/back_page_2.png",
-              fit: BoxFit.fitWidth,
-            ),
+            child: Image.asset(AssetsData.backPage2, fit: BoxFit.fitWidth),
           ),
 
           Column(
@@ -32,11 +26,7 @@ class PageView2 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Spacer(flex: 6),
-              Image.asset(
-                "assets/images/image_page_2.png",
-                width: 250,
-                height: 270,
-              ),
+              Image.asset(AssetsData.imagePage2, width: 250, height: 270),
               SizedBox(height: 100),
               Text(
                 "ابحث وتسوق",
