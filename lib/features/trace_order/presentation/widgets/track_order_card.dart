@@ -1,8 +1,10 @@
 import 'package:e_commerce/core/colors.dart';
-import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
+import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
+import 'package:e_commerce/features/trace_order/data/models/order_model.dart';
 
 import 'package:e_commerce/features/trace_order/presentation/widgets/custom_circle_avatar.dart';
+import 'package:e_commerce/features/trace_order/presentation/widgets/order_track_main_info.dart';
 import 'package:e_commerce/features/trace_order/presentation/widgets/order_track_steps_details.dart';
 import 'package:e_commerce/features/trace_order/view_model/cubit/order_card_cubit/order_card_cubit.dart';
 
@@ -10,8 +12,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TrackOrderCard extends StatefulWidget {
-  const TrackOrderCard({super.key, this.isMyOrderProfile = false});
+  const TrackOrderCard({
+    super.key,
+    this.isMyOrderProfile = false,
+    required this.orderModel,
+  });
   final bool isMyOrderProfile;
+
+  final OrderModel orderModel;
 
   @override
   State<TrackOrderCard> createState() => _TrackOrderCardState();
@@ -42,20 +50,24 @@ class _TrackOrderCardState extends State<TrackOrderCard>
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => OrderCardCubit(),
-      child: BlocConsumer<OrderCardCubit, OrderCardState>(
-        listener: (context, state) {
-          if (state is OrderCardExpanded) {
-            _animationController.forward();
-          } else if (state is OrderCardCollapsed) {
-            _animationController.reverse();
-          }
-        },
-        builder: (context, state) {
-          final cubit = context.read<OrderCardCubit>();
-          return Container(
-            padding: EdgeInsets.only(top: 19),
+    final cubit = context.read<OrderCardCubit>();
+    return BlocListener<OrderCardCubit, OrderCardState>(
+      listener: (context, state) {
+        if (widget.isMyOrderProfile &&
+            cubit.isOrderExpanded(orderId: widget.orderModel.id!) &&
+            state is OrderCardExpanded) {
+          _animationController.forward();
+        } else if (widget.isMyOrderProfile &&
+            !cubit.isOrderExpanded(orderId: widget.orderModel.id!) &&
+            state is OrderCardCollapsed) {
+          _animationController.reverse();
+        }
+      },
+
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.only(top: 19, bottom: 19),
             color: CustomColors.grey,
             alignment: Alignment.center,
 
@@ -70,41 +82,16 @@ class _TrackOrderCardState extends State<TrackOrderCard>
                       isDone: true,
                     ),
                     SizedBox(width: 16),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'طلب رقم #1222358',
-                          style: CustomFonts.cairoTextStyleBold_13grey950w700,
-                        ),
-                        Text(
-                          'تم الطلب :22مارس, 2024',
-                          style: CustomFonts.cairoTextStyleBold_11grey400w400,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'عدد الطلبات: ',
-                              style:
-                                  CustomFonts.cairoTextStyleBold_13grey400w400,
-                            ),
-                            Text(
-                              '10      250 جنيه',
-                              style:
-                                  CustomFonts.cairoTextStyleBold_13grey950w700,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                    OrderTrackMainInfo(orderModel: widget.orderModel),
                     if (widget.isMyOrderProfile) Spacer(),
                     if (widget.isMyOrderProfile)
                       Padding(
                         padding: EdgeInsets.only(left: 30),
                         child: GestureDetector(
                           onTap: () {
-                            cubit.toggleExpansion();
+                            context.read<OrderCardCubit>().toggleExpansion(
+                              orderId: widget.orderModel.id!,
+                            );
                           },
                           child: AnimatedBuilder(
                             animation: _rotationAnimation,
@@ -123,11 +110,14 @@ class _TrackOrderCardState extends State<TrackOrderCard>
                       ),
                   ],
                 ),
-                if (cubit.isExpanded) OrderTrackStepsDetails(),
+                if (widget.isMyOrderProfile &&
+                    cubit.isOrderExpanded(orderId: widget.orderModel.id!))
+                  OrderTrackStepsDetails(orderModel: widget.orderModel),
               ],
             ),
-          );
-        },
+          ),
+          SizedBox(height: 10),
+        ],
       ),
     );
   }

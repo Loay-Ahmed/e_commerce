@@ -6,7 +6,7 @@ import 'package:e_commerce/features/favorite/presentation/widgets/heart_progress
 
 import 'package:e_commerce/features/home/data/models/product_model.dart';
 
-import 'package:e_commerce/features/favorite/favorite_cubit/favorite_cubit.dart';
+import 'package:e_commerce/features/favorite/view_model/favorite_cubit/favorite_cubit.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

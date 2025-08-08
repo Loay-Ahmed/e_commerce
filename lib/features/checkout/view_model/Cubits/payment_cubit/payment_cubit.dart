@@ -10,8 +10,10 @@ import '../../../data/models/payment_intent_input_model.dart';
 part 'payment_state.dart';
 
 class PaymentCubit extends Cubit<PaymentState> {
-  PaymentCubit(this.checkoutRepo) : super(PaymentInitial());
+  PaymentCubit({required this.checkoutRepo}) : super(PaymentInitial());
   final CheckoutRepo checkoutRepo;
+  String totalPrice = '';
+  int numberOfOrders = 0;
   int cardIndex = 0;
   Future makeStripePayment({
     required PaymentIntentInputModel paymentIntentInputModel,
@@ -41,5 +43,13 @@ class PaymentCubit extends Cubit<PaymentState> {
   void updateCardIndex(int index) {
     emit(PaymentMethodChanged());
     cardIndex = index;
+  }
+
+  void updateTotalPriceAndNumberOfOrders({
+    required String totalPrice,
+    required int numberOfOrders,
+  }) {
+    totalPrice = totalPrice;
+    numberOfOrders = numberOfOrders;
   }
 }

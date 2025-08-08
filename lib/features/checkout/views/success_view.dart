@@ -6,6 +6,8 @@ import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_steps.dart';
 
 import 'package:e_commerce/features/home/view/home_view.dart';
+import 'package:e_commerce/features/nav_bar/presentation/main_home_view.dart';
+import 'package:e_commerce/features/trace_order/presentation/trace_order_checkout_view.dart';
 import 'package:flutter/material.dart';
 
 class SuccessView extends StatelessWidget {
@@ -53,10 +55,12 @@ class SuccessView extends StatelessWidget {
                 CustomButton(
                   text: 'تتبع الطلب',
                   onPress: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => PaymentView()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TraceOrderCheckoutView(),
+                      ),
+                    );
                   },
                 ),
               ],
@@ -65,7 +69,7 @@ class SuccessView extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => HomeView()),
+                  MaterialPageRoute(builder: (context) => MainHomeView()),
                   (route) => false,
                 );
               },

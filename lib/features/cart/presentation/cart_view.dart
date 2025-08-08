@@ -6,6 +6,8 @@ import 'package:e_commerce/core/widgets/custom_cached_network_image.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 import 'package:e_commerce/features/cart/view_model/cubit/cart_cubit.dart';
+import 'package:e_commerce/features/checkout/data/repos/checkout_repo_impl.dart';
+import 'package:e_commerce/features/checkout/view_model/Cubits/payment_cubit/payment_cubit.dart';
 import 'package:e_commerce/features/checkout/views/delivery_view.dart';
 import 'package:e_commerce/features/home/data/models/product_model.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
@@ -74,6 +76,12 @@ class CartView extends StatelessWidget {
                       child: CustomButton(
                         text: 'الدفع  ${cartCubit.totalPrice} جنيه',
                         onPress: () {
+                          context
+                              .read<PaymentCubit>()
+                              .updateTotalPriceAndNumberOfOrders(
+                                totalPrice: cartCubit.totalPrice.toString(),
+                                numberOfOrders: cartCubit.cartProducts.length,
+                              );
                           navigateTo(context, DeliveryView());
                         },
                       ),

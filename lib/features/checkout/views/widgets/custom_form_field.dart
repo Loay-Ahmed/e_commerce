@@ -29,6 +29,7 @@ class CustomFormField extends StatelessWidget {
               return null;
             },
           ),
+          SizedBox(height: 8),
           CustomTextFormField(
             obscure: false,
             hint: 'البريد الإلكتروني',
@@ -48,6 +49,7 @@ class CustomFormField extends StatelessWidget {
               return null;
             },
           ),
+          SizedBox(height: 8),
           CustomTextFormField(
             obscure: false,
             hint: 'العنوان',
@@ -62,6 +64,7 @@ class CustomFormField extends StatelessWidget {
               return null;
             },
           ),
+          SizedBox(height: 8),
           CustomTextFormField(
             obscure: false,
 
@@ -77,6 +80,7 @@ class CustomFormField extends StatelessWidget {
               return null;
             },
           ),
+          SizedBox(height: 8),
           CustomTextFormField(
             obscure: false,
             hint: 'رقم الطابق, رقم الشقه ..',

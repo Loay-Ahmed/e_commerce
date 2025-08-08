@@ -2,8 +2,8 @@ class OrderModel {
   String? id;
   DateTime? createdAt;
   String? orderNumber;
-  String? orderDate;
   String? orderPrice;
+  int? numberOfOrders;
   bool? orderTracking;
   String? orderTrackingDate;
   bool? orderAccepted;
@@ -20,7 +20,7 @@ class OrderModel {
     this.id,
     this.createdAt,
     this.orderNumber,
-    this.orderDate,
+    this.numberOfOrders,
     this.orderPrice,
     this.orderTracking,
     this.orderTrackingDate,
@@ -42,7 +42,8 @@ class OrderModel {
             ? null
             : DateTime.parse(json['created_at'] as String),
     orderNumber: json['order_number'] as String?,
-    orderDate: json['order_date'] as String?,
+    // orderDate: json['order_date'] as String?,
+    numberOfOrders: json['number_of_orders'] as int?,
     orderPrice: json['order_price'] as String?,
     orderTracking: json['order_tracking'] as bool?,
     orderTrackingDate: json['order_tracking_date'] as String?,
@@ -58,10 +59,11 @@ class OrderModel {
   );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
+    // 'id': id,
     'created_at': createdAt?.toIso8601String(),
     'order_number': orderNumber,
-    'order_date': orderDate,
+    // 'order_date': orderDate,
+    'number_of_orders': numberOfOrders,
     'order_price': orderPrice,
     'order_tracking': orderTracking,
     'order_tracking_date': orderTrackingDate,

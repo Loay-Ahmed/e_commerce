@@ -10,8 +10,11 @@ import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profi
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_sign_out_button.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_toggle_switch_button.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/my_profile_main_info_widgte.dart';
+import 'package:e_commerce/features/notifications/view_model/view_model/cubit/notification_cubit.dart';
+import 'package:e_commerce/features/notifications/view_model/view_model/cubit/notification_state.dart';
 import 'package:e_commerce/features/trace_order/presentation/trace_order_my_profile_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyProfileView extends StatelessWidget {
   const MyProfileView({super.key});
@@ -70,8 +73,22 @@ class MyProfileView extends StatelessWidget {
                     text: 'المفضلة',
                   ),
                   CustomMyProfileRowDetails(
-                    onTap: () {},
-                    widget: CustomToggleSwitchButton(),
+                    onTap: () {
+                      context.read<NotificationCubit>().toggleNotifications();
+                    },
+                    widget: BlocConsumer<NotificationCubit, NotificationState>(
+                      listener: (context, state) {
+                        // TODO: implement listener
+                      },
+                      builder: (context, state) {
+                        return CustomToggleSwitchButton(
+                          isActive:
+                              context
+                                  .read<NotificationCubit>()
+                                  .isNotificationEnabled(),
+                        );
+                      },
+                    ),
                     image: AssetsData.bell,
                     text: 'الاشعارات',
                   ),
@@ -84,7 +101,7 @@ class MyProfileView extends StatelessWidget {
                   ),
                   CustomMyProfileRowDetails(
                     onTap: () {},
-                    widget: CustomToggleSwitchButton(),
+                    widget: CustomToggleSwitchButton(isActive: false),
                     image: AssetsData.magicPen,
                     text: 'الوضع',
                   ),

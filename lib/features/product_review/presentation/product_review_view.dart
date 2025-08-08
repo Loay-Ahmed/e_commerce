@@ -4,16 +4,13 @@ import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
-import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_normal_button.dart';
 import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
-import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture.dart';
 import 'package:e_commerce/features/my_profile/view_model/cubit/user_cubit.dart';
 import 'package:e_commerce/features/product_review/data/models/comment_rate/comment_rate.dart';
 import 'package:e_commerce/features/product_review/presentation/widgets/custom_comment_widget.dart';
 import 'package:e_commerce/features/product_review/presentation/widgets/custom_rating_progress_bar.dart';
 import 'package:e_commerce/features/product_review/presentation/widgets/custom_write_comment_widget.dart';
 import 'package:e_commerce/features/product_review/view_model/cubit/comment_rate_cubit.dart';
-import 'package:e_commerce/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -123,7 +120,7 @@ class _ProductReviewViewState extends State<ProductReviewView> {
                                 SvgPicture.asset(AssetsData.starRating),
                                 SizedBox(width: 4),
                                 Text(
-                                  '$avgRate',
+                                  avgRate.toStringAsFixed(2),
                                   style:
                                       CustomFonts
                                           .cairoTextStyleBold_13grey950w700,
@@ -131,7 +128,7 @@ class _ProductReviewViewState extends State<ProductReviewView> {
                               ],
                             ),
                             Text(
-                              '${isThereAnyComment ? (avgRate / 5) * 100 : 0}% موصى به',
+                              '${isThereAnyComment ? ((avgRate / 5) * 100).toStringAsFixed(2) : 0}% موصى به',
                               style:
                                   CustomFonts.cairoTextStyleBold_13grey950w400,
                             ),
