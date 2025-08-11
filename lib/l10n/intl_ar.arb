@@ -117,5 +117,9 @@
     "order_shipped": "تم شحن الطلب",
     "out_for_delivery": "جاري التوصيل",
     "out_for_delivery_text": "خرج للتوصيل",
-    "order_delivered": "تم التسليم"
+    "order_delivered": "تم التسليم",
+     "logout_confirmation": "هل ترغب فى تسجيل الخروج؟",
+    "no_thanks": "لا أرغب",
+    "confirm" : "تأكيد"
+
 }

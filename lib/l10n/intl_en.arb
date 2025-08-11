@@ -118,5 +118,8 @@
     "order_shipped": "Order Shipped",
     "out_for_delivery": "Out for Delivery",
     "out_for_delivery_text": "Out for Delivery",
-    "order_delivered": "Order Delivered"
+    "order_delivered": "Order Delivered",
+   "logout_confirmation": "Do you want to log out?",
+    "no_thanks": "No, thanks",
+    "confirm": "Confirm"
 }

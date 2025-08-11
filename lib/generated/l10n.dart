@@ -968,6 +968,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Do you want to log out?`
+  String get logout_confirmation {
+    return Intl.message(
+      'Do you want to log out?',
+      name: 'logout_confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No, thanks`
+  String get no_thanks {
+    return Intl.message('No, thanks', name: 'no_thanks', desc: '', args: []);
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

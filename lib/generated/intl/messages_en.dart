@@ -50,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Choose suitable payment method",
     ),
     "city": MessageLookupByLibrary.simpleMessage("City"),
+    "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirm_new_password_hint": MessageLookupByLibrary.simpleMessage(
       "Confirm New Password",
     ),
@@ -112,6 +113,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Login with Google",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "logout_confirmation": MessageLookupByLibrary.simpleMessage(
+      "Do you want to log out?",
+    ),
     "more": MessageLookupByLibrary.simpleMessage("More"),
     "my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
     "nav_bar_cart": MessageLookupByLibrary.simpleMessage("Shopping Cart"),
@@ -127,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "no_comments": MessageLookupByLibrary.simpleMessage("No Comments"),
     "no_results": MessageLookupByLibrary.simpleMessage("No Results"),
+    "no_thanks": MessageLookupByLibrary.simpleMessage("No, thanks"),
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "order_accepted": MessageLookupByLibrary.simpleMessage("Order Accepted"),
     "order_count": MessageLookupByLibrary.simpleMessage("Order Count"),

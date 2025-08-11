@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "اختر طريقة الدفع المناسبه",
     ),
     "city": MessageLookupByLibrary.simpleMessage("المدينة"),
+    "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
     "confirm_new_password_hint": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور الجديدة",
     ),
@@ -108,6 +109,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "تسجيل بواسطة جوجل",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "logout_confirmation": MessageLookupByLibrary.simpleMessage(
+      "هل ترغب فى تسجيل الخروج؟",
+    ),
     "more": MessageLookupByLibrary.simpleMessage("المزيد"),
     "my_orders": MessageLookupByLibrary.simpleMessage("طلباتى"),
     "nav_bar_cart": MessageLookupByLibrary.simpleMessage("سلة التسوق"),
@@ -123,6 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_account": MessageLookupByLibrary.simpleMessage("لا تمتلك حساب"),
     "no_comments": MessageLookupByLibrary.simpleMessage("لا يوجد تعليقات"),
     "no_results": MessageLookupByLibrary.simpleMessage("لا يوجد نتائج"),
+    "no_thanks": MessageLookupByLibrary.simpleMessage("لا أرغب"),
     "notifications": MessageLookupByLibrary.simpleMessage("الاشعارات"),
     "order_accepted": MessageLookupByLibrary.simpleMessage("قبول الطلب"),
     "order_count": MessageLookupByLibrary.simpleMessage("عدد الطلبات"),
