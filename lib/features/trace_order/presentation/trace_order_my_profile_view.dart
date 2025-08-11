@@ -5,6 +5,7 @@ import 'package:e_commerce/features/nav_bar/presentation/main_home_view.dart';
 import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
 import 'package:e_commerce/features/trace_order/presentation/widgets/track_order_card.dart';
 import 'package:e_commerce/features/trace_order/view_model/cubit/order_card_cubit/order_card_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +27,10 @@ class TraceOrderMyProfileView extends StatelessWidget {
         return navBarCubit.currentIndex != 3
             ? MainHomeView()
             : Scaffold(
-              appBar: CustomHeader(title: 'طلباتى', hasBell: false),
+              appBar: CustomHeader(
+                title: S.of(context).my_orders,
+                hasBell: false,
+              ),
               body: BlocProvider(
                 create: (context) => OrderCardCubit()..getOrders(),
                 child: BlocConsumer<OrderCardCubit, OrderCardState>(

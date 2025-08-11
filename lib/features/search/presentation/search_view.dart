@@ -6,6 +6,7 @@ import 'package:e_commerce/features/search/presentation/widgets/custom_no_search
 import 'package:e_commerce/features/search/presentation/widgets/custom_recently_searched_elements.dart';
 import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar.dart';
 import 'package:e_commerce/features/search/view_model/cubits/search_cubit/search_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,8 +34,8 @@ class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomHeader(
-        title: 'البحث',
+      appBar: CustomHeader(
+        title: S.of(context).search,
         hasBell: true,
         hasBackArrow: true,
       ),
@@ -62,7 +63,7 @@ class _SearchViewState extends State<SearchView> {
 
                             children: [
                               Text(
-                                'عمليات البحث الاخيرة',
+                                S.of(context).recent_searches,
                                 style:
                                     CustomFonts
                                         .cairoTextStyleBold_13grey950w600,
@@ -73,7 +74,7 @@ class _SearchViewState extends State<SearchView> {
                                       .deleteAllElementsFromRecentlySearchedElements();
                                 },
                                 child: Text(
-                                  'حذف الكل',
+                                  S.of(context).delete_all,
                                   style:
                                       CustomFonts
                                           .cairoTextStyleBold_13grey400w400,

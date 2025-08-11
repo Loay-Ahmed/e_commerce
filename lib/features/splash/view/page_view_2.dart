@@ -2,6 +2,7 @@ import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/auth/view/auth_checker.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -40,8 +41,8 @@ class PageView2 extends StatelessWidget {
               SizedBox(
                 width: 301,
                 child: Text(
-                  "نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية",
-                  /* S.of(context).splash_2_text */
+                  // "نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية",
+                  S.of(context).splash_2_text,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.cairo(
                     fontSize: 13,
@@ -77,7 +78,7 @@ class PageView2 extends StatelessWidget {
                 width: 343,
                 height: 56,
                 child: CustomButton(
-                  text: "ابدأ الان" /* S.of(context).splash_button */,
+                  text: S.of(context).splash_button,
                   onPress: () {
                     Navigator.pushReplacement(
                       context,

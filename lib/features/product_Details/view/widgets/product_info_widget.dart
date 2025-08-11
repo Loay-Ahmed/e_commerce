@@ -3,6 +3,7 @@ import 'package:e_commerce/core/functions/navigate_to.dart';
 import 'package:e_commerce/features/home/data/models/product_model.dart';
 import 'package:e_commerce/features/product_Details/view/widgets/custom_product_quantity.dart';
 import 'package:e_commerce/features/product_review/presentation/product_review_view.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -38,7 +39,7 @@ class ProductInfoWidget extends StatelessWidget {
             ),
             SizedBox(height: 4),
             Text(
-              "${product.price} جنية / الكيلو",
+              "${product.price} ${S.of(context).pound} / ${S.of(context).kilo}",
               style: GoogleFonts.cairo(color: Colors.orange, fontSize: 16),
               textAlign: TextAlign.right,
             ),
@@ -76,7 +77,7 @@ class ProductInfoWidget extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    "المراجعة",
+                    S.of(context).review,
                     style: GoogleFonts.cairo(
                       color: CustomColors.green1_500,
                       decoration: TextDecoration.underline,
@@ -89,7 +90,7 @@ class ProductInfoWidget extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              "${product.name} ينتمي إلى الفصيلة القرعية ويشتهر بأنه حلو المذاق...",
+              "${product.name} ${product.description}  ...",
               style: GoogleFonts.cairo(
                 color: CustomColors.lightGrey,
                 fontSize: 13,

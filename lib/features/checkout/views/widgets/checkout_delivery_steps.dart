@@ -1,4 +1,5 @@
 import 'package:e_commerce/features/checkout/views/widgets/one_step.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutDeliverySteps extends StatelessWidget {
@@ -20,10 +21,14 @@ class CheckoutDeliverySteps extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        OneStep(isChecked: step1, title: 'الشحن', stepNumber: 1),
-        OneStep(isChecked: step2, title: 'العنوان', stepNumber: 2),
-        OneStep(isChecked: step3, title: 'الدفع و المراجعة', stepNumber: 3),
-        OneStep(isChecked: step4, title: 'نجح', stepNumber: 4),
+        OneStep(isChecked: step1, title: S.of(context).shipping, stepNumber: 1),
+        OneStep(isChecked: step2, title: S.of(context).address, stepNumber: 2),
+        OneStep(
+          isChecked: step3,
+          title: S.of(context).payment_and_review,
+          stepNumber: 3,
+        ),
+        OneStep(isChecked: step4, title: S.of(context).success, stepNumber: 4),
       ],
     );
   }

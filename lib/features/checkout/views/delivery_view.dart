@@ -5,6 +5,7 @@ import 'package:e_commerce/features/checkout/view_model/Cubits/payment_cubit/pay
 import 'package:e_commerce/features/checkout/views/user_info_view.dart';
 import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_card.dart';
 import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_steps.dart';
+import 'package:e_commerce/generated/l10n.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +16,7 @@ class DeliveryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomHeader(title: 'الشحن', hasBell: false),
+      appBar: CustomHeader(title: S.of(context).shipping, hasBell: false),
       body: Padding(
         padding: const EdgeInsets.only(right: 14.5, left: 15.5, top: 16),
         child: Column(
@@ -32,21 +33,21 @@ class DeliveryView extends StatelessWidget {
             SizedBox(height: 32),
             CheckoutDeliveryCard(
               isSelected: false,
-              title: 'الدفع عند الاستلام',
-              subtitle: 'التسليم من المكان',
-              priceText: '40 جنيه',
+              title: S.of(context).cash_on_delivery,
+              subtitle: S.of(context).pickup_delivery,
+              priceText: '40 ${S.of(context).pound}',
             ),
             SizedBox(height: 8),
             CheckoutDeliveryCard(
               isSelected: true,
-              title: 'اشترى الان و ادفع لاحقا',
-              subtitle: 'يرجى تحديد طريقة الدفع',
-              priceText: 'مجانى',
+              title: S.of(context).buy_now_pay_later,
+              subtitle: S.of(context).please_select_payment_method,
+              priceText: S.of(context).free,
             ),
             SizedBox(height: 100),
 
             CustomButton(
-              text: 'التالى',
+              text: S.of(context).next,
               onPress: () {
                 Navigator.push(
                   context,

@@ -10,6 +10,7 @@ import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart'
 
 import 'package:e_commerce/features/product_Details/view/widgets/product_feature_grid.dart';
 import 'package:e_commerce/features/product_Details/view/widgets/product_info_widget.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -104,8 +105,8 @@ class ProductDetailsScreen extends StatelessWidget {
                       child: CustomButton(
                         text:
                             cubitQuantity == 0
-                                ? "أضف الي السلة"
-                                : "اذهب الى العربة",
+                                ? S.of(context).add_to_cart
+                                : S.of(context).go_to_cart,
                         onPress: () async {
                           if (cubitQuantity == 0) {
                             await cartCubit.addProductToCart(

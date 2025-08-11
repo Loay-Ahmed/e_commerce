@@ -4,6 +4,7 @@ import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
 import 'package:e_commerce/features/nav_bar/presentation/main_home_view.dart';
 import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -54,7 +55,7 @@ class _PersonalInfoViewState extends State<PersonalInfoView> {
           return MainHomeView(); // navigate to main home view
         }
         return Scaffold(
-          appBar: CustomHeader(title: 'الملف الشخصى', hasBell: false),
+          appBar: CustomHeader(title: S.of(context).profile, hasBell: false),
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
@@ -67,7 +68,7 @@ class _PersonalInfoViewState extends State<PersonalInfoView> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
-                            'المعلومات الشخصيه',
+                            S.of(context).personal_information,
                             style: CustomFonts.cairoTextStyleBold_13grey950w600,
                           ),
                           SizedBox(height: 8),
@@ -84,7 +85,7 @@ class _PersonalInfoViewState extends State<PersonalInfoView> {
                           ),
                           SizedBox(height: 16),
                           Text(
-                            'تغيير كلمة المرور',
+                            S.of(context).change_password,
                             style: CustomFonts.cairoTextStyleBold_13grey950w600,
                           ),
                           SizedBox(height: 8),
@@ -97,13 +98,13 @@ class _PersonalInfoViewState extends State<PersonalInfoView> {
                           CustomTextFormField(
                             controller: newPasswordController,
                             obscure: true,
-                            hint: 'كلمة المرور الجديدة',
+                            hint: S.of(context).new_password_hint,
                           ),
                           SizedBox(height: 8),
                           CustomTextFormField(
                             controller: confirmNewPasswordController,
                             obscure: true,
-                            hint: 'تأكيد كلمة المرور الجديدة',
+                            hint: S.of(context).confirm_new_password_hint,
                           ),
                         ],
                       ),
@@ -111,7 +112,7 @@ class _PersonalInfoViewState extends State<PersonalInfoView> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 50),
                       child: CustomButton(
-                        text: 'حفظ التغييرات',
+                        text: S.of(context).save_changes,
                         onPress: () {},
                       ),
                     ),

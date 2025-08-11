@@ -1,6 +1,7 @@
 import 'package:e_commerce/features/trace_order/data/models/order_model.dart';
 import 'package:e_commerce/features/trace_order/data/models/order_status_model.dart';
 import 'package:e_commerce/features/trace_order/presentation/widgets/track_order_details.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class OrderTrackStepsDetails extends StatelessWidget {
@@ -16,8 +17,8 @@ class OrderTrackStepsDetails extends StatelessWidget {
         SizedBox(height: 23),
         TrackOrderDetails(
           orderStatusModel: OrderStatusModel(
-            title: 'تتبع الطلب',
-            date: orderModel.orderTrackingDate ?? 'قيد الانتظار',
+            title: S.of(context).track_order,
+            date: orderModel.orderTrackingDate ?? S.of(context).pending,
             isCircleCompleted: orderModel.orderTracking!,
             isLineCompleted:
                 orderModel.orderTracking! && orderModel.orderAccepted!,
@@ -26,8 +27,8 @@ class OrderTrackStepsDetails extends StatelessWidget {
         ),
         TrackOrderDetails(
           orderStatusModel: OrderStatusModel(
-            title: 'قبول الطلب',
-            date: orderModel.orderAcceptedDate ?? 'قيد الانتظار',
+            title: S.of(context).order_accepted,
+            date: orderModel.orderAcceptedDate ?? S.of(context).pending,
             isCircleCompleted: orderModel.orderAccepted!,
             isLineCompleted:
                 orderModel.orderAccepted! && orderModel.orderShipped!,
@@ -35,8 +36,8 @@ class OrderTrackStepsDetails extends StatelessWidget {
         ),
         TrackOrderDetails(
           orderStatusModel: OrderStatusModel(
-            title: 'تم شحن الطلب',
-            date: orderModel.orderShippedDate ?? 'قيد الانتظار',
+            title: S.of(context).order_shipped,
+            date: orderModel.orderShippedDate ?? S.of(context).pending,
             isCircleCompleted: orderModel.orderShipped!,
             isLineCompleted:
                 orderModel.orderShipped! && orderModel.orderOutForDelivery!,
@@ -44,8 +45,8 @@ class OrderTrackStepsDetails extends StatelessWidget {
         ),
         TrackOrderDetails(
           orderStatusModel: OrderStatusModel(
-            title: 'جاري التوصيل',
-            date: orderModel.orderOutForDeliveryDate ?? 'قيد الانتظار',
+            title: S.of(context).out_for_delivery,
+            date: orderModel.orderOutForDeliveryDate ?? S.of(context).pending,
             isCircleCompleted: orderModel.orderOutForDelivery!,
             isLineCompleted:
                 orderModel.orderOutForDelivery! && orderModel.orderShipped!,
@@ -53,8 +54,8 @@ class OrderTrackStepsDetails extends StatelessWidget {
         ),
         TrackOrderDetails(
           orderStatusModel: OrderStatusModel(
-            title: 'تم التسليم',
-            date: orderModel.orderShippedDate ?? 'قيد الانتظار',
+            title: S.of(context).order_delivered,
+            date: orderModel.orderShippedDate ?? S.of(context).pending,
             isCircleCompleted: orderModel.orderShipped!,
             isLineCompleted: false,
             isLast: true,

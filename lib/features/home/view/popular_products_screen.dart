@@ -2,6 +2,7 @@ import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/widgets/custom_grid_view_popular_products.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +12,7 @@ class PopularProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomHeader(title: 'الأكثر مبيعا'),
+      appBar: CustomHeader(title: S.of(context).best_selling),
 
       body: SingleChildScrollView(
         child: Padding(
@@ -21,7 +22,7 @@ class PopularProductsScreen extends StatelessWidget {
             children: [
               SizedBox(height: 24),
               Text(
-                'الأكثر مبيعا',
+                S.of(context).best_selling,
                 style: CustomFonts.cairoTextStyleBold_19grey950w700,
               ),
               SizedBox(height: 8),

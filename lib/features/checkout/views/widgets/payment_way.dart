@@ -2,6 +2,7 @@ import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/payment_method_items.dart';
 import 'package:e_commerce/features/checkout/view_model/Cubits/payment_cubit/payment_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,12 +15,12 @@ class PaymentWay extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'اختر طريقة الدفع المناسبه: ',
+          '${S.of(context).choose_payment_method}: ',
           style: CustomFonts.cairoTextStyleBold_16grey950w700,
         ),
         SizedBox(height: 8),
         Text(
-          'من فضلك اختر طريقة الدفع المناسبة لك',
+          S.of(context).please_choose_payment_method,
           style: CustomFonts.cairoTextStyleBold_13grey950w600,
         ),
         SizedBox(height: 16),

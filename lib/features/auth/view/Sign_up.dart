@@ -4,6 +4,7 @@ import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/view/login_view.dart';
 import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,20 +31,23 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              CustomHeader(title: 'حساب جديد', hasBackArrow: true),
+              CustomHeader(
+                title: S.of(context).new_account,
+                hasBackArrow: true,
+              ),
               const SizedBox(height: 40),
 
               CustomTextFormField(
                 controller: nameController,
                 obscure: false,
-                hint: 'الاسم الكامل',
+                hint: S.of(context).full_name,
                 inputType: TextInputType.name,
               ),
               const SizedBox(height: 15),
               CustomTextFormField(
                 controller: emailController,
                 obscure: false,
-                hint: 'البريد الإلكتروني',
+                hint: S.of(context).email,
                 inputType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 15),
@@ -52,7 +56,7 @@ class SignUpScreen extends StatelessWidget {
                   return CustomTextFormField(
                     controller: passwordController,
                     obscure: !showPassword,
-                    hint: 'كلمة المرور',
+                    hint: S.of(context).password,
                     inputType: TextInputType.visiblePassword,
                     suffix: Padding(
                       padding: EdgeInsets.only(left: 25),
@@ -90,7 +94,7 @@ class SignUpScreen extends StatelessWidget {
                             activeColor: CustomColors.green1_500,
                           ),
                           Text(
-                            'موافقة على الشروط والتحكم الخاصة بنا',
+                            S.of(context).agree_terms,
                             style: GoogleFonts.cairo(fontSize: 14),
                           ),
                         ],
@@ -110,7 +114,7 @@ class SignUpScreen extends StatelessWidget {
                           builder: (context, state) {
                             final auth = context.read<AuthenticationCubit>();
                             return CustomButton(
-                              text: 'إنشاء حساب جديد',
+                              text: S.of(context).create_new_account,
                               isLoading: state is SignUpLoading ? true : false,
                               onPress:
                                   isAgreed
@@ -134,8 +138,8 @@ class SignUpScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
               MixTextButton(
-                text1: 'لديك حساب بالفعل؟  ',
-                text2: 'تسجيل الدخول',
+                text1: S.of(context).already_have_account,
+                text2: S.of(context).login,
                 onPress: () {
                   if (Navigator.canPop(context)) {
                     Navigator.pop(context);

@@ -9,6 +9,7 @@ import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profi
 import 'package:e_commerce/features/my_profile/view_model/cubit/user_cubit.dart';
 import 'package:e_commerce/features/product_review/data/models/comment_rate/comment_rate.dart';
 import 'package:e_commerce/features/product_review/view_model/cubit/comment_rate_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -82,7 +83,7 @@ class _CustomWriteCommentWidgetState extends State<CustomWriteCommentWidget> {
             child: TextField(
               controller: _commentController,
               decoration: InputDecoration(
-                hintText: 'اكتب التعليق..',
+                hintText: '${S.of(context).write_comment} ..',
                 hintStyle: TextStyle(fontSize: 13, color: CustomColors.grey950),
                 border: InputBorder.none,
               ),

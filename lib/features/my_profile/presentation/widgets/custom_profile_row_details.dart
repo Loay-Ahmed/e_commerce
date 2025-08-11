@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/fonts.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -34,7 +35,7 @@ class CustomMyProfileRowDetails extends StatelessWidget {
               Spacer(),
               if (isLanguageRow)
                 Text(
-                  'العربية',
+                  S.of(context).language,
                   style: CustomFonts.cairoTextStyleBold_13grey950w400,
                 ),
               widget,

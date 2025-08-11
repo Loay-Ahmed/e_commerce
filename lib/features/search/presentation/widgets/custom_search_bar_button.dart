@@ -2,6 +2,7 @@ import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/functions/navigate_to.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/features/search/presentation/search_view.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -32,7 +33,7 @@ class CustomSearchBarButton extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: Text(
-                'ابحث عن.......',
+                '${S.of(context).search_for} .......',
                 style: TextStyle(
                   fontFamily: 'cairo',
                   fontSize: 13,

@@ -3,6 +3,7 @@ import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 import 'package:e_commerce/features/cart/view_model/cubit/cart_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,7 +39,7 @@ class CustomProductQuantity extends StatelessWidget {
             ? CustomCircleProgIndicatorForSocialButton()
             : !isSmall && cubitQuantity != 0
             ? Text(
-              'مضاف مسبقا\nالكمية: $cubitQuantity',
+              '${S.of(context).already_added}\n${S.of(context).quantity}: $cubitQuantity',
               style: CustomFonts.cairoTextStyleBold_13grey950w600,
             )
             : Row(

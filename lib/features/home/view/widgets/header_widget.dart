@@ -5,6 +5,7 @@ import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_b
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture.dart';
 import 'package:e_commerce/features/my_profile/view_model/cubit/user_cubit.dart';
 import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar_button.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -47,7 +48,7 @@ class HeaderWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'صباح الخير !..',
+                          '${S.of(context).good_morning} !..',
                           style: TextStyle(
                             fontFamily: 'cairo',
                             fontSize: 16,

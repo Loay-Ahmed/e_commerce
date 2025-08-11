@@ -7,6 +7,7 @@ import 'package:e_commerce/features/favorite/view_model/favorite_cubit/favorite_
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
 import 'package:e_commerce/features/nav_bar/presentation/main_home_view.dart';
 import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +27,7 @@ class FavoriteView extends StatelessWidget {
           return MainHomeView(); // navigate to main home view
         }
         return Scaffold(
-          appBar: CustomHeader(title: 'المفضلة', hasBell: false),
+          appBar: CustomHeader(title: S.of(context).favorites, hasBell: false),
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),

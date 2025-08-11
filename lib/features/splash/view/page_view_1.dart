@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/utils/assets_data.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,8 +27,8 @@ class PageView1 extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "تخط",
-                      /* S.of(context).splashskip */
+                      // "تخط",
+                      S.of(context).splashskip,
                       style: GoogleFonts.cairo(
                         color: CustomColors.grey400,
                         fontSize: 13,

@@ -11,6 +11,7 @@ import 'package:e_commerce/features/product_review/presentation/widgets/custom_c
 import 'package:e_commerce/features/product_review/presentation/widgets/custom_rating_progress_bar.dart';
 import 'package:e_commerce/features/product_review/presentation/widgets/custom_write_comment_widget.dart';
 import 'package:e_commerce/features/product_review/view_model/cubit/comment_rate_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -33,7 +34,7 @@ class _ProductReviewViewState extends State<ProductReviewView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomHeader(title: 'المراجعة', hasBell: false),
+      appBar: CustomHeader(title: S.of(context).review, hasBell: false),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: MultiBlocProvider(
@@ -103,7 +104,7 @@ class _ProductReviewViewState extends State<ProductReviewView> {
                         ),
                         SizedBox(height: 16),
                         Text(
-                          '${commentRateCubit.reviewsNumber} مراجعة',
+                          '${commentRateCubit.reviewsNumber} ${S.of(context).review}',
                           style: CustomFonts.cairoTextStyleBold_13grey950w700,
                         ),
                         SizedBox(height: 15),
@@ -111,7 +112,7 @@ class _ProductReviewViewState extends State<ProductReviewView> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'الملخص',
+                              S.of(context).summary,
                               style:
                                   CustomFonts.cairoTextStyleBold_16grey950w600,
                             ),
@@ -128,7 +129,7 @@ class _ProductReviewViewState extends State<ProductReviewView> {
                               ],
                             ),
                             Text(
-                              '${isThereAnyComment ? ((avgRate / 5) * 100).toStringAsFixed(2) : 0}% موصى به',
+                              '${isThereAnyComment ? ((avgRate / 5) * 100).toStringAsFixed(2) : 0}% ${S.of(context).recommended}',
                               style:
                                   CustomFonts.cairoTextStyleBold_13grey950w400,
                             ),
@@ -166,7 +167,7 @@ class _ProductReviewViewState extends State<ProductReviewView> {
                         if (!isThereAnyComment)
                           Center(
                             child: Text(
-                              'لا يوجد تعليقات',
+                              S.of(context).no_comments,
                               style:
                                   CustomFonts.cairoTextStyleBold_16grey950w700,
                             ),

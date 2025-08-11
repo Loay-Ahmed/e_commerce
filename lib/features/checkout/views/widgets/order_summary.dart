@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class OrderSummary extends StatelessWidget {
@@ -11,7 +12,7 @@ class OrderSummary extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'ملخص الطلب:',
+          '${S.of(context).order_summary}:',
           style: CustomFonts.cairoTextStyleBold_13grey950w700,
         ),
         SizedBox(height: 8),
@@ -33,11 +34,11 @@ class OrderSummary extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'المجموع الفرعى:',
+                    '${S.of(context).subtotal} :',
                     style: CustomFonts.cairoTextStyleBold_13grey500w400,
                   ),
                   Text(
-                    '150 جنيه',
+                    '150 ${S.of(context).pound}',
                     style: CustomFonts.cairoTextStyleBold_16grey950w600,
                   ),
                 ],
@@ -47,11 +48,11 @@ class OrderSummary extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'التوصيل:',
+                    '${S.of(context).delivery} :',
                     style: CustomFonts.cairoTextStyleBold_13grey500w400,
                   ),
                   Text(
-                    '30 جنية',
+                    '30 ${S.of(context).pound}',
                     style: CustomFonts.cairoTextStyleBold_13grey500w600,
                   ),
                 ],
@@ -64,11 +65,11 @@ class OrderSummary extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'الكلى:',
+                    '${S.of(context).total} :',
                     style: CustomFonts.cairoTextStyleBold_16grey950w700,
                   ),
                   Text(
-                    '180 جنيه',
+                    '180 ${S.of(context).pound}',
                     style: CustomFonts.cairoTextStyleBold_16grey950w700,
                   ),
                 ],
