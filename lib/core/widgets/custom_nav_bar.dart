@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/widgets/custom_nav_bar_icon.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CustomNavBar extends StatelessWidget {
@@ -35,25 +36,25 @@ class CustomNavBar extends StatelessWidget {
             icon: Icons.home_outlined,
 
             index: 0,
-            title: "الرئيسية" /* S.of(context).nav_bar_item_1 */,
+            title: S.of(context).nav_bar_home,
           ),
           CustomNavBarIcon(
             icon: Icons.grid_view_outlined,
 
             index: 1,
-            title: "المنتجات" /* S.of(context).nav_bar_item_1 */,
+            title: S.of(context).nav_bar_products,
           ),
           CustomNavBarIcon(
             icon: Icons.shopping_cart_outlined,
 
             index: 2,
-            title: "سلة التسوق" /* S.of(context).nav */,
+            title: S.of(context).nav_bar_cart,
           ),
           CustomNavBarIcon(
             icon: Icons.person_outline_rounded,
 
             index: 3,
-            title: "حسابي" /* S.of(context).nav_bar_item_1 */,
+            title: S.of(context).nav_bar_my_profile,
           ),
         ],
       ),

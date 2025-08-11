@@ -12,6 +12,7 @@ import 'package:e_commerce/features/checkout/views/delivery_view.dart';
 import 'package:e_commerce/features/home/data/models/product_model.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
 import 'package:e_commerce/features/product_Details/view/widgets/custom_product_quantity.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,12 +20,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class CartView extends StatelessWidget {
   const CartView({super.key});
 
-  final num = 3;
+  // final num = 3;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomHeader(title: 'السلة', hasBell: false, hasBackArrow: false),
+      appBar: CustomHeader(
+        title: S.of(context).cart,
+        hasBell: false,
+        hasBackArrow: false,
+      ),
 
       body: BlocProvider(
         create:
@@ -49,7 +54,7 @@ class CartView extends StatelessWidget {
                       color: CustomColors.green1_50,
 
                       child: Text(
-                        'لديك ${cartCubit.cartProducts.length} منتجات فى سلة التسوق',
+                        '${S.of(context).you_have} ${cartCubit.cartProducts.length} ${S.of(context).products_in_cart}',
                         style: CustomFonts.cairoTextStyleBold_13green1_500w400,
                       ),
                     ),
@@ -74,7 +79,8 @@ class CartView extends StatelessWidget {
                         vertical: 40,
                       ),
                       child: CustomButton(
-                        text: 'الدفع  ${cartCubit.totalPrice} جنيه',
+                        text:
+                            '${S.of(context).checkout}  ${cartCubit.totalPrice} ${S.of(context).pound}',
                         onPress: () {
                           context
                               .read<PaymentCubit>()
@@ -143,7 +149,9 @@ class CustomCardInCartView extends StatelessWidget {
                       style: CustomFonts.cairoTextStyleBold_13grey950w700,
                     ),
                     Text(
-                      quantity == 0 ? '1 كيلو' : '${quantity.toString()} كيلو',
+                      quantity == 0
+                          ? '1 ${S.of(context).kilo}'
+                          : '${quantity.toString()} ${S.of(context).kilo}',
                       style: CustomFonts.cairoTextStyleBold_13orange300w600,
                     ),
                     CustomProductQuantity(
@@ -171,7 +179,7 @@ class CustomCardInCartView extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${total.toString()} جنية',
+                      '${total.toString()} ${S.of(context).pound}',
                       style: CustomFonts.cairoTextStyleBold_13orange500w700,
                     ),
                   ],

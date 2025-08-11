@@ -1,6 +1,8 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture.dart';
+import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture_network.dart';
 import 'package:e_commerce/features/product_review/data/models/comment_rate/comment_rate.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -20,11 +22,17 @@ class CustomCommentWidget extends StatelessWidget {
             Stack(
               clipBehavior: Clip.none,
               children: [
-                CustomAvatarProfilePicture(
-                  imageUrl: commentRateModel.users?.image ?? '',
-                  width: 58,
-                  height: 58,
-                ),
+                commentRateModel.users?.image == null
+                    ? CustomAvatarProfilePicture(
+                      image: AssetsData.profileImage,
+                      width: 80,
+                      height: 80,
+                    )
+                    : CustomAvatarProfilePictureNetwork(
+                      imageUrl: commentRateModel.users?.image ?? '',
+                      width: 58,
+                      height: 58,
+                    ),
                 Positioned(
                   bottom: -2,
                   left: -2,

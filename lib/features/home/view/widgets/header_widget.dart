@@ -1,10 +1,13 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/fonts.dart';
+import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_notified_bell.dart';
 import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture.dart';
+import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture_network.dart';
 import 'package:e_commerce/features/my_profile/view_model/cubit/user_cubit.dart';
 import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar_button.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,8 +38,14 @@ class HeaderWidget extends StatelessWidget {
                       child:
                           state is GetUserDataLoading
                               ? CustomCircleProgIndicatorForSocialButton()
-                              : CustomAvatarProfilePicture(
-                                imageUrl: userCubit.userDataModel?.image ?? '',
+                              : userCubit.userDataModel!.image == null
+                              ? CustomAvatarProfilePicture(
+                                image: AssetsData.profileImage,
+                                width: 44,
+                                height: 44,
+                              )
+                              : CustomAvatarProfilePictureNetwork(
+                                imageUrl: userCubit.userDataModel!.image!,
                                 width: 44,
                                 height: 44,
                               ),
@@ -47,7 +56,7 @@ class HeaderWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'صباح الخير !..',
+                          '${S.of(context).good_morning} !..',
                           style: TextStyle(
                             fontFamily: 'cairo',
                             fontSize: 16,

@@ -4,6 +4,7 @@ import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -28,10 +29,13 @@ class NewPassword extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                CustomHeader(title: 'كلمة مرور جديده', hasBackArrow: true),
+                CustomHeader(
+                  title: S.of(context).new_password,
+                  hasBackArrow: true,
+                ),
                 const SizedBox(height: 40),
                 Text(
-                  "قم بإنشاء كلمة مرور جديدة لتسجيل الدخول",
+                  S.of(context).create_new_password_text,
                   style: GoogleFonts.cairo(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -45,7 +49,7 @@ class NewPassword extends StatelessWidget {
                     return CustomTextFormField(
                       controller: passwordController,
                       obscure: !showPassword,
-                      hint: 'كلمة المرور',
+                      hint: S.of(context).password,
                       inputType: TextInputType.visiblePassword,
                       suffix: Padding(
                         padding: EdgeInsets.only(left: 25),
@@ -72,7 +76,7 @@ class NewPassword extends StatelessWidget {
                     return CustomTextFormField(
                       controller: confirmPasswordController,
                       obscure: !showConfirmPassword,
-                      hint: 'تأكيد كلمة المرور',
+                      hint: S.of(context).confirm_password,
                       inputType: TextInputType.visiblePassword,
                       suffix: Padding(
                         padding: EdgeInsets.only(left: 25),
@@ -95,7 +99,7 @@ class NewPassword extends StatelessWidget {
                 const SizedBox(height: 10),
 
                 CustomButton(
-                  text: 'إنشاء كلمة مرور جديدة',
+                  text: S.of(context).create_new_password,
                   onPress: () async {
                     // Show the dialog
                     showDialog(
@@ -119,7 +123,7 @@ class NewPassword extends StatelessWidget {
                                 Image.asset(AssetsData.done, width: 154),
                                 const SizedBox(height: 29),
                                 Text(
-                                  'تم تغيير الباسورد بنجاح',
+                                  S.of(context).password_changed_success,
                                   style: GoogleFonts.cairo(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,

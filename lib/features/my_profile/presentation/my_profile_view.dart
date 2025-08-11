@@ -1,8 +1,10 @@
+import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/functions/navigate_to.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/favorite/presentation/favorite_view.dart';
+import 'package:e_commerce/features/localization/cubit/localization_cubit.dart';
 import 'package:e_commerce/features/my_profile/presentation/personal_info_view.dart';
 import 'package:e_commerce/features/my_profile/presentation/who_we_are_view.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_forward_arrow.dart';
@@ -13,6 +15,7 @@ import 'package:e_commerce/features/my_profile/presentation/widgets/my_profile_m
 import 'package:e_commerce/features/notifications/view_model/view_model/cubit/notification_cubit.dart';
 import 'package:e_commerce/features/notifications/view_model/view_model/cubit/notification_state.dart';
 import 'package:e_commerce/features/trace_order/presentation/trace_order_my_profile_view.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,8 +24,13 @@ class MyProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isRTL = context.read<LocalizationCubit>().isRTL();
     return Scaffold(
-      appBar: CustomHeader(title: 'حسابى', hasBackArrow: false, hasBell: false),
+      appBar: CustomHeader(
+        title: S.of(context).profile,
+        hasBackArrow: false,
+        hasBell: false,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -34,7 +42,7 @@ class MyProfileView extends StatelessWidget {
                   MyProfileMainInfoWidget(),
                   SizedBox(height: 30),
                   Text(
-                    'عام',
+                    S.of(context).general,
                     style: CustomFonts.cairoTextStyleBold_13grey950w600,
                   ),
                   SizedBox(height: 30),
@@ -42,9 +50,9 @@ class MyProfileView extends StatelessWidget {
                     onTap: () {
                       navigateTo(context, PersonalInfoView());
                     },
-                    widget: CustomForwardArrow(),
+                    widget: CustomForwardArrow(isArabic: isRTL),
                     image: AssetsData.person,
-                    text: 'الملف الشخصى',
+                    text: S.of(context).nav_bar_my_profile,
                   ),
                   CustomMyProfileRowDetails(
                     onTap: () {
@@ -54,23 +62,23 @@ class MyProfileView extends StatelessWidget {
                       // );
                       navigateTo(context, TraceOrderMyProfileView());
                     },
-                    widget: CustomForwardArrow(),
+                    widget: CustomForwardArrow(isArabic: isRTL),
                     image: AssetsData.box,
-                    text: 'طلباتى',
+                    text: S.of(context).my_orders,
                   ),
                   CustomMyProfileRowDetails(
                     onTap: () {},
-                    widget: CustomForwardArrow(),
+                    widget: CustomForwardArrow(isArabic: isRTL),
                     image: AssetsData.wallet,
-                    text: 'المدفوعات',
+                    text: S.of(context).payments,
                   ),
                   CustomMyProfileRowDetails(
                     onTap: () {
                       navigateTo(context, FavoriteView());
                     },
-                    widget: CustomForwardArrow(),
+                    widget: CustomForwardArrow(isArabic: isRTL),
                     image: AssetsData.greenHeart,
-                    text: 'المفضلة',
+                    text: S.of(context).favorites,
                   ),
                   CustomMyProfileRowDetails(
                     onTap: () {
@@ -90,24 +98,26 @@ class MyProfileView extends StatelessWidget {
                       },
                     ),
                     image: AssetsData.bell,
-                    text: 'الاشعارات',
+                    text: S.of(context).notifications,
                   ),
                   CustomMyProfileRowDetails(
-                    onTap: () {},
-                    widget: CustomForwardArrow(),
+                    onTap: () {
+                      context.read<LocalizationCubit>().toggleLanguage();
+                    },
+                    widget: CustomForwardArrow(isArabic: isRTL),
                     isLanguageRow: true,
                     image: AssetsData.global,
-                    text: 'اللغة',
+                    text: S.of(context).language_text,
                   ),
                   CustomMyProfileRowDetails(
                     onTap: () {},
                     widget: CustomToggleSwitchButton(isActive: false),
                     image: AssetsData.magicPen,
-                    text: 'الوضع',
+                    text: S.of(context).status,
                   ),
                   SizedBox(height: 22),
                   Text(
-                    'المساعدة',
+                    S.of(context).help,
                     style: CustomFonts.cairoTextStyleBold_13grey950w600,
                   ),
                   SizedBox(height: 16),
@@ -115,15 +125,15 @@ class MyProfileView extends StatelessWidget {
                     onTap: () {
                       navigateTo(context, WhoWeAreView());
                     },
-                    widget: CustomForwardArrow(),
+                    widget: CustomForwardArrow(isArabic: isRTL),
                     image: AssetsData.infoCircle,
-                    text: 'من نحن',
+                    text: S.of(context).about_us,
                   ),
                 ],
               ),
             ),
             SizedBox(height: 20),
-            CustomSignOutButton(),
+            CustomSignOutButton(isRTL: isRTL),
           ],
         ),
       ),

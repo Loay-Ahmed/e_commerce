@@ -8,6 +8,7 @@ import 'package:e_commerce/features/home/data/models/product_model.dart';
 
 import 'package:e_commerce/features/favorite/view_model/favorite_cubit/favorite_cubit.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -56,12 +57,12 @@ class ProductCardWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      '${product.price} جنية / ',
+                      '${product.price} ${S.of(context).pound} / ',
                       textAlign: TextAlign.right,
                       style: CustomFonts.cairoTextStyleBold_13orange500w700,
                     ),
                     Text(
-                      'الكيلو',
+                      S.of(context).kilo,
                       textAlign: TextAlign.right,
                       style: CustomFonts.cairoTextStyleBold_13orange300w600,
                     ),

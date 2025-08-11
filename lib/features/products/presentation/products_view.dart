@@ -6,6 +6,7 @@ import 'package:e_commerce/features/home/view/widgets/popular_products_widget.da
 import 'package:e_commerce/features/products/presentation/widgets/custom_our_products_widget.dart';
 
 import 'package:e_commerce/features/search/presentation/widgets/custom_search_bar_button.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,7 +16,10 @@ class ProductsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomHeader(title: 'المنتجات', hasBackArrow: false),
+      appBar: CustomHeader(
+        title: S.of(context).nav_bar_products,
+        hasBackArrow: false,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -28,7 +32,7 @@ class ProductsView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'منتجاتنا',
+                    S.of(context).our_products,
                     style: CustomFonts.cairoTextStyleBold_16grey950w700,
                   ),
                   Container(

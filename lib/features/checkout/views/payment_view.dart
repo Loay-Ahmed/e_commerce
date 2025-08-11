@@ -13,6 +13,7 @@ import 'package:e_commerce/features/checkout/views/widgets/order_summary.dart';
 import 'package:e_commerce/features/checkout/views/widgets/payment_way.dart';
 import 'package:e_commerce/features/trace_order/data/models/order_model.dart';
 import 'package:e_commerce/features/trace_order/view_model/cubit/order_card_cubit/order_card_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,7 +25,7 @@ class PaymentView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomHeader(title: 'الدفع', hasBell: false),
+      appBar: CustomHeader(title: S.of(context).checkout, hasBell: false),
       body: Padding(
         padding: const EdgeInsets.only(right: 14.5, left: 15.5, top: 16),
         child: Column(
@@ -90,7 +91,7 @@ class PaymentView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           CustomButton(
-                            text: 'تأكيد الطلب',
+                            text: S.of(context).confirm_order_button,
                             isLoading: state is PaymentLoading ? true : false,
                             onPress: () {
                               // card payment

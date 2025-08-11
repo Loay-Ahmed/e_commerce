@@ -11,6 +11,7 @@ import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.d
 
 import 'package:e_commerce/features/nav_bar/presentation/main_home_view.dart';
 import 'package:e_commerce/features/nav_bar/view_model/cubit/nav_bar_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -66,7 +67,7 @@ class _LoginViewState extends State<LoginView> {
         builder: (context, state) {
           AuthenticationCubit auth = context.read<AuthenticationCubit>();
           return Scaffold(
-            appBar: const CustomHeader(title: 'تسجيل الدخول', hasBell: false),
+            appBar: CustomHeader(title: S.of(context).login, hasBell: false),
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -78,14 +79,14 @@ class _LoginViewState extends State<LoginView> {
                         controller: emailController,
                         inputType: TextInputType.emailAddress,
                         obscure: false,
-                        hint: 'البريد الإلكتروني',
+                        hint: S.of(context).email,
                       ),
                       const SizedBox(height: 20),
                       CustomTextFormField(
                         controller: passwordController,
                         obscure: true,
                         inputType: TextInputType.visiblePassword,
-                        hint: 'كلمة المرور',
+                        hint: S.of(context).password,
                         suffix: Padding(
                           padding: EdgeInsets.only(left: 33),
                           child: Icon(
@@ -107,7 +108,7 @@ class _LoginViewState extends State<LoginView> {
                             );
                           },
                           child: Text(
-                            'نسيت كلمة المرور؟',
+                            '${S.of(context).forgot_password_title}?',
                             style: GoogleFonts.cairo(color: Color(0Xff2d9f5d)),
                           ),
                         ),
@@ -116,7 +117,7 @@ class _LoginViewState extends State<LoginView> {
                       BlocBuilder<AuthenticationCubit, AuthenticationState>(
                         builder: (context, state) {
                           return CustomButton(
-                            text: 'تسجيل دخول',
+                            text: S.of(context).login,
                             onPress: () async {
                               await auth.login(
                                 email: emailController.text.trim(),
@@ -130,8 +131,8 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       const SizedBox(height: 20),
                       MixTextButton(
-                        text1: 'لا تمتلك حساب؟  ',
-                        text2: 'قم بإنشاء حساب',
+                        text1: '${S.of(context).no_account}?',
+                        text2: S.of(context).create_account,
                         onPress: () {
                           navigateTo(context, SignUpScreen());
                         },
@@ -167,7 +168,7 @@ class _LoginViewState extends State<LoginView> {
                       BlocBuilder<AuthenticationCubit, AuthenticationState>(
                         builder: (context, state) {
                           return SocialButton(
-                            text: "تسجيل بواسطة جوجل",
+                            text: S.of(context).login_with_google,
                             icon: SvgPicture.asset(AssetsData.googleIcon),
                             onPressed: () async {
                               await auth.googleSignIn();
@@ -179,13 +180,13 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       const SizedBox(height: 30),
                       SocialButton(
-                        text: "تسجيل بواسطة آبل",
+                        text: S.of(context).login_with_apple,
                         icon: Icon(Icons.apple, size: 24, color: Colors.black),
                         onPressed: () {},
                       ),
                       const SizedBox(height: 22),
                       SocialButton(
-                        text: "تسجيل بواسطة فيسبوك",
+                        text: S.of(context).login_with_facebook,
                         icon: Icon(
                           Icons.facebook,
                           size: 24,

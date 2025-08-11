@@ -6,6 +6,7 @@ import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_b
 
 import 'package:e_commerce/features/home/view/popular_products_screen.dart';
 import 'package:e_commerce/features/home/view_model/cubits/home_cubit/home_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,7 +24,7 @@ class PopularProductsWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'الأكثر مبيعاً',
+                S.of(context).best_selling,
                 style: CustomFonts.cairoTextStyleBold_16grey950w700,
               ),
               GestureDetector(
@@ -37,7 +38,7 @@ class PopularProductsWidget extends StatelessWidget {
                   navigateTo(context, PopularProductsScreen());
                 },
                 child: Text(
-                  'المزيد',
+                  S.of(context).more,
                   style: TextStyle(
                     fontFamily: 'cairo',
                     fontSize: 13,

@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -15,7 +16,7 @@ class CustomNoSearchResult extends StatelessWidget {
           children: [
             SvgPicture.asset(AssetsData.searchFailure),
             Text(
-              'لا يوجد نتائج',
+              S.of(context).no_results,
               style: CustomFonts.cairoTextStyleBold_16grey500w400,
             ),
           ],

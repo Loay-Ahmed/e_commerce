@@ -9,6 +9,7 @@ import 'package:e_commerce/features/checkout/views/payment_view.dart';
 import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_steps.dart';
 
 import 'package:e_commerce/features/checkout/views/widgets/custom_form_field.dart';
+import 'package:e_commerce/generated/l10n.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,7 +43,7 @@ class _UserInfoViewState extends State<UserInfoView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomHeader(title: 'العنوان', hasBell: false),
+      appBar: CustomHeader(title: S.of(context).address, hasBell: false),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(right: 14.5, left: 15.5, top: 16),
@@ -63,7 +64,7 @@ class _UserInfoViewState extends State<UserInfoView> {
 
               const SizedBox(height: 64),
               CustomButton(
-                text: 'التالى',
+                text: S.of(context).next,
                 onPress: () {
                   if (BlocProvider.of<FormControllerCubit>(
                     context,

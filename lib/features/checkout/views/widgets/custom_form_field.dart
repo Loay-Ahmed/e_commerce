@@ -1,5 +1,6 @@
 import 'package:e_commerce/features/auth/widgets/custom_text_field.dart';
 import 'package:e_commerce/features/checkout/view_model/Cubits/form_controller_cubit/form_controller_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,14 +18,14 @@ class CustomFormField extends StatelessWidget {
         children: [
           CustomTextFormField(
             obscure: false,
-            hint: 'الاسم كامل',
+            hint: S.of(context).full_name,
             controller:
                 BlocProvider.of<FormControllerCubit>(
                   context,
                 ).userInfoFormController.fullNameController,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'الرجاء إدخال الاسم الكامل';
+                return S.of(context).please_enter_full_name;
               }
               return null;
             },
@@ -32,7 +33,7 @@ class CustomFormField extends StatelessWidget {
           SizedBox(height: 8),
           CustomTextFormField(
             obscure: false,
-            hint: 'البريد الإلكتروني',
+            hint: S.of(context).email,
             controller:
                 BlocProvider.of<FormControllerCubit>(
                   context,
@@ -40,11 +41,11 @@ class CustomFormField extends StatelessWidget {
             inputType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'الرجاء إدخال البريد الإلكتروني';
+                return S.of(context).please_enter_email;
               }
               // A simple regex for email validation.
               if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                return 'الرجاء إدخال بريد إلكتروني صالح';
+                return S.of(context).please_enter_valid_email;
               }
               return null;
             },
@@ -52,14 +53,14 @@ class CustomFormField extends StatelessWidget {
           SizedBox(height: 8),
           CustomTextFormField(
             obscure: false,
-            hint: 'العنوان',
+            hint: S.of(context).address,
             controller:
                 BlocProvider.of<FormControllerCubit>(
                   context,
                 ).userInfoFormController.addressController,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'الرجاء إدخال العنوان';
+                return S.of(context).please_enter_address;
               }
               return null;
             },
@@ -68,14 +69,14 @@ class CustomFormField extends StatelessWidget {
           CustomTextFormField(
             obscure: false,
 
-            hint: 'المدينه',
+            hint: S.of(context).city,
             controller:
                 BlocProvider.of<FormControllerCubit>(
                   context,
                 ).userInfoFormController.cityController,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'الرجاء إدخال المدينه';
+                return S.of(context).please_enter_city;
               }
               return null;
             },
@@ -83,7 +84,7 @@ class CustomFormField extends StatelessWidget {
           SizedBox(height: 8),
           CustomTextFormField(
             obscure: false,
-            hint: 'رقم الطابق, رقم الشقه ..',
+            hint: S.of(context).floor_apartment_hint,
             controller:
                 BlocProvider.of<FormControllerCubit>(
                   context,

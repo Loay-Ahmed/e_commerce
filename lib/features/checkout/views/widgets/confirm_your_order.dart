@@ -4,6 +4,7 @@ import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/checkout/view_model/Cubits/form_controller_cubit/form_controller_cubit.dart';
 
 import 'package:e_commerce/features/checkout/views/widgets/custom_form_field.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,7 +18,7 @@ class ConfirmYourOrder extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'يرجى تأكيد طلبك',
+          S.of(context).please_confirm_order,
           style: CustomFonts.cairoTextStyleBold_13grey950w700,
         ),
         SizedBox(height: 8),
@@ -37,7 +38,7 @@ class ConfirmYourOrder extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'عنوان التوصيل',
+                    S.of(context).delivery_address,
                     style: CustomFonts.cairoTextStyleBold_13grey950w700,
                   ),
                   Spacer(),
@@ -63,7 +64,7 @@ class ConfirmYourOrder extends StatelessWidget {
                                 CustomFormField(),
                                 SizedBox(height: 20),
                                 CustomButton(
-                                  text: 'حفظ',
+                                  text: S.of(context).save,
                                   onPress: () {
                                     if (BlocProvider.of<FormControllerCubit>(
                                       context,
@@ -86,7 +87,7 @@ class ConfirmYourOrder extends StatelessWidget {
                           height: 16,
                         ),
                         Text(
-                          'تعديل',
+                          S.of(context).edit,
                           style: CustomFonts.cairoTextStyleBold_13grey400w600,
                         ),
                       ],

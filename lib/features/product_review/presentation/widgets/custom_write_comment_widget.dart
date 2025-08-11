@@ -5,10 +5,11 @@ import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 import 'package:e_commerce/features/my_profile/data/model/user_model.dart';
-import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture.dart';
+import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture_network.dart';
 import 'package:e_commerce/features/my_profile/view_model/cubit/user_cubit.dart';
 import 'package:e_commerce/features/product_review/data/models/comment_rate/comment_rate.dart';
 import 'package:e_commerce/features/product_review/view_model/cubit/comment_rate_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -52,12 +53,12 @@ class _CustomWriteCommentWidgetState extends State<CustomWriteCommentWidget> {
           BlocConsumer<UserCubit, UserState>(
             listener: (context, state) {
               if (state is GetUserDataSuccess) {
-                log(context.read<UserCubit>().userDataModel!.image!);
+                // log(context.read<UserCubit>().userDataModel!.image!);
               }
             },
             builder: (context, state) {
               UserCubit userCubit = context.read<UserCubit>();
-              if (state is GetUserDataFailure || state is GetUserDataLoading) {
+              if (state is GetUserDataLoading) {
                 return SizedBox(
                   height: 30,
                   width: 30,
@@ -66,8 +67,8 @@ class _CustomWriteCommentWidgetState extends State<CustomWriteCommentWidget> {
                   ),
                 );
               } else if (state is GetUserDataSuccess &&
-                  userCubit.userDataModel?.image != null) {
-                return CustomAvatarProfilePicture(
+                  userCubit.userDataModel!.image != null) {
+                return CustomAvatarProfilePictureNetwork(
                   imageUrl: userCubit.userDataModel!.image!,
                   height: 30,
                   width: 30,
@@ -82,7 +83,7 @@ class _CustomWriteCommentWidgetState extends State<CustomWriteCommentWidget> {
             child: TextField(
               controller: _commentController,
               decoration: InputDecoration(
-                hintText: 'اكتب التعليق..',
+                hintText: '${S.of(context).write_comment} ..',
                 hintStyle: TextStyle(fontSize: 13, color: CustomColors.grey950),
                 border: InputBorder.none,
               ),

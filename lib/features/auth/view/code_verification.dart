@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/widgets/custom_header.dart';
 import 'package:e_commerce/features/auth/view_model/cubit/authentication_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -43,10 +44,13 @@ class CodeVerificationScreenState extends State<CodeVerification> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              CustomHeader(title: "التحقق من الرمز", hasBackArrow: true),
+              CustomHeader(
+                title: S.of(context).verification_code_title,
+                hasBackArrow: true,
+              ),
               const SizedBox(height: 40),
               Text(
-                "أدخل الرمز الذي أرسلناه إلى رقم الهاتف ${widget.phoneNumber}",
+                "${S.of(context).enter_code_text}  ${widget.phoneNumber}",
                 style: GoogleFonts.cairo(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -89,7 +93,7 @@ class CodeVerificationScreenState extends State<CodeVerification> {
                   ),
                 ),
                 child: Text(
-                  "تحقق من الرمز",
+                  S.of(context).verify_code,
                   style: GoogleFonts.cairo(color: Colors.white, fontSize: 18),
                 ),
               ),
@@ -99,7 +103,7 @@ class CodeVerificationScreenState extends State<CodeVerification> {
                   // auth.forgotPassword(widget.phoneNumber);
                 },
                 child: Text(
-                  "إعادة إرسال الرمز",
+                  S.of(context).resend_code,
                   style: GoogleFonts.cairo(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,

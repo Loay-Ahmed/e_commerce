@@ -8,6 +8,7 @@ import 'package:e_commerce/features/checkout/views/widgets/checkout_delivery_ste
 import 'package:e_commerce/features/home/view/home_view.dart';
 import 'package:e_commerce/features/nav_bar/presentation/main_home_view.dart';
 import 'package:e_commerce/features/trace_order/presentation/trace_order_checkout_view.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class SuccessView extends StatelessWidget {
@@ -16,7 +17,11 @@ class SuccessView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomHeader(title: 'الدفع', hasBell: false, hasBackArrow: false),
+      appBar: CustomHeader(
+        title: S.of(context).checkout,
+        hasBell: false,
+        hasBackArrow: false,
+      ),
       body: Padding(
         padding: const EdgeInsets.only(right: 14.5, left: 15.5, top: 16),
         child: Column(
@@ -39,12 +44,12 @@ class SuccessView extends StatelessWidget {
 
             SizedBox(height: 33),
             Text(
-              'تم بنجاح!',
+              '${S.of(context).done_successfully}!',
               style: CustomFonts.cairoTextStyleBold_16grey950w700,
             ),
             SizedBox(height: 9),
             Text(
-              'رقم الطلب : #123456789',
+              '${S.of(context).order_number} : #123456789',
               style: CustomFonts.cairoTextStyleBold_13grey500w400,
             ),
             SizedBox(height: 200),
@@ -53,7 +58,7 @@ class SuccessView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 CustomButton(
-                  text: 'تتبع الطلب',
+                  text: S.of(context).track_order,
                   onPress: () {
                     Navigator.push(
                       context,
@@ -78,7 +83,7 @@ class SuccessView extends StatelessWidget {
                 child: Stack(
                   children: [
                     Text(
-                      'الرئيسية',
+                      S.of(context).nav_bar_home,
                       style: CustomFonts.cairoTextStyleBold_16green1_500w700,
                     ),
                     Positioned(

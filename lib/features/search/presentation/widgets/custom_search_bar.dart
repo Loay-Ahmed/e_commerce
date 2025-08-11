@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/colors.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/features/search/view_model/cubits/search_cubit/search_cubit.dart';
+import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,7 +16,7 @@ class CustomSearchBar extends StatelessWidget {
     return SizedBox(
       height: 40,
       child: SearchBar(
-        hintText: 'ابحث عن.......',
+        hintText: '${S.of(context).search_for} .......',
         leading: Padding(
           padding: const EdgeInsets.only(right: 6),
           child: SvgPicture.asset(
