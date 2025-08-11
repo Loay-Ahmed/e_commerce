@@ -6,32 +6,25 @@ import 'package:flutter/material.dart';
 class CustomAvatarProfilePicture extends StatelessWidget {
   const CustomAvatarProfilePicture({
     super.key,
-    required this.imageUrl,
+    required this.image,
     required this.width,
     required this.height,
   });
 
-  final String imageUrl;
+  final String image;
   final double width;
   final double height;
 
   @override
   Widget build(BuildContext context) {
     return ClipOval(
-      child: CachedNetworkImage(
-        imageUrl: imageUrl,
+      child: Container(
         width: width,
         height: height,
-        fit: BoxFit.cover,
-        placeholder:
-            (context, url) => CustomCircleProgIndicatorForSocialButton(),
-        errorWidget:
-            (context, url, error) => Image.asset(
-              AssetsData.profileImage,
-              width: width,
-              height: height,
-              fit: BoxFit.cover,
-            ),
+
+        decoration: BoxDecoration(
+          image: DecorationImage(fit: BoxFit.cover, image: AssetImage(image)),
+        ),
       ),
     );
   }

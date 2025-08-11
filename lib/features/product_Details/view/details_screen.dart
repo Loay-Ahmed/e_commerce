@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:e_commerce/core/functions/navigate_without_back.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/custom_back_arrow.dart';
@@ -22,6 +24,10 @@ class ProductDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(
+      product.imageUrl.toString() +
+          "helllllllllllllllllllllllloooooooooooooooooooooooooooooooooooooo",
+    );
     return BlocProvider(
       create:
           (context) =>

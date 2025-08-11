@@ -5,6 +5,7 @@ import 'package:e_commerce/core/fonts.dart';
 import 'package:e_commerce/core/utils/assets_data.dart';
 import 'package:e_commerce/core/widgets/cutom_circle_prog_indicator_for_social_button.dart';
 import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture.dart';
+import 'package:e_commerce/features/my_profile/presentation/widgets/custom_profile_avtar_picture_network.dart';
 import 'package:e_commerce/features/my_profile/view_model/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,11 +35,17 @@ class MyProfileMainInfoWidget extends StatelessWidget {
                   Stack(
                     clipBehavior: Clip.none,
                     children: [
-                      CustomAvatarProfilePicture(
-                        imageUrl: userCubit.userDataModel?.image ?? '',
-                        width: 80,
-                        height: 80,
-                      ),
+                      userCubit.userDataModel!.image == null
+                          ? CustomAvatarProfilePicture(
+                            image: AssetsData.profileImage,
+                            width: 80,
+                            height: 80,
+                          )
+                          : CustomAvatarProfilePictureNetwork(
+                            imageUrl: userCubit.userDataModel!.image!,
+                            width: 80,
+                            height: 80,
+                          ),
                       Positioned(
                         bottom: -20,
                         left: 0,
