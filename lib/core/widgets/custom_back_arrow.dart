@@ -1,5 +1,7 @@
 import 'package:e_commerce/core/utils/assets_data.dart';
+import 'package:e_commerce/features/notifications/view_model/view_model/cubit/notification_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomBackArrow extends StatelessWidget {
@@ -7,6 +9,7 @@ class CustomBackArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isRTL = context.read<NotificationCubit>().notificationsEnabled;
     return InkWell(
       onTap: () {
         Navigator.pop(context);
@@ -24,7 +27,10 @@ class CustomBackArrow extends StatelessWidget {
         child: CircleAvatar(
           backgroundColor: Colors.white,
           radius: 22,
-          child: SvgPicture.asset(AssetsData.backArrow),
+          child: Transform.scale(
+            scaleX: isRTL ? 1 : -1,
+            child: SvgPicture.asset(AssetsData.backArrow),
+          ),
         ),
       ),
     );
