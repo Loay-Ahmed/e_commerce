@@ -121,5 +121,6 @@
     "order_delivered": "Order Delivered",
    "logout_confirmation": "Do you want to log out?",
     "no_thanks": "No, thanks",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "general": "General"
 }

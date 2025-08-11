@@ -42,7 +42,7 @@ class MyProfileView extends StatelessWidget {
                   MyProfileMainInfoWidget(),
                   SizedBox(height: 30),
                   Text(
-                    'عام',
+                    S.of(context).general,
                     style: CustomFonts.cairoTextStyleBold_13grey950w600,
                   ),
                   SizedBox(height: 30),

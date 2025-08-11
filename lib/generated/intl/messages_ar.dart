@@ -92,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "free": MessageLookupByLibrary.simpleMessage("مجانى"),
     "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+    "general": MessageLookupByLibrary.simpleMessage("عام"),
     "go_to_cart": MessageLookupByLibrary.simpleMessage("اذهب الى العربة"),
     "good_morning": MessageLookupByLibrary.simpleMessage("صباح الخير"),
     "help": MessageLookupByLibrary.simpleMessage("المساعدة"),

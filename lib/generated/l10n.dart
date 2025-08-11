@@ -988,6 +988,11 @@ class S {
   String get confirm {
     return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
   }
+
+  /// `General`
+  String get general {
+    return Intl.message('General', name: 'general', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

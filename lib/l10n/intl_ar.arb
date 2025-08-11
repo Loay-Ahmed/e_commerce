@@ -120,6 +120,7 @@
     "order_delivered": "تم التسليم",
      "logout_confirmation": "هل ترغب فى تسجيل الخروج؟",
     "no_thanks": "لا أرغب",
-    "confirm" : "تأكيد"
+    "confirm" : "تأكيد",
+    "general": "عام"
 
 }
